@@ -17,7 +17,7 @@ SafeMap es una plataforma de seguridad ciudadana: reporta incidentes de forma an
 ## 📁 Estructura
 
 ```text
-SafeMap-Web/
+safe-map/
 ├── public/
 │   ├── avatars/
 │   ├── js/

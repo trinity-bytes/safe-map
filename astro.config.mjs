@@ -4,10 +4,18 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
+// GitHub Pages serves a project site under /<repo>/, so `base` must track the
+// repository name. Deriving it from GITHUB_REPOSITORY keeps the build correct
+// through a rename: hardcoding it is what silently broke production when this
+// repo went from SafeMap-Web to safe-map. The fallback covers local builds.
+const [ghOwner, ghRepo] = (
+  process.env.GITHUB_REPOSITORY ?? "trinity-bytes/safe-map"
+).split("/");
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://trinity-bytes.github.io/SafeMap-Web", // REEMPLAZA ESTO
-  base: "/SafeMap-Web/", // REEMPLAZA ESTO
+  site: `https://${ghOwner}.github.io/${ghRepo}`,
+  base: `/${ghRepo}/`,
   integrations: [react(), tailwind(), sitemap()],
   vite: {
     define: {
