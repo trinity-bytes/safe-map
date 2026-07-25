@@ -1,0 +1,243 @@
+---
+/**
+ * Static poster for the landing page map section.
+ *
+ * Deliberately not a Leaflet island: the home page should not pay for React +
+ * Leaflet + tile requests to show a teaser, and a one-finger drag on an
+ * embedded map traps page scrolling on touch devices. The full interactive
+ * experience lives on /demo.
+ */
+// Trailing slash matches the links in the header/hero, avoiding a redirect hop
+// on GitHub Pages.
+const demoUrl = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/demo/`;
+
+const nodes = [
+  { x: 300, y: 190, label: "Cercado", level: "high" },
+  { x: 815, y: 250, label: "La Victoria", level: "medium" },
+  { x: 465, y: 415, label: "Breña", level: "low" },
+  { x: 930, y: 455, label: "Miraflores", level: "high" },
+];
+---
+
+<div class="preview">
+  <svg
+    class="preview-art"
+    viewBox="0 0 1200 620"
+    preserveAspectRatio="xMidYMid slice"
+    role="img"
+    aria-label="Ilustración de un mapa de Lima con cuatro reportes de ejemplo y una ruta trazada"
+  >
+    <defs>
+      <pattern id="preview-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#203544" stroke-width="1" />
+      </pattern>
+      <radialGradient id="preview-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#5ee7e1" stop-opacity="0.16" />
+        <stop offset="100%" stop-color="#5ee7e1" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <rect width="1200" height="620" fill="#0b1620" />
+    <rect width="1200" height="620" fill="url(#preview-grid)" />
+    <rect width="1200" height="620" fill="url(#preview-glow)" />
+
+    <!-- District mesh: echoes the skewed planes used in the hero console -->
+    <g stroke="#5ee7e1" stroke-opacity="0.2" fill="none">
+      <path d="M 120 60 L 540 30 L 640 300 L 210 360 Z" />
+      <path d="M 540 30 L 1080 90 L 1010 330 L 640 300 Z" />
+      <path d="M 210 360 L 640 300 L 700 570 L 300 590 Z" />
+      <path d="M 640 300 L 1010 330 L 1080 560 L 700 570 Z" />
+    </g>
+    <g stroke="#c7f36b" stroke-opacity="0.16" fill="none">
+      <path d="M 60 250 L 1140 210" />
+      <path d="M 420 20 L 480 600" />
+    </g>
+
+    <!-- Sample route -->
+    <path
+      d="M 300 190 C 470 250 620 250 815 250 S 880 400 930 455"
+      fill="none"
+      stroke="#c7f36b"
+      stroke-width="3"
+      stroke-dasharray="14 9"
+      stroke-opacity="0.85"
+    />
+
+    {
+      nodes.map((node) => (
+        <g>
+          <circle
+            cx={node.x}
+            cy={node.y}
+            r="16"
+            fill={
+              node.level === "high"
+                ? "#ff6f5e"
+                : node.level === "medium"
+                  ? "#f5c76b"
+                  : "#9db0bb"
+            }
+            fill-opacity="0.18"
+          />
+          <circle
+            cx={node.x}
+            cy={node.y}
+            r="6"
+            fill={
+              node.level === "high"
+                ? "#ff6f5e"
+                : node.level === "medium"
+                  ? "#f5c76b"
+                  : "#9db0bb"
+            }
+          />
+          <text
+            x={node.x + 24}
+            y={node.y + 5}
+            fill="#9db0bb"
+            font-size="15"
+            letter-spacing="1.4"
+          >
+            {node.label.toUpperCase()}
+          </text>
+        </g>
+      ))
+    }
+  </svg>
+
+  <div class="preview-body">
+    <div class="preview-copy">
+      <p class="preview-eyebrow">Vista previa · datos de ejemplo</p>
+      <h3>Nueve reportes, tres rutas, una lectura.</h3>
+      <p class="preview-lede">
+        La demo interactiva te deja alternar entre reportes individuales, zonas de
+        concentración y rutas trazadas sobre un mapa real de Lima.
+      </p>
+      <ul class="preview-legend">
+        <li><span data-level="high"></span>Riesgo alto</li>
+        <li><span data-level="medium"></span>Riesgo medio</li>
+        <li><span data-level="low"></span>Riesgo bajo</li>
+        <li><span data-level="route"></span>Ruta de ejemplo</li>
+      </ul>
+    </div>
+    <a class="button preview-cta" href={demoUrl}>
+      Abrir demo interactiva
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .preview {
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background: #0b1620;
+    overflow: hidden;
+  }
+
+  .preview-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .preview-body {
+    position: relative;
+    grid-row: 2;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(7, 16, 24, 0.96) 55%, transparent);
+  }
+
+  .preview-copy {
+    max-width: 560px;
+  }
+
+  .preview-eyebrow {
+    margin: 0 0 10px;
+    color: var(--amber);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .preview-body h3 {
+    margin: 0 0 10px;
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .preview-lede {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .preview-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .preview-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .preview-legend span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #9db0bb;
+  }
+
+  .preview-legend span[data-level="high"] {
+    background: #ff6f5e;
+  }
+  .preview-legend span[data-level="medium"] {
+    background: var(--amber);
+  }
+  .preview-legend span[data-level="route"] {
+    width: 16px;
+    height: 3px;
+    border-radius: 0;
+    background: var(--lime);
+  }
+
+  .preview-cta {
+    flex-shrink: 0;
+    min-height: 48px;
+  }
+
+  @media (max-width: 860px) {
+    .preview-body {
+      display: grid;
+      align-items: start;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .preview-lede {
+      font-size: 14px;
+    }
+
+    .preview-cta {
+      width: 100%;
+    }
+  }
+</style>

@@ -11,16 +11,16 @@ export interface Props {
   buttonHref?: string;
 }
 
-const { 
-  name, 
-  price, 
-  period, 
-  description, 
-  features, 
-  buttonText, 
+const {
+  name,
+  price,
+  period,
+  description,
+  features,
+  buttonText,
   buttonVariant,
   popular = false,
-  buttonHref = '#' 
+  buttonHref = `${import.meta.env.BASE_URL}#registro`
 } = Astro.props;
 
 const buttonClasses = {
@@ -31,7 +31,7 @@ const buttonClasses = {
 ---
 
 <div class={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${popular ? 'border-2 border-primary-500 overflow-hidden' : ''}`}>
-  
+
   <!-- Popular Badge -->
   {popular && (
     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-2 z-20">
@@ -44,18 +44,18 @@ const buttonClasses = {
   <div class="p-8 pt-12 relative z-10">
     <!-- Plan Name -->
     <h3 class="text-2xl font-bold text-gray-900 mb-2">{name}</h3>
-    
+
     <!-- Price -->
     <div class="mb-4">
       <span class="text-4xl font-bold text-gray-900">{price}</span>
       <span class="text-gray-600 ml-2">{period}</span>
     </div>
-    
+
     <!-- Description -->
     <p class="text-gray-600 mb-6 leading-relaxed">
       {description}
     </p>
-    
+
     <!-- Features -->
     <ul class="space-y-3 mb-8">
       {features.map((feature) => (
@@ -67,7 +67,7 @@ const buttonClasses = {
         </li>
       ))}
     </ul>
-    
+
     <!-- CTA Button -->
     <a href={buttonHref} class={`w-full block py-3 px-6 rounded-lg font-semibold transition-all duration-300 text-center ${buttonClasses[buttonVariant]}`}>
       {buttonText}

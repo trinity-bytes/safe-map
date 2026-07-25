@@ -1,67 +1,67 @@
 [
   {
-    "icon": "🧠",
-    "title": "Inteligencia Artificial Avanzada",
-    "description": "Algoritmos de machine learning analizan patrones de criminalidad en tiempo real para sugerir las rutas más seguras basadas en datos históricos y actuales.",
+    "icon": "",
+    "title": "Contexto para decidir",
+    "description": "Una vista de demostracin que organiza seales y referencias para explorar posibles decisiones de movilidad.",
     "features": [
-      "Análisis predictivo de riesgos",
-      "Optimización de rutas en tiempo real",
-      "Aprendizaje continuo del sistema"
+      "Capas de contexto",
+      "Filtros manuales",
+      "Lectura clara del escenario"
     ],
     "gradient": "from-blue-500 to-indigo-600"
   },
   {
-    "icon": "🔒",
-    "title": "Reportes 100% Anónimos",
-    "description": "Sistema de anonimización multicapa que protege tu identidad mientras contribuyes a la seguridad de tu comunidad de manera completamente confidencial.",
+    "icon": "",
+    "title": "Privacidad como base",
+    "description": "Flujos pensados para explicar qué información se comparte y qué límites tendra el producto antes de reportar.",
     "features": [
-      "Encriptación de extremo a extremo",
-      "Sin rastreo de ubicación personal",
-      "Datos anonimizados automáticamente"
+      "Controles comprensibles",
+      "Datos mnimos",
+      "Lenguaje transparente"
     ],
     "gradient": "from-emerald-500 to-teal-600"
   },
   {
-    "icon": "📡",
-    "title": "Monitoreo en Tiempo Real",
-    "description": "Seguimiento continuo de incidentes y actualizaciones instantáneas del mapa de calor para mantenerte informado de los cambios en tu entorno.",
+    "icon": "",
+    "title": "Exploracin de escenarios",
+    "description": "Mapas y recorridos simulados para mostrar la experiencia sin presentarlos como datos operativos o actuales.",
     "features": [
-      "Alertas push instantáneas",
-      "Mapas de calor dinámicos",
-      "Cobertura 24/7"
+      "Rutas de ejemplo",
+      "Marcadores simulados",
+      "Capas intercambiables"
     ],
     "gradient": "from-purple-500 to-pink-600"
   },
   {
-    "icon": "👥",
-    "title": "Impulsado por la Comunidad",
-    "description": "La fuerza de SafeMap viene de su comunidad. Cada reporte contribuye a crear un ambiente más seguro para todos los ciudadanos.",
+    "icon": "",
+    "title": "Participación comunitaria",
+    "description": "Un flujo esperado para compartir observaciones y construir contexto colectivo con reglas de moderacin por definir.",
     "features": [
-      "Red colaborativa de usuarios",
-      "Verificación comunitaria",
-      "Gamificación responsable"
+      "Reportes guiados",
+      "Revisin comunitaria",
+      "Estados explicables"
     ],
     "gradient": "from-orange-500 to-red-500"
   },
   {
-    "icon": "📱",
-    "title": "Multiplataforma y Accesible",
-    "description": "Disponible en iOS, Android y web. Interfaz intuitiva diseñada para ser utilizada por personas de todas las edades y niveles tecnológicos.",
+    "icon": "",
+    "title": "Acceso progresivo",
+    "description": "Una experiencia responsive y accesible que puede evolucionar hacia web y mvil sin prometer plataformas disponibles hoy.",
     "features": [
-      "Compatibilidad universal",
-      "Diseño inclusivo y accesible",
-      "Sincronización automática"
+      "Diseo adaptable",
+      "Navegacin por teclado",
+      "Estados de carga claros"
     ],
     "gradient": "from-cyan-500 to-blue-600"
   },
   {
-    "icon": "🚨",
-    "title": "Integración con Emergencias",
-    "description": "Conexión directa con servicios de emergencia locales y sistema de alertas que puede activar respuesta rápida cuando sea necesario.",
+    "icon": "",
+    "title": "Orientacin en emergencias",
+    "description": "Información de producto que recuerda sus lmites y dirige a los servicios oficiales cuando existe una emergencia real.",
     "features": [
-      "Botón de pánico integrado",
-      "Geolocalización de emergencias",
-      "Coordinación con autoridades"
+      "Avisos de lmites",
+      "Enlaces de ayuda",
+      "Prioridad a servicios oficiales"
     ],
     "gradient": "from-red-500 to-rose-600"
   }

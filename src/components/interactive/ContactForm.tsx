@@ -46,7 +46,7 @@ const ContactForm: React.FC = () => {
   const interestOptions = [
     "Reportes de Incidentes",
     "Rutas Seguras",
-    "Alertas en Tiempo Real",
+    "Alertas relevantes",
     "Análisis de Datos",
     "Integración API",
     "Versión Enterprise",
@@ -281,15 +281,9 @@ const ContactForm: React.FC = () => {
 
       {/* Privacy Notice */}
       <div className="text-xs text-gray-500 text-center pt-2">
-        Al registrarte, aceptas nuestros{" "}
-        <a href="#" className="text-primary-600 hover:underline">
-          Términos de Servicio
-        </a>{" "}
-        y{" "}
-        <a href="#" className="text-primary-600 hover:underline">
-          Política de Privacidad
-        </a>
-        .
+        Al enviar este formulario, solicitás acceso a la beta de SafeMap. Te
+        contactaremos para próximos pasos; todavía no hay documentos legales
+        publicados en este sitio.
         <br />
         Nunca compartiremos tu información con terceros.
       </div>

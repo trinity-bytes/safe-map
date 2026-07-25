@@ -1,58 +1,169 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import MapDemoClean from '../components/interactive/MapDemoClean';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MapDemoClean from "../components/interactive/MapDemoClean";
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="SafeMap - Demo Interactivo" description="Experimenta SafeMap en acción con nuestro demo interactivo del mapa de seguridad de Lima">
-  <main class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-    <!-- Header del Demo -->
-    <div class="bg-white/10 backdrop-blur-sm border-b border-white/20">
-      <div class="container mx-auto px-4 py-4">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center space-x-4">            <a href={baseUrl} class="text-white hover:text-blue-400 transition-colors">
-              ← Volver al inicio
-            </a>
-            <div class="flex items-center space-x-3">
-              <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span class="text-white font-bold text-sm">S</span>
-              </div>
-              <h1 class="text-xl font-bold text-white">SafeMap Demo</h1>
-            </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <span class="text-sm text-white/70">Demo Interactivo</span>
-            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          </div>
-        </div>
-      </div>
+<BaseLayout
+  title="SafeMap — Demo simulada"
+  description="Explorá una vista previa interactiva de SafeMap con datos simulados de Lima"
+>
+  <header class="demo-header">
+    <div class="demo-header-row">
+      <a class="demo-back" href={baseUrl}>← Volver</a>
+      <span class="brand">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        SafeMap
+      </span>
+      <span class="demo-tag">Vista previa</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="demo-stage">
+      <MapDemoClean client:only="react" />
     </div>
 
-    <!-- Demo Container -->
-    <div class="container mx-auto px-4 py-8">      <div class="bg-white rounded-xl shadow-2xl overflow-hidden" style="height: calc(100vh - 200px);">
-        <!-- MapDemo Component -->
-        <MapDemoClean client:only="react" />
-      </div>
-    </div>
-
-    <!-- Información adicional -->
-    <div class="container mx-auto px-4 py-6">
-      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-        <div class="grid md:grid-cols-3 gap-6 text-white">
-          <div class="text-center">
-            <div class="text-2xl font-bold text-blue-400">9</div>
-            <div class="text-sm text-white/70">Incidentes Simulados</div>
+    <section class="demo-notes">
+      <div class="shell">
+        <p class="eyebrow">Sobre esta demo</p>
+        <div class="demo-notes-grid">
+          <div>
+            <strong>9</strong>
+            <span>reportes de ejemplo</span>
           </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-green-400">3</div>
-            <div class="text-sm text-white/70">Rutas Seguras</div>
+          <div>
+            <strong>3</strong>
+            <span>rutas trazadas</span>
           </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-yellow-400">Lima</div>
-            <div class="text-sm text-white/70">Ciudad de Prueba</div>
+          <div>
+            <strong>Lima</strong>
+            <span>ciudad de prueba</span>
           </div>
         </div>
+        <p class="demo-disclaimer">
+          Ningún dato de esta pantalla proviene de fuentes reales. Los reportes,
+          las zonas de concentración y las rutas existen para mostrar cómo se
+          leería el producto, no para informar sobre la situación actual de la
+          ciudad.
+        </p>
       </div>
-    </div>
+    </section>
   </main>
 </BaseLayout>
+
+<style>
+  .demo-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(7, 16, 24, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .demo-header-row {
+    height: 60px;
+    width: min(1440px, calc(100% - 32px));
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .demo-back {
+    color: var(--muted);
+    font-size: 13px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .demo-back:hover {
+    color: var(--cyan);
+  }
+
+  .demo-tag {
+    border: 1px solid var(--line);
+    color: var(--amber);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+  }
+
+  /* Desktop: framed app surface. Mobile: edge-to-edge, full remaining height
+     using dvh so the browser chrome does not clip the bottom sheet. */
+  .demo-stage {
+    height: calc(100dvh - 60px);
+    min-height: 520px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    .demo-stage {
+      width: min(1440px, calc(100% - 32px));
+      margin: 24px auto;
+      height: calc(100dvh - 168px);
+      min-height: 600px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.32);
+    }
+  }
+
+  .demo-notes {
+    padding: 40px 0 64px;
+  }
+
+  .demo-notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .demo-notes-grid div {
+    background: var(--surface);
+    padding: 22px;
+    display: grid;
+    gap: 6px;
+  }
+
+  .demo-notes-grid strong {
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--lime);
+  }
+
+  .demo-notes-grid span {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .demo-disclaimer {
+    margin: 24px 0 0;
+    max-width: 720px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .demo-notes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .demo-notes-grid div {
+      padding: 16px 18px;
+      grid-template-columns: auto 1fr;
+      align-items: baseline;
+      gap: 12px;
+    }
+  }
+</style>

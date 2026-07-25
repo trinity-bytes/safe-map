@@ -1,641 +1,517 @@
 /**
- * SafeMap Interactive Map Demo - Production Ready
- * Clean implementation without debug code for production deployment
+ * SafeMap interactive demo map.
+ *
+ * Layout contract:
+ *  - >=1024px: a real two-column grid (control rail + map). No floating panels,
+ *    so controls can never collide with each other.
+ *  - <1024px: a stacked layout (mode switch / map / bottom sheet). Only the
+ *    zoom and locate buttons stay anchored to the map, at 44px touch size.
+ *
+ * All data is illustrative. Counters are derived from the fixtures so the panel
+ * can never claim more incidents than the map actually draws.
  */
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
   Circle,
+  MapContainer,
+  Marker,
   Polyline,
+  TileLayer,
+  useMap,
 } from "react-leaflet";
-import L from "leaflet";
+import type { Map as LeafletMap } from "leaflet";
 import "leaflet/dist/leaflet.css";
+
 import MapProviderInfo from "./MapProviderInfo";
+import { createIncidentIcon, createUserLocationIcon } from "./map/icons";
+import {
+  LIMA_CENTER,
+  LIMA_ZOOM,
+  ROUTE_COLOR,
+  ROUTE_WARN_COLOR,
+  demoCounts,
+  limaIncidents,
+  mapProviders,
+  safeRoutes,
+  severityConfig,
+  viewModes,
+  type Incident,
+  type MapProvider,
+  type UserLocation,
+  type ViewMode,
+} from "./map/data";
 
-/**
- * Creates custom incident markers with severity-based styling
- * @param severity - Incident severity level ('high', 'medium', 'low')
- * @returns Leaflet DivIcon for the incident marker
- */
-const createCustomIcon = (severity: string) => {
-  let color = "#3b82f6"; // Default blue
-  let borderColor = "#ffffff";
-  let emoji = "⚠️";
-
-  switch (severity) {
-    case "high":
-      color = "#dc2626"; // Red for high severity
-      emoji = "🚨";
-      break;
-    case "medium":
-      color = "#f59e0b"; // Orange for medium severity
-      emoji = "⚠️";
-      break;
-    case "low":
-      color = "#eab308"; // Yellow for low severity
-      emoji = "🔸";
-      break;
-  }
-
-  return L.divIcon({
-    html: `<div style="
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      background-color: ${color};
-      border: 2px solid ${borderColor};
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      cursor: pointer;
-      z-index: 1000;
-    ">
-      <span style="color: white; font-weight: bold; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">${emoji}</span>
-    </div>`,
-    className: `incident-marker severity-${severity}`,
-    iconSize: [20, 20],
-    iconAnchor: [10, 10],
-    popupAnchor: [0, -10],
-  });
-};
-
-/**
- * Creates user location marker icon
- * @returns Leaflet DivIcon for user location
- */
-const createUserLocationIcon = () => {
-  return L.divIcon({
-    html: `<div style="
-      background-color: #3b82f6;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 3px solid white;
-      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.4);
-      position: relative;
-    "></div>`,
-    className: "user-location-marker",
-    iconSize: [16, 16],
-    iconAnchor: [8, 8],
-    popupAnchor: [0, -8],
-  });
-};
-
-// Mock incident data for Lima, Peru with realistic coordinates
-const limaIncidents = [
-  {
-    id: 1,
-    lat: -12.0464,
-    lng: -77.0428,
-    type: "Robo",
-    severity: "high",
-    time: "Hace 15 min",
-    district: "Cercado de Lima",
-    address: "Jr. de la Unión 300",
-  },
-  {
-    id: 2,
-    lat: -12.1197,
-    lng: -77.031,
-    type: "Asalto",
-    severity: "high",
-    time: "Hace 32 min",
-    district: "Miraflores",
-    address: "Av. Larco 1200",
-  },
-  {
-    id: 3,
-    lat: -12.0736,
-    lng: -77.0194,
-    type: "Hurto",
-    severity: "medium",
-    time: "Hace 1 hora",
-    district: "La Victoria",
-    address: "Av. Aviación 2500",
-  },
-  {
-    id: 4,
-    lat: -12.0278,
-    lng: -77.0414,
-    type: "Vandalismo",
-    severity: "low",
-    time: "Hace 2 horas",
-    district: "Rímac",
-    address: "Jr. Trujillo 800",
-  },
-  {
-    id: 5,
-    lat: -12.0969,
-    lng: -77.0365,
-    type: "Robo de vehículo",
-    severity: "high",
-    time: "Hace 45 min",
-    district: "San Isidro",
-    address: "Av. Javier Prado 1500",
-  },
-  {
-    id: 6,
-    lat: -12.0522,
-    lng: -77.0661,
-    type: "Estafa",
-    severity: "low",
-    time: "Hace 3 horas",
-    district: "Breña",
-    address: "Av. Brasil 1200",
-  },
-  {
-    id: 7,
-    lat: -12.1414,
-    lng: -77.0206,
-    type: "Robo",
-    severity: "medium",
-    time: "Hace 1.5 horas",
-    district: "Barranco",
-    address: "Bajada de Baños 340",
-  },
-  {
-    id: 8,
-    lat: -12.0175,
-    lng: -77.0661,
-    type: "Asalto",
-    severity: "high",
-    time: "Hace 20 min",
-    district: "Independencia",
-    address: "Av. Túpac Amaru 3500",
-  },
-  {
-    id: 9,
-    lat: -12.1681,
-    lng: -77.0181,
-    type: "Hurto",
-    severity: "medium",
-    time: "Hace 50 min",
-    district: "Chorrillos",
-    address: "Av. Huaylas 1200",
-  },
+const SAMPLE_LOCATIONS: UserLocation[] = [
+  { lat: -12.1167, lng: -77.0347, name: "Miraflores" },
+  { lat: -12.0972, lng: -77.0364, name: "Barranco" },
+  { lat: -12.1058, lng: -77.0348, name: "San Isidro" },
 ];
 
-// Safe routes data for Lima
-const safeRoutes = [
-  {
-    id: 1,
-    name: "Centro → Miraflores (Segura)",
-    safety: 95,
-    time: "25 min",
-    coordinates: [
-      [-12.0464, -77.0428],
-      [-12.08, -77.038],
-      [-12.1197, -77.031],
-    ],
-  },
-  {
-    id: 2,
-    name: "San Isidro → Barranco",
-    safety: 92,
-    time: "15 min",
-    coordinates: [
-      [-12.0969, -77.0365],
-      [-12.118, -77.0285],
-      [-12.1414, -77.0206],
-    ],
-  },
-  {
-    id: 3,
-    name: "Rímac → La Victoria",
-    safety: 78,
-    time: "20 min",
-    coordinates: [
-      [-12.0278, -77.0414],
-      [-12.052, -77.029],
-      [-12.0736, -77.0194],
-    ],
-  },
-];
+const panelTitle =
+  "text-[10px] font-extrabold uppercase tracking-[0.16em] text-brand-cyan";
 
-// Map tile providers configuration
-const mapProviders = {
-  openstreet: {
-    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  },
-  satellite: {
-    url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    attribution:
-      "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
-  },
-  dark: {
-    url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  },
+const segmentButton =
+  "min-h-[44px] px-3 text-[11px] font-extrabold uppercase tracking-[0.12em] transition-colors";
+
+/** Lifts the Leaflet instance out of the MapContainer subtree. */
+const MapBridge: React.FC<{ onReady: (map: LeafletMap) => void }> = ({
+  onReady,
+}) => {
+  const map = useMap();
+  useEffect(() => {
+    onReady(map);
+  }, [map, onReady]);
+  return null;
 };
 
-// Type definitions
-interface UserLocation {
-  lat: number;
-  lng: number;
-  name: string;
+interface SwitchProps<T extends string> {
+  value: T;
+  options: { value: T; label: string }[];
+  onChange: (value: T) => void;
+  label: string;
+  orientation?: "horizontal" | "vertical";
 }
 
-type ViewMode = "incidents" | "heatmap" | "routes";
-type MapProvider = "openstreet" | "satellite" | "dark";
-
-/**
- * Main MapDemo component for SafeMap landing page
- */
-export const MapDemoClean: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [activeIncidents, setActiveIncidents] = useState(24);
-  const [selectedIncident, setSelectedIncident] = useState<any>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>("incidents");
-  const [mapProvider, setMapProvider] = useState<MapProvider>("openstreet");
-  const [showRealTime, setShowRealTime] = useState(true);
-  const [showProviderInfo, setShowProviderInfo] = useState(false);
-  const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
-
-  /**
-   * Simulates user location in Lima for demo purposes
-   */
-  const simulateUserLocation = () => {
-    const locations = [
-      { lat: -12.1167, lng: -77.0347, name: "Miraflores" },
-      { lat: -12.0972, lng: -77.0364, name: "Barranco" },
-      { lat: -12.1058, lng: -77.0348, name: "San Isidro" },
-    ];
-    const randomLocation =
-      locations[Math.floor(Math.random() * locations.length)];
-    setUserLocation(randomLocation);
-  };
-
-  /**
-   * Returns localized severity text
-   */
-  const getSeverityText = (severity: string): string => {
-    switch (severity) {
-      case "high":
-        return "Alto";
-      case "medium":
-        return "Medio";
-      case "low":
-        return "Bajo";
-      default:
-        return "Desconocido";
-    }
-  };
-
-  // Initialize Leaflet icons on component mount
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl:
-          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
-        iconUrl:
-          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
-        shadowUrl:
-          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
-      });
-    }
-  }, []);
-
-  // Simulate loading and real-time updates
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    const incidentTimer = setInterval(() => {
-      if (showRealTime) {
-        setActiveIncidents((prev) => prev + Math.floor(Math.random() * 3) - 1);
-      }
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-      clearInterval(incidentTimer);
-    };
-  }, [showRealTime]);
-
-  // Loading state
-  if (isLoading) {
-    return (
-      <div className="w-full h-full min-h-[400px] relative bg-slate-900 rounded-lg overflow-hidden border border-gray-700">
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-500 rounded-full animate-spin"></div>
-              <div
-                className="absolute inset-0 w-16 h-16 border-4 border-transparent border-r-green-500 rounded-full animate-spin"
-                style={{
-                  animationDirection: "reverse",
-                  animationDuration: "1.5s",
-                }}
-              ></div>
-            </div>
-            <p className="text-white/90 text-lg font-medium">
-              Cargando mapa real de Lima...
-            </p>
-            <p className="text-white/60 text-sm mt-2">
-              Conectando con OpenStreetMap
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+function SegmentedSwitch<T extends string>({
+  value,
+  options,
+  onChange,
+  label,
+  orientation = "horizontal",
+}: SwitchProps<T>) {
   return (
-    <div className="w-full h-full min-h-[400px] relative bg-gray-100 rounded-lg overflow-hidden border border-gray-300">
-      {/* Interactive Map */}
-      <MapContainer
-        center={[-12.0764, -77.0395]}
-        zoom={11}
-        style={{ height: "100%", width: "100%" }}
-        zoomControl={false}
-      >
-        <TileLayer
-          url={mapProviders[mapProvider].url}
-          attribution={mapProviders[mapProvider].attribution}
-        />
-
-        {/* Incident markers */}
-        {viewMode === "incidents" &&
-          limaIncidents.map((incident) => (
-            <Marker
-              key={`incident-${incident.id}`}
-              position={[incident.lat, incident.lng]}
-              icon={createCustomIcon(incident.severity)}
-              eventHandlers={{
-                click: () => setSelectedIncident(incident),
-              }}
-            >
-              <Popup>
-                <div className="p-2">
-                  <h3 className="font-bold text-gray-900 mb-1">
-                    {incident.type}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    <strong>Zona:</strong> {incident.district}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    <strong>Dirección:</strong> {incident.address}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    <strong>Riesgo:</strong>{" "}
-                    <span
-                      className={`font-medium ${
-                        incident.severity === "high"
-                          ? "text-red-600"
-                          : incident.severity === "medium"
-                            ? "text-yellow-600"
-                            : "text-orange-600"
-                      }`}
-                    >
-                      {getSeverityText(incident.severity)}
-                    </span>
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    <strong>Reportado:</strong> {incident.time}
-                  </p>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
-
-        {/* Heat map circles */}
-        {viewMode === "heatmap" &&
-          limaIncidents.map((incident) => (
-            <Circle
-              key={`heatmap-${incident.id}`}
-              center={[incident.lat, incident.lng]}
-              radius={
-                incident.severity === "high"
-                  ? 800
-                  : incident.severity === "medium"
-                    ? 500
-                    : 300
-              }
-              fillColor={
-                incident.severity === "high"
-                  ? "#ef4444"
-                  : incident.severity === "medium"
-                    ? "#f59e0b"
-                    : "#f97316"
-              }
-              fillOpacity={0.4}
-              stroke={false}
-            />
-          ))}
-
-        {/* Safe routes */}
-        {viewMode === "routes" &&
-          safeRoutes.map((route) => (
-            <Polyline
-              key={route.id}
-              positions={route.coordinates as [number, number][]}
-              color={route.safety > 90 ? "#10b981" : "#f59e0b"}
-              weight={4}
-              opacity={0.8}
-              dashArray={route.safety > 90 ? undefined : "10, 5"}
-            />
-          ))}
-
-        {/* User location marker */}
-        {userLocation && (
-          <Marker
-            position={[userLocation.lat, userLocation.lng]}
-            icon={createUserLocationIcon()}
-          >
-            <Popup>
-              <div className="p-2 text-center">
-                <h3 className="font-bold text-blue-900 mb-1">Tu ubicación</h3>
-                <p className="text-sm text-gray-600">{userLocation.name}</p>
-              </div>
-            </Popup>
-          </Marker>
-        )}
-      </MapContainer>
-
-      {/* Map provider selector */}
-      <div className="absolute top-4 left-4 z-[1000]">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-          <div className="flex items-center space-x-1">
-            {Object.entries(mapProviders).map(([key, provider]) => (
-              <button
-                key={key}
-                onClick={() => setMapProvider(key as MapProvider)}
-                className={`px-2 py-1 rounded text-xs font-medium transition-all ${
-                  mapProvider === key
-                    ? "bg-blue-500 text-white"
-                    : "text-gray-600 hover:bg-gray-100"
-                }`}
-              >
-                {key === "openstreet"
-                  ? "Calles"
-                  : key === "satellite"
-                    ? "Satélite"
-                    : "Oscuro"}
-              </button>
-            ))}
-            <div className="border-l border-gray-300 pl-1">
-              <button
-                onClick={() => setShowProviderInfo(true)}
-                className="px-2 py-1 rounded text-xs font-medium text-gray-600 hover:bg-gray-100 transition-all"
-                title="Información sobre proveedores de mapas"
-              >
-                ℹ️
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mode selector */}
-      <div className="absolute top-16 left-4 z-[1000]">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-          <div className="flex flex-col space-y-1">
-            {[
-              { mode: "incidents", label: "Incidentes", icon: "🚨" },
-              { mode: "heatmap", label: "Mapa de Calor", icon: "🔥" },
-              { mode: "routes", label: "Rutas Seguras", icon: "🛣️" },
-            ].map((item) => (
-              <button
-                key={item.mode}
-                onClick={() => setViewMode(item.mode as ViewMode)}
-                className={`px-3 py-2 rounded text-xs font-medium transition-all text-left ${
-                  viewMode === item.mode
-                    ? "bg-blue-500 text-white"
-                    : "text-gray-600 hover:bg-gray-100"
-                }`}
-              >
-                {item.icon} {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Live stats panel */}
-      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg min-w-[200px] z-[1000]">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-bold text-sm text-gray-800">
-            📊 Lima en Tiempo Real
-          </h3>
+    <div
+      role="group"
+      aria-label={label}
+      className={`flex border border-brand-line bg-brand-ink ${
+        orientation === "vertical" ? "flex-col divide-y" : "divide-x"
+      } divide-brand-line`}
+    >
+      {options.map((option) => {
+        const active = option.value === value;
+        return (
           <button
-            onClick={() => setShowRealTime(!showRealTime)}
-            className={`w-8 h-4 rounded-full transition-all relative ${
-              showRealTime ? "bg-green-500" : "bg-gray-300"
+            key={option.value}
+            type="button"
+            onClick={() => onChange(option.value)}
+            aria-pressed={active}
+            className={`${segmentButton} flex-1 ${
+              active
+                ? "bg-brand-cyan text-brand-ink"
+                : "text-brand-muted hover:bg-brand-surface hover:text-brand-text"
             }`}
           >
-            <div
-              className={`w-3 h-3 bg-white rounded-full transition-all absolute top-0.5 ${
-                showRealTime ? "translate-x-4" : "translate-x-0.5"
-              }`}
-            ></div>
+            {option.label}
           </button>
-        </div>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center justify-between">
-            <span className="flex items-center text-gray-600">
-              <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-              Incidentes activos
-            </span>
-            <span className="font-bold text-gray-800">{activeIncidents}</span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="flex items-center text-gray-600">
-              <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-              Rutas seguras
-            </span>
-            <span className="font-bold text-gray-800">12</span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="flex items-center text-gray-600">
-              <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
-              Usuarios en línea
-            </span>
-            <span className="font-bold text-gray-800">1.2K</span>
-          </div>
-        </div>
-        <div className="mt-3 pt-3 border-t border-gray-200 text-xs text-green-600">
-          ✅ OpenStreetMap - Tiempo real
-        </div>
-      </div>
+        );
+      })}
+    </div>
+  );
+}
 
-      {/* Legend */}
-      <div className="absolute bottom-20 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg z-[1000]">
-        <h4 className="font-bold text-sm mb-3 text-gray-800">🗺️ Leyenda</h4>
-        <div className="space-y-2 text-xs">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full border border-white shadow-sm"></div>
-            <span className="text-gray-600">Alto riesgo</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-yellow-500 rounded-full border border-white shadow-sm"></div>
-            <span className="text-gray-600">Riesgo medio</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-orange-500 rounded-full border border-white shadow-sm"></div>
-            <span className="text-gray-600">Riesgo bajo</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-1 bg-green-500 rounded"></div>
-            <span className="text-gray-600">Ruta segura</span>
-          </div>
-        </div>
-      </div>
+const StatRow: React.FC<{ color: string; label: string; value: string }> = ({
+  color,
+  label,
+  value,
+}) => (
+  <div className="flex items-center justify-between gap-3 py-2 text-[13px]">
+    <span className="flex items-center gap-2 text-brand-muted">
+      <span
+        aria-hidden="true"
+        className="h-2 w-2 shrink-0 rounded-full"
+        style={{ background: color }}
+      />
+      {label}
+    </span>
+    <span className="font-extrabold tabular-nums text-brand-text">{value}</span>
+  </div>
+);
 
-      {/* Status indicator */}
-      <div className="absolute bottom-4 right-4 z-[1010]">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-          <p className="text-xs text-gray-600">
-            🌍 Datos en tiempo real - Lima, Perú
-          </p>
+const IncidentDetail: React.FC<{
+  incident: Incident;
+  onClear: () => void;
+}> = ({ incident, onClear }) => {
+  const severity = severityConfig[incident.severity];
+  return (
+    <div className="border border-brand-line bg-brand-panel p-4">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className={panelTitle}>Reporte de ejemplo</p>
+          <h3 className="mt-2 text-lg font-extrabold leading-tight tracking-[-0.03em]">
+            {incident.type}
+          </h3>
         </div>
-      </div>
-
-      {/* Routes panel */}
-      {viewMode === "routes" && (
-        <div className="absolute bottom-24 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs z-[1000]">
-          <h4 className="font-bold text-sm mb-3 text-gray-800">
-            🛣️ Rutas Disponibles
-          </h4>
-          <div className="space-y-2">
-            {safeRoutes.map((route) => (
-              <div key={route.id} className="bg-gray-50 rounded p-2 text-xs">
-                <div className="font-medium text-gray-800">{route.name}</div>
-                <div className="flex justify-between mt-1 text-gray-600">
-                  <span>Seguridad: {route.safety}%</span>
-                  <span>{route.time}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* User location simulator */}
-      <div className="absolute bottom-4 left-4 z-[1000]">
         <button
-          onClick={simulateUserLocation}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-xs font-medium transition-all shadow-lg"
+          type="button"
+          onClick={onClear}
+          aria-label="Cerrar detalle del reporte"
+          className="min-h-[36px] min-w-[36px] border border-brand-line text-brand-muted transition-colors hover:border-brand-cyan hover:text-brand-cyan"
         >
-          📍 Simular mi ubicación
+          ✕
         </button>
       </div>
+      <dl className="mt-3 space-y-1.5 text-[13px]">
+        <div className="flex justify-between gap-3">
+          <dt className="text-brand-muted">Zona</dt>
+          <dd className="text-right">{incident.district}</dd>
+        </div>
+        <div className="flex justify-between gap-3">
+          <dt className="text-brand-muted">Dirección</dt>
+          <dd className="text-right">{incident.address}</dd>
+        </div>
+        <div className="flex justify-between gap-3">
+          <dt className="text-brand-muted">Riesgo</dt>
+          <dd className="text-right font-bold" style={{ color: severity.color }}>
+            {severity.label}
+          </dd>
+        </div>
+        <div className="flex justify-between gap-3">
+          <dt className="text-brand-muted">Reportado</dt>
+          <dd className="text-right">{incident.time}</dd>
+        </div>
+      </dl>
+    </div>
+  );
+};
 
-      {/* Map Provider Info Modal */}
+const Legend: React.FC<{ viewMode: ViewMode }> = ({ viewMode }) => (
+  <div>
+    <p className={panelTitle}>Leyenda</p>
+    <div className="mt-3 space-y-2 text-[13px] text-brand-muted">
+      {(Object.keys(severityConfig) as (keyof typeof severityConfig)[]).map(
+        (key) => (
+          <div key={key} className="flex items-center gap-2">
+            <span
+              aria-hidden="true"
+              className="h-3 w-3 shrink-0 rounded-full border border-brand-ink"
+              style={{ background: severityConfig[key].color }}
+            />
+            Riesgo {severityConfig[key].label.toLowerCase()}
+          </div>
+        ),
+      )}
+      {viewMode === "routes" && (
+        <div className="flex items-center gap-2">
+          <span
+            aria-hidden="true"
+            className="h-1 w-4 shrink-0"
+            style={{ background: ROUTE_COLOR }}
+          />
+          Ruta de ejemplo
+        </div>
+      )}
+    </div>
+  </div>
+);
+
+const RoutesList: React.FC = () => (
+  <div>
+    <p className={panelTitle}>Rutas de ejemplo</p>
+    <div className="mt-3 space-y-2">
+      {safeRoutes.map((route) => (
+        <div
+          key={route.id}
+          className="border border-brand-line bg-brand-panel px-3 py-2 text-[13px]"
+        >
+          <div className="font-bold">{route.name}</div>
+          <div className="mt-1 flex justify-between text-brand-muted">
+            <span>Seguridad {route.safety}%</span>
+            <span className="tabular-nums">{route.time}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+export const MapDemoClean: React.FC = () => {
+  const [viewMode, setViewMode] = useState<ViewMode>("incidents");
+  const [mapProvider, setMapProvider] = useState<MapProvider>("dark");
+  const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
+  const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
+  const [showProviderInfo, setShowProviderInfo] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const mapRef = useRef<LeafletMap | null>(null);
+
+  const handleMapReady = useCallback((map: LeafletMap) => {
+    mapRef.current = map;
+  }, []);
+
+  // The bottom sheet is part of the flow, so opening it shrinks the map
+  // viewport. Leaflet needs to be told.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const frame = requestAnimationFrame(() => map.invalidateSize());
+    return () => cancelAnimationFrame(frame);
+  }, [sheetOpen]);
+
+  const selectIncident = useCallback((incident: Incident) => {
+    setSelectedIncident(incident);
+    setSheetOpen(true);
+    mapRef.current?.flyTo([incident.lat, incident.lng], 14, { duration: 0.6 });
+  }, []);
+
+  const simulateUserLocation = useCallback(() => {
+    const next =
+      SAMPLE_LOCATIONS[Math.floor(Math.random() * SAMPLE_LOCATIONS.length)];
+    setUserLocation(next);
+    mapRef.current?.flyTo([next.lat, next.lng], 14, { duration: 0.8 });
+  }, []);
+
+  const resetView = useCallback(() => {
+    setSelectedIncident(null);
+    mapRef.current?.flyTo(LIMA_CENTER, LIMA_ZOOM, { duration: 0.6 });
+  }, []);
+
+  const providerOptions = useMemo(
+    () =>
+      (Object.keys(mapProviders) as MapProvider[]).map((key) => ({
+        value: key,
+        label: mapProviders[key].label,
+      })),
+    [],
+  );
+
+  const modeOptions = useMemo(
+    () => viewModes.map((m) => ({ value: m.mode, label: m.label })),
+    [],
+  );
+
+  const activeMode = viewModes.find((m) => m.mode === viewMode)!;
+  const provider = mapProviders[mapProvider];
+
+  /** Shared panel body — rendered in the desktop rail and the mobile sheet. */
+  const panelBody = (
+    <>
+      {selectedIncident && (
+        <IncidentDetail
+          incident={selectedIncident}
+          onClear={() => setSelectedIncident(null)}
+        />
+      )}
+
+      <div>
+        <div className="flex items-center justify-between gap-2">
+          <p className={panelTitle}>Capa base</p>
+          <button
+            type="button"
+            onClick={() => setShowProviderInfo(true)}
+            className="min-h-[32px] border border-brand-line px-2 text-[10px] font-extrabold uppercase tracking-[0.12em] text-brand-muted transition-colors hover:border-brand-cyan hover:text-brand-cyan"
+          >
+            Info
+          </button>
+        </div>
+        <div className="mt-3">
+          <SegmentedSwitch
+            label="Capa base del mapa"
+            value={mapProvider}
+            options={providerOptions}
+            onChange={setMapProvider}
+          />
+        </div>
+      </div>
+
+      <div>
+        <p className={panelTitle}>Resumen de la muestra</p>
+        <div className="mt-2 divide-y divide-brand-line border-y border-brand-line">
+          <StatRow
+            color={severityConfig.high.color}
+            label="Incidentes en el mapa"
+            value={String(demoCounts.incidents)}
+          />
+          <StatRow
+            color={severityConfig.high.color}
+            label="De riesgo alto"
+            value={String(demoCounts.highSeverity)}
+          />
+          <StatRow
+            color={ROUTE_COLOR}
+            label="Rutas de ejemplo"
+            value={String(demoCounts.routes)}
+          />
+        </div>
+      </div>
+
+      <Legend viewMode={viewMode} />
+
+      {viewMode === "routes" && <RoutesList />}
+
+      <div className="border border-brand-line bg-brand-panel px-3 py-2 text-[11px] leading-relaxed text-brand-muted">
+        Datos de ejemplo para Lima. Los marcadores y las capas son ilustrativos y
+        no representan incidentes actuales.
+        <span
+          className="mt-2 block text-[10px] [&_a]:text-brand-cyan [&_a]:underline"
+          dangerouslySetInnerHTML={{ __html: provider.attribution }}
+        />
+      </div>
+    </>
+  );
+
+  return (
+    <div className="flex h-full w-full flex-col bg-brand-ink text-brand-text lg:flex-row">
+      {/* Desktop control rail */}
+      <aside className="hidden shrink-0 flex-col gap-6 overflow-y-auto border-r border-brand-line bg-brand-surface p-5 lg:flex lg:w-[312px]">
+        <div>
+          <p className={panelTitle}>Vista</p>
+          <div className="mt-3">
+            <SegmentedSwitch
+              label="Modo de visualización"
+              orientation="vertical"
+              value={viewMode}
+              options={modeOptions}
+              onChange={setViewMode}
+            />
+          </div>
+          <p className="mt-3 text-[12px] leading-relaxed text-brand-muted">
+            {activeMode.hint}
+          </p>
+        </div>
+        {panelBody}
+      </aside>
+
+      {/* Mobile mode switch */}
+      <div className="shrink-0 border-b border-brand-line bg-brand-surface p-2 lg:hidden">
+        <SegmentedSwitch
+          label="Modo de visualización"
+          value={viewMode}
+          options={modeOptions}
+          onChange={setViewMode}
+        />
+      </div>
+
+      {/* Map */}
+      <div className="relative min-h-[240px] flex-1">
+        <MapContainer
+          center={LIMA_CENTER}
+          zoom={LIMA_ZOOM}
+          style={{ height: "100%", width: "100%" }}
+          zoomControl={false}
+          attributionControl={false}
+          scrollWheelZoom={false}
+        >
+          <MapBridge onReady={handleMapReady} />
+          <TileLayer url={provider.url} />
+
+          {viewMode === "incidents" &&
+            limaIncidents.map((incident) => (
+              <Marker
+                key={`incident-${incident.id}`}
+                position={[incident.lat, incident.lng]}
+                icon={createIncidentIcon(incident.severity)}
+                eventHandlers={{ click: () => selectIncident(incident) }}
+              />
+            ))}
+
+          {viewMode === "heatmap" &&
+            limaIncidents.map((incident) => (
+              <Circle
+                key={`heatmap-${incident.id}`}
+                center={[incident.lat, incident.lng]}
+                radius={severityConfig[incident.severity].radius}
+                fillColor={severityConfig[incident.severity].color}
+                fillOpacity={0.35}
+                stroke={false}
+              />
+            ))}
+
+          {viewMode === "routes" &&
+            safeRoutes.map((route) => (
+              <Polyline
+                key={route.id}
+                positions={route.coordinates}
+                color={route.safety > 90 ? ROUTE_COLOR : ROUTE_WARN_COLOR}
+                weight={4}
+                opacity={0.85}
+                dashArray={route.safety > 90 ? undefined : "10, 6"}
+              />
+            ))}
+
+          {userLocation && (
+            <Marker
+              position={[userLocation.lat, userLocation.lng]}
+              icon={createUserLocationIcon()}
+            />
+          )}
+        </MapContainer>
+
+        {/* Map-anchored controls. 44px touch targets, single stack, no overlap. */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-[1000] flex flex-col items-end justify-end gap-2 p-3">
+          <div className="pointer-events-auto flex flex-col border border-brand-line bg-brand-surface/95 backdrop-blur-sm">
+            <button
+              type="button"
+              onClick={() => mapRef.current?.zoomIn()}
+              aria-label="Acercar el mapa"
+              className="h-11 w-11 text-lg text-brand-muted transition-colors hover:text-brand-cyan"
+            >
+              +
+            </button>
+            <button
+              type="button"
+              onClick={() => mapRef.current?.zoomOut()}
+              aria-label="Alejar el mapa"
+              className="h-11 w-11 border-t border-brand-line text-lg text-brand-muted transition-colors hover:text-brand-cyan"
+            >
+              −
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={simulateUserLocation}
+            aria-label="Simular mi ubicación"
+            title="Simular mi ubicación"
+            className="pointer-events-auto h-11 w-11 border border-brand-cyan bg-brand-surface/95 text-brand-cyan backdrop-blur-sm transition-colors hover:bg-brand-cyan hover:text-brand-ink"
+          >
+            ◎
+          </button>
+          <button
+            type="button"
+            onClick={resetView}
+            aria-label="Volver a la vista general"
+            title="Volver a la vista general"
+            className="pointer-events-auto h-11 w-11 border border-brand-line bg-brand-surface/95 text-brand-muted backdrop-blur-sm transition-colors hover:border-brand-cyan hover:text-brand-cyan"
+          >
+            ⤢
+          </button>
+        </div>
+
+        <p className="pointer-events-none absolute bottom-3 left-3 z-[1000] border border-brand-line bg-brand-surface/95 px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-brand-amber backdrop-blur-sm">
+          Datos simulados · Lima
+        </p>
+      </div>
+
+      {/* Mobile bottom sheet */}
+      <div className="shrink-0 border-t border-brand-line bg-brand-surface lg:hidden">
+        <button
+          type="button"
+          onClick={() => setSheetOpen((open) => !open)}
+          aria-expanded={sheetOpen}
+          aria-controls="map-demo-sheet"
+          className="flex min-h-[52px] w-full items-center justify-between gap-3 px-4 text-left"
+        >
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-brand-text">
+            {selectedIncident
+              ? selectedIncident.type
+              : `${demoCounts.incidents} incidentes · ${demoCounts.routes} rutas`}
+          </span>
+          <span className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-brand-cyan">
+            {sheetOpen ? "Ocultar ▾" : "Detalle ▴"}
+          </span>
+        </button>
+        {sheetOpen && (
+          <div
+            id="map-demo-sheet"
+            className="max-h-[38vh] space-y-6 overflow-y-auto border-t border-brand-line p-4"
+          >
+            <p className="text-[12px] leading-relaxed text-brand-muted">
+              {activeMode.hint}
+            </p>
+            {panelBody}
+          </div>
+        )}
+      </div>
+
       <MapProviderInfo
         isOpen={showProviderInfo}
         onClose={() => setShowProviderInfo(false)}

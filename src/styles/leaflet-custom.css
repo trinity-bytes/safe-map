@@ -1,62 +1,96 @@
-/* Leaflet Map Styles Override */
+/* Leaflet overrides — aligned with the SafeMap terminal design language. */
+
 .leaflet-container {
   width: 100%;
   height: 100%;
-  border-radius: 0.5rem;
+  border-radius: 0;
+  background: #0b1620;
+  font-family: inherit;
+  outline: none;
 }
 
-.leaflet-popup-content-wrapper {
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.leaflet-popup-content {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.leaflet-popup-tip {
-  background: white;
-}
-
-.leaflet-control-zoom {
-  display: none; /* We use custom controls */
-}
-
-.leaflet-attribution-flag {
+/* Zoom, attribution and popups are rendered by the app so they can follow the
+   design system and stay clear of the map-anchored control stack. */
+.leaflet-control-container {
   display: none;
 }
 
-.leaflet-control-attribution {
-  font-size: 10px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 0.25rem;
+/* Incident and user markers -------------------------------------------------
+   IMPORTANT: Leaflet writes CSS transforms on .leaflet-marker-icon to position
+   markers. Never animate or transform that element — animate a child instead,
+   or markers drift while panning and zooming. */
+
+.sm-marker-host {
+  background: transparent;
+  border: 0;
 }
 
-/* Custom marker animations */
-/* IMPORTANT: Do not animate/transform the marker container itself, as Leaflet
-  uses CSS transforms on .leaflet-marker-icon to position markers. Animating
-  this element (e.g., scale) will override Leaflet's transform and cause
-  markers to drift when zooming or panning. If you want a pulse effect,
-  animate a child element inside your custom icon HTML instead. */
+.sm-marker {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+  --sm-marker: #ff6f5e;
+}
 
-@keyframes markerPulse {
+.sm-marker--user {
+  --sm-marker: #5ee7e1;
+}
+
+.sm-marker__dot {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: var(--sm-marker);
+  border: 2px solid #071018;
+  box-shadow:
+    0 0 0 1px var(--sm-marker),
+    0 2px 6px rgba(0, 0, 0, 0.55);
+}
+
+.sm-marker__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--sm-marker);
+  opacity: 0.4;
+  animation: sm-marker-pulse 2.4s ease-out infinite;
+}
+
+@keyframes sm-marker-pulse {
   0% {
-    transform: scale(1);
+    transform: scale(0.55);
+    opacity: 0.5;
   }
-  50% {
-    transform: scale(1.1);
-  }
+  70%,
   100% {
-    transform: scale(1);
+    transform: scale(1.6);
+    opacity: 0;
   }
 }
 
-/* Polyline animations for routes */
+.leaflet-marker-icon {
+  cursor: pointer;
+}
+
+.leaflet-marker-icon:focus-visible {
+  outline: 2px solid #f5c76b;
+  outline-offset: 3px;
+}
+
+/* Routes and heat circles */
 .leaflet-interactive {
-  transition: all 0.3s ease;
+  transition: stroke-width 0.2s ease;
 }
 
 .leaflet-interactive:hover {
-  stroke-width: 6 !important;
+  stroke-width: 6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sm-marker__pulse {
+    animation: none;
+    opacity: 0.28;
+    transform: scale(1.15);
+  }
 }

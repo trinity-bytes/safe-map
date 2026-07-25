@@ -4,6 +4,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Design tokens shipped in global.css. Kept in sync so React islands
+        // can use the same surfaces/accents as the Astro sections.
+        brand: {
+          ink: "#071018",
+          surface: "#0d1a25",
+          panel: "#0f1d29",
+          line: "#203544",
+          muted: "#9db0bb",
+          text: "#e8f0f7",
+          cyan: "#5ee7e1",
+          lime: "#c7f36b",
+          amber: "#f5c76b",
+          red: "#ff6f5e",
+        },
         // SafeMap Brand Colors basado en especificaciones
         primary: {
           50: "#eff6ff",

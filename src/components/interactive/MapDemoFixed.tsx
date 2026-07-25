@@ -215,7 +215,7 @@ const mapProviders = {
   openstreet: {
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      '&copy; <a href="https://www.openstreetmap.org/copyright">mapa ilustrativo</a> contributors',
   },
   satellite: {
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -225,7 +225,7 @@ const mapProviders = {
   dark: {
     url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
     attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      '&copy; <a href="https://www.openstreetmap.org/copyright">mapa ilustrativo</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   },
 };
 
@@ -280,7 +280,7 @@ export const MapDemoFixed: React.FC = () => {
       setIsLoading(false);
     }, 1500);
 
-    // Simulate real-time incident updates
+    // Simulate preview data variation
     const incidentTimer = setInterval(() => {
       if (showRealTime) {
         setActiveIncidents((prev) => prev + Math.floor(Math.random() * 3) - 1);
@@ -308,7 +308,7 @@ export const MapDemoFixed: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="w-full h-full min-h-[400px] relative bg-slate-900 rounded-lg overflow-hidden border border-gray-700">
+      <div className="w-full h-full min-h-[400px] relative bg-slate-900 rounded-lg overflow-hidden border border-slate-700">
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
           <div className="text-center">
             <div className="relative mb-6">
@@ -322,10 +322,10 @@ export const MapDemoFixed: React.FC = () => {
               ></div>
             </div>
             <p className="text-white/90 text-lg font-medium">
-              Cargando mapa real de Lima...
+              Cargando vista previa simulada de Lima...
             </p>
             <p className="text-white/60 text-sm mt-2">
-              Conectando con OpenStreetMap
+              Preparando datos simulados
             </p>
           </div>
         </div>
@@ -334,7 +334,7 @@ export const MapDemoFixed: React.FC = () => {
   }
 
   return (
-    <div className="w-full h-full min-h-[400px] relative bg-gray-100 rounded-lg overflow-hidden border border-gray-300">
+    <div className="w-full h-full min-h-[400px] relative bg-slate-800 rounded-lg overflow-hidden border border-slate-700">
       {" "}
       {/* Real Map with React Leaflet */}
       <MapContainer
@@ -370,33 +370,33 @@ export const MapDemoFixed: React.FC = () => {
               >
                 <Popup>
                   <div className="p-2">
-                    <h3 className="font-bold text-gray-900 mb-1">
+                    <h3 className="font-bold text-slate-100 mb-1">
                       {incident.type}
                     </h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-slate-300">
                       <strong>Zona:</strong> {incident.district}
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-slate-300">
                       <strong>Dirección:</strong> {incident.address}
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-slate-300">
                       <strong>Riesgo:</strong>{" "}
                       <span
                         className={`font-medium ${
-                          incident.severity === "high"
-                            ? "text-red-600"
-                            : incident.severity === "medium"
-                              ? "text-yellow-600"
-                              : "text-orange-600"
+                          incident.severity === "high" ?
+                             "text-red-300"
+                            : incident.severity === "medium" ?
+                               "text-amber-300"
+                              : "text-orange-300"
                         }`}
                       >
                         {getSeverityText(incident.severity)}
                       </span>
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-slate-300">
                       <strong>Reportado:</strong> {incident.time}
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-slate-300">
                       <strong>Coordenadas:</strong> {incident.lat.toFixed(4)},{" "}
                       {incident.lng.toFixed(4)}
                     </p>
@@ -412,17 +412,17 @@ export const MapDemoFixed: React.FC = () => {
               key={`heatmap-${incident.id}`}
               center={[incident.lat, incident.lng]}
               radius={
-                incident.severity === "high"
-                  ? 800
-                  : incident.severity === "medium"
-                    ? 500
+                incident.severity === "high" ?
+                   800
+                  : incident.severity === "medium" ?
+                     500
                     : 300
               }
               fillColor={
-                incident.severity === "high"
-                  ? "#ef4444"
-                  : incident.severity === "medium"
-                    ? "#f59e0b"
+                incident.severity === "high" ?
+                   "#ef4444"
+                  : incident.severity === "medium" ?
+                     "#f59e0b"
                     : "#f97316"
               }
               fillOpacity={0.4}
@@ -435,10 +435,10 @@ export const MapDemoFixed: React.FC = () => {
             <Polyline
               key={route.id}
               positions={route.coordinates as [number, number][]}
-              color={route.safety > 90 ? "#10b981" : "#f59e0b"}
+              color={route.safety > 90 ?  "#10b981" : "#f59e0b"}
               weight={4}
               opacity={0.8}
-              dashArray={route.safety > 90 ? undefined : "10, 5"}
+              dashArray={route.safety > 90 ?  undefined : "10, 5"}
             />
           ))}
         {/* User location marker */}
@@ -449,8 +449,8 @@ export const MapDemoFixed: React.FC = () => {
           >
             <Popup>
               <div className="p-2 text-center">
-                <h3 className="font-bold text-blue-900 mb-1">Tu ubicación</h3>
-                <p className="text-sm text-gray-600">{userLocation.name}</p>
+                <h3 className="font-bold text-blue-200 mb-1">Tu ubicación</h3>
+                <p className="text-sm text-slate-300">{userLocation.name}</p>
               </div>
             </Popup>
           </Marker>
@@ -458,29 +458,29 @@ export const MapDemoFixed: React.FC = () => {
       </MapContainer>
       {/* Map provider selector */}
       <div className="absolute top-4 left-4 z-[1000]">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+        <div className="bg-slate-900/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
           <div className="flex items-center space-x-1">
             {Object.entries(mapProviders).map(([key, provider]) => (
               <button
                 key={key}
                 onClick={() => setMapProvider(key as keyof typeof mapProviders)}
                 className={`px-2 py-1 rounded text-xs font-medium transition-all ${
-                  mapProvider === key
-                    ? "bg-blue-500 text-white"
-                    : "text-gray-600 hover:bg-gray-100"
+                  mapProvider === key ?
+                     "bg-blue-500 text-white"
+                    : "text-slate-300 hover:bg-slate-800"
                 }`}
               >
-                {key === "openstreet"
-                  ? "Calles"
-                  : key === "satellite"
-                    ? "Satélite"
+                {key === "openstreet" ?
+                   "Calles"
+                  : key === "satellite" ?
+                     "Satélite"
                     : "Oscuro"}
               </button>
             ))}
-            <div className="border-l border-gray-300 pl-1">
+            <div className="border-l border-slate-700 pl-1">
               <button
                 onClick={() => setShowProviderInfo(true)}
-                className="px-2 py-1 rounded text-xs font-medium text-gray-600 hover:bg-gray-100 transition-all"
+                className="px-2 py-1 rounded text-xs font-medium text-slate-300 hover:bg-slate-800 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                 title="Información sobre proveedores de mapas"
               >
                 ℹ️
@@ -491,20 +491,20 @@ export const MapDemoFixed: React.FC = () => {
       </div>
       {/* Mode selector */}
       <div className="absolute top-16 left-4 z-[1000]">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+        <div className="bg-slate-900/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
           <div className="flex flex-col space-y-1">
             {[
               { mode: "incidents", label: "Incidentes", icon: "🚨" },
               { mode: "heatmap", label: "Mapa de Calor", icon: "🔥" },
-              { mode: "routes", label: "Rutas Seguras", icon: "🛣️" },
+              { mode: "routes", label: "Rutas de ejemplo", icon: "🛣️" },
             ].map((item) => (
               <button
                 key={item.mode}
                 onClick={() => setViewMode(item.mode as any)}
                 className={`px-3 py-2 rounded text-xs font-medium transition-all text-left ${
-                  viewMode === item.mode
-                    ? "bg-blue-500 text-white"
-                    : "text-gray-600 hover:bg-gray-100"
+                  viewMode === item.mode ?
+                     "bg-blue-500 text-white"
+                    : "text-slate-300 hover:bg-slate-800"
                 }`}
               >
                 {item.icon} {item.label}
@@ -513,20 +513,20 @@ export const MapDemoFixed: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Live stats */}
-      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg min-w-[200px] z-[1000]">
+      {/* Simulated demo stats */}
+      <div className="absolute top-4 right-4 bg-slate-900/95 backdrop-blur-sm rounded-lg p-4 shadow-lg min-w-[200px] z-[1000]">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="font-bold text-sm text-gray-800">
-            📊 Lima en Tiempo Real
+          <h3 className="font-bold text-sm text-slate-100">
+            📊 Vista previa simulada de Lima
           </h3>
           <button
             onClick={() => setShowRealTime(!showRealTime)}
             className={`w-8 h-4 rounded-full transition-all relative ${
-              showRealTime ? "bg-green-500" : "bg-gray-300"
+              showRealTime ? "bg-green-500" : "bg-slate-700"
             }`}
           >
             <div
-              className={`w-3 h-3 bg-white rounded-full transition-all absolute top-0.5 ${
+              className={`w-3 h-3 bg-slate-900 rounded-full transition-all absolute top-0.5 ${
                 showRealTime ? "translate-x-4" : "translate-x-0.5"
               }`}
             ></div>
@@ -534,72 +534,72 @@ export const MapDemoFixed: React.FC = () => {
         </div>
         <div className="space-y-2 text-sm">
           <div className="flex items-center justify-between">
-            <span className="flex items-center text-gray-600">
+            <span className="flex items-center text-slate-300">
               <div className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></div>
-              Incidentes activos
+              Incidentes de ejemplo
             </span>
-            <span className="font-bold text-gray-800">{activeIncidents}</span>
+            <span className="font-bold text-slate-100">{activeIncidents}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="flex items-center text-gray-600">
+            <span className="flex items-center text-slate-300">
               <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-              Rutas seguras
+              Rutas de ejemplo
             </span>
-            <span className="font-bold text-gray-800">12</span>
+            <span className="font-bold text-slate-100">12</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="flex items-center text-gray-600">
+            <span className="flex items-center text-slate-300">
               <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
-              Usuarios en línea
+              Puntos de referencia
             </span>
-            <span className="font-bold text-gray-800">1.2K</span>
+            <span className="font-bold text-slate-100">1.2K</span>
           </div>
         </div>
-        <div className="mt-3 pt-3 border-t border-gray-200 text-xs text-green-600">
-          ✅ OpenStreetMap - Tiempo real
+        <div className="mt-3 pt-3 border-t border-slate-700 text-xs text-emerald-300">
+          Datos de ejemplo · mapa ilustrativo
         </div>
       </div>
       {/* Legend */}
-      <div className="absolute bottom-20 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg z-[1000]">
-        <h4 className="font-bold text-sm mb-3 text-gray-800">🗺️ Leyenda</h4>
+      <div className="absolute bottom-20 left-4 bg-slate-900/95 backdrop-blur-sm rounded-lg p-4 shadow-lg z-[1000]">
+        <h4 className="font-bold text-sm mb-3 text-slate-100">Leyenda</h4>
         <div className="space-y-2 text-xs">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-red-500 rounded-full border border-white shadow-sm"></div>
-            <span className="text-gray-600">Alto riesgo</span>
+            <span className="text-slate-300">Alto riesgo</span>
           </div>
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-yellow-500 rounded-full border border-white shadow-sm"></div>
-            <span className="text-gray-600">Riesgo medio</span>
+            <span className="text-slate-300">Riesgo medio</span>
           </div>
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-orange-500 rounded-full border border-white shadow-sm"></div>
-            <span className="text-gray-600">Riesgo bajo</span>
+            <span className="text-slate-300">Riesgo bajo</span>
           </div>
           <div className="flex items-center space-x-2">
             <div className="w-3 h-1 bg-green-500 rounded"></div>
-            <span className="text-gray-600">Ruta segura</span>
+            <span className="text-slate-300">Ruta de ejemplo</span>
           </div>
         </div>
       </div>
       {/* Status text */}
       <div className="absolute bottom-4 right-4 z-[1010]">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-          <p className="text-xs text-gray-600">
-            🌍 Datos en tiempo real - Lima, Perú
+        <div className="bg-slate-900/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+          <p className="text-xs text-slate-300">
+            Datos simulados · Lima, Perú
           </p>
         </div>
       </div>
       {/* Routes panel */}
       {viewMode === "routes" && (
-        <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs z-[1000] mr-40">
-          <h4 className="font-bold text-sm mb-3 text-gray-800">
+        <div className="absolute bottom-4 right-4 bg-slate-900/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs z-[1000] mr-40">
+          <h4 className="font-bold text-sm mb-3 text-slate-100">
             🛣️ Rutas Disponibles
           </h4>
           <div className="space-y-2">
             {safeRoutes.map((route) => (
-              <div key={route.id} className="bg-gray-50 rounded p-2 text-xs">
-                <div className="font-medium text-gray-800">{route.name}</div>
-                <div className="flex justify-between mt-1 text-gray-600">
+              <div key={route.id} className="bg-slate-800 rounded p-2 text-xs">
+                <div className="font-medium text-slate-100">{route.name}</div>
+                <div className="flex justify-between mt-1 text-slate-300">
                   <span>Seguridad: {route.safety}%</span>
                   <span>{route.time}</span>
                 </div>
