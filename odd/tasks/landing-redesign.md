@@ -182,4 +182,5 @@ Convenciones: frames con el nombre `Landing / Desktop`, `Landing / Mobile` y sec
 - **L2** (2026-11-12, el usuario responde sobre el alcance de Figma): "primero solo la landing, luego alguna pantalla que pueda ser util de ostrar en la landing. pero principalmente es hacer primero la landing y leugo cuando este terminada pasamos a la app flutter."
 - **L3** (2026-11-12, el usuario): "en las referencias busca algo que vaa acorde a la propuesta de safe-map". Se revisaron las 35 imágenes y las previews de los links del Garden. Elegidas: TrueEarth, Finmax, Aurora, Henka, See Beyond y Luno (§2.1).
 - **L4** (2026-11-12, el usuario): "apruebo la direccion. pero quiero que dejes el plan bien detallado ommiteado para seguir desde otra instancia del repo. tiene que estar todo lo relevante para que no se pierda naa del contexto y del criterio qu ese usara". Se aprueba la dirección "vigilancia serena" y se escribe y commitea este plan.
+- **L5** (2026-11-12, el usuario): "va. suvelo" — el informe `.docx` se commitea en la rama para que otros clones lo tengan.
 - **Próximo paso:** T1 (crear el archivo Figma en trinitycorp).
