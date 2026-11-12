@@ -119,6 +119,7 @@ Narrativa: **problema sentido → cómo lo resuelve la comunidad → la app → 
 | 8 | Privacidad y confianza | Anonimato, cifrado, validación colaborativa y por qué los datos son confiables. Ataca el riesgo de adopción | See Beyond (lista) | Informe §Conclusiones, §Restricciones |
 | 9 | Para instituciones | Municipalidades y empresas: datos agregados y reportes (B2B). Sin logos inventados | Henka | Informe §Propósito, objetivos (convenios) |
 | 10 | Planes | Free vs Premium (offline, alertas de voz, estadísticas, reportes prioritarios). **Sin precios inventados**: si no hay precio aprobado, va "Próximamente" | — | HU-24, HU-10, HU-17, HU-23 |
+| 10b | Equipo | (L19) "Las personas detrás de SafeMap.": los 4 integrantes de Vigilantix (UPC) que figuran en el informe, con foto, rol y enlaces. Va antes del registro para sumar confianza. **Sin códigos de alumno.** Faltan los roles, las fotos con permiso y los enlaces | — | Informe (integrantes) |
 | 11 | Registro beta `#registro` | Campo de email y CTA, beneficios con íconos y nota de privacidad | See Beyond | Flujo existente `BetaRegistration.astro` / `ContactForm.tsx` |
 | 12 | FAQ | Reusar las preguntas de `src/data/faq.json`, revisadas | — | `faq.json` |
 | 13 | Footer | Marca, enlaces legales (privacidad, términos HU-09), contacto, crédito académico si corresponde | — | — |
@@ -201,4 +202,5 @@ Convenciones: frames con el nombre `Landing / Desktop`, `Landing / Mobile` y sec
 - **L17** (2026-11-12, el usuario): "va, mucho mejor". Se aprueban los componentes con firma (01–06), incluida la iteración de 04 y 05. Se hace T2: tablero `Moodboard` (nodo `29:2`).
 - **Pendiente de confirmar:** si la beta está realmente abierta. Mientras no se confirme, los wireframes usan "Registro a la beta", que no afirma nada.
 - **L18** (2026-11-12, el usuario): "dale. empieza con los wireframes. lo que tengo claro es que el hero debe tener un video de fondo que muestre un mockup animado de la appo. idealmente con un fondo animado del tipo character rendering o algo asi bien chido". El character rendering se reinterpreta: los glifos dibujan las curvas de nivel en azul tenue, para no caer en la estética terminal/hacker prohibida (§2). Se arman los wireframes desktop y mobile (T4). La sección "La app" reúne el radio de aviso (03), y "Empieza gratis" es el titular de Planes.
-- **Próximo paso:** aprobación de los wireframes (gate) → T5 mockups.
+- **L19** (2026-11-12, el usuario): "falta una seccion para conocer al team". Se agrega `Section / Equipo` (desktop `34:2`, mobile `34:33`) entre Planes y Registro, con los 4 integrantes del informe (Mariana Morocho, Fabrizio Santi, Mauricio Terán y Jahat Trinidad). Los roles, las fotos y los enlaces están pendientes. Se rebalancean los fondos alternos.
+- **Próximo paso:** aprobación de los wireframes (gate) → T5 mockups. Pendientes de dato: roles del equipo, si la beta está abierta, la cifra del INEI y el crédito académico.
