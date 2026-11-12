@@ -69,30 +69,33 @@ Aprobada por el usuario el 2026-11-12 (L4).
 | `bc69edeb-ef38-44fe-8dc1-95719dad42ca` (`media/2026/11/04a70f51-b0f4-4115-a1e5-94c10b6fd630.png`) | TrueEarth | Foto enmarcada en una card grande con etiquetas flotantes tipo pin conectadas por un punto | Hero o sección "cómo funciona": foto real de una calle de Lima con pins tipo "Zona tranquila · 12 validaciones" o "Robo reportado · hace 8 min". El mapa colaborativo hecho imagen. |
 | `c518025e-7802-4612-9969-4659d05ddcb7` (preview `media/2026/11/ceaa6550-9917-427f-983a-2c64903eab3c.png`) | Finmax | Teléfono al centro con tarjetas de datos flotando alrededor y un brillo de color desde abajo | Sección de app: teléfono con el heatmap y tarjetas de alerta, ruta y validación alrededor. Ahí entran después las pantallas de la app (T7). |
 | `6eaf4903-66c4-44de-95b9-4575d224d893` (`media/2026/11/5a8f75db-b976-4d0b-8489-283dc9a67cab.png`) | Aurora | Titular editorial serif sereno y centrado, CTA pill, tres atributos con ícono y franja de logos | Ritmo del hero y tres pilares: **Anónimo · Validado por vecinos · A tiempo**. La franja de logos solo con aliados REALES; si no hay, se cambia por una franja de fuentes (INEI) o se omite. |
-| `ed01b1bd-0af1-465d-9e78-83b925d9c494` (`media/2026/11/ff507e19-e726-4bd3-9239-b60ace1cb78b.png`) | Henka | Sistema de marca en verde petróleo oscuro con acento menta, grilla, tono "Fear is fog, we make it clear" | Lenguaje de marca, paleta y tono de copy. |
+| `ed01b1bd-0af1-465d-9e78-83b925d9c494` (`media/2026/11/ff507e19-e726-4bd3-9239-b60ace1cb78b.png`) | Henka | Sistema de marca en verde petróleo oscuro con acento menta, grilla, tono "Fear is fog, we make it clear" | Tono de copy y grilla. **Ya no es referencia de paleta** desde L6 (la paleta pasó a azul nocturno). |
 | `aa349b58-7334-4474-bbb2-5fa569a171a2` (`media/2026/11/a80a28c4-063b-4deb-b38c-092fb654fb7d.png`) | See Beyond | CTA de lista de espera y lista vertical de beneficios con íconos lineales | Bloque de registro beta (`#registro`) y lista de beneficios. |
-| `e624f84c-a3e4-4408-be8b-89acc23cd7f7` (`media/2026/11/6a6c4266-1657-4ed4-be26-14a58dd4b955.png`) | Luno | Ambiente nocturno sereno, mucho aire, titular liviano | Atmósfera: la ciudad de noche, cuando más importa sentirse seguro. |
+| `e624f84c-a3e4-4408-be8b-89acc23cd7f7` (`media/2026/11/6a6c4266-1657-4ed4-be26-14a58dd4b955.png`) | Luno | Ambiente nocturno sereno, mucho aire, titular liviano | Atmósfera: la ciudad de noche, cuando más importa sentirse seguro. Desde L6 también es la referencia principal de paleta (azul nocturno). |
 
 Descartadas a propósito (no corresponden al tono): retratos/prompts (`158f2e5c`, `27c98d46`, `4eea0f00`, `69e21564`, `786bd09d`, `b253267a`), samuráis (`5e58a4c6`, `cf163473`), bebidas, autos, audio, retail. Si el usuario agrega referencias nuevas al Garden, se vuelven a consultar y se filtran con el mismo criterio: **¿transmite confianza cívica, comunidad, mapa/territorio o calma nocturna?**
 
 ### 2.2 Sistema visual (punto de partida, se valida en Figma)
 
-Dark-first (como Henka/Luno). En los wireframes, evaluar si conviene una sección clara para la parte B2B/instituciones.
+Dark-first (como Luno). En los wireframes, evaluar si conviene una sección clara para la parte B2B/instituciones.
 
-| Token | Valor inicial | Uso |
-|---|---|---|
-| `bg/night` | `#06181A` | Fondo base (verde petróleo casi negro) |
-| `bg/surface` | `#0C2427` | Cards, paneles |
-| `bg/raised` | `#13333A` | Cards elevadas y tarjetas flotantes |
-| `line/subtle` | `#1F4249` | Bordes y divisores |
-| `text/primary` | `#ECF3EF` | Texto principal |
-| `text/secondary` | `#A7BDB6` | Texto secundario (validar AA ≥ 4.5:1 sobre `bg/night` y `bg/surface`) |
-| `accent/safe` | `#7EE2B0` | Acento de marca: seguro, validado, CTA |
-| `accent/signal` | `#C9F26B` | Destacados puntuales (con moderación) |
-| `alert/amber` | `#F4B740` | Alertas e incidentes recientes (**solo** semántico) |
-| `risk/coral` | `#F2705B` | Riesgo alto, **solo** dentro del heatmap y la UI del mapa |
+**Paleta v2, azul nocturno** (L6, 2026-11-12). Reemplaza la v1 verde petróleo: el azul evoca confianza, pero se mantiene nocturno y desaturado para no leerse policial ni bancario. El verde queda **solo** como estado "validado". Ya está cargada como variables (colección `Color`, modo `Dark`) en Figma, y el tablero `Palette / Propuesta azul` de `02 · Foundations` la muestra en uso. Los contrastes WCAG se calcularon contra `bg/night`, `bg/surface` y `bg/raised`, y todos pasan AA (≥ 4.5:1).
 
-- **Heatmap:** escala `accent/safe` → `alert/amber` → `risk/coral` con transparencia. Nunca un rojo plano dominante.
+| Token | Valor | Uso | Contraste (night / surface / raised) |
+|---|---|---|---|
+| `bg/night` | `#071426` | Fondo base (azul noche) | — |
+| `bg/surface` | `#0D1F36` | Cards, paneles | — |
+| `bg/raised` | `#142B47` | Cards elevadas y tarjetas flotantes | — |
+| `line/subtle` | `#22395A` | Bordes y divisores | — |
+| `text/primary` | `#EAF1FA` | Texto principal | 16.2 / 14.6 / 12.6 |
+| `text/secondary` | `#9FB3CC` | Texto secundario | 8.6 / 7.7 / 6.7 |
+| `accent/trust` | `#5AA9FF` | Marca y CTA (texto `#071426` encima: 7.5:1) | 7.5 / 6.8 / 5.8 |
+| `accent/glow` | `#8FD3FF` | Destacados puntuales, palabras en itálica del titular, brillo del teléfono | 11.4 / 10.2 / 8.8 |
+| `state/validated` | `#6FD6A8` | **Solo** el estado "validado / zona tranquila" | 10.4 / 9.4 / 8.1 |
+| `alert/amber` | `#F4B740` | Alertas e incidentes recientes (**solo** semántico) | 10.3 / 9.2 / 8.0 |
+| `risk/coral` | `#F2705B` | Riesgo alto, **solo** dentro del heatmap y la UI del mapa | 6.4 / 5.7 / 4.9 |
+
+- **Heatmap:** escala transparente → `alert/amber` → `risk/coral`. Las zonas sin reportes no se pintan, para que el azul del fondo no se confunda con "seguro". Nunca un rojo plano dominante.
 - **Tipografía:** titulares en serif editorial (candidatos: *Instrument Serif* o *Fraunces*) con palabras clave en itálica (como Aurora y Synergeus); UI y cuerpo en grotesk (candidatos: *Geist* o *Inter*). Hay que verificar que la fuente exista en Figma antes de fijarla. Registrar la elección en el Log.
 - **Imagen:** fotos reales de ciudad (Lima de noche, calles, veredas, personas caminando), con tono frío verdoso. Nada de stock de "crimen". En Figma se puede usar `generate_image`, pero dejá anotado en el frame que es un placeholder y que va con licencia o foto propia para producción.
 - **Forma:** radios generosos (24–32 en cards grandes, pill en CTAs), bordes de 1px `line/subtle` y glass sutil solo en las tarjetas flotantes.
@@ -159,6 +162,7 @@ Convenciones: frames con el nombre `Landing / Desktop`, `Landing / Mobile` y sec
 - **S4** — Usar las referencias del Inspiration Garden y el informe de `docs/`: "recuerda que tienes acceso al endpoint get de inspiration garden donde puedes acceder a mis referencias de inspiracion. en docs tienes el informe del proyecto como referencia."
 - **S5** — Orden de trabajo: "primero solo la landing, luego alguna pantalla que pueda ser util de ostrar en la landing. pero principalmente es hacer primero la landing y leugo cuando este terminada pasamos a la app flutter."
 - **S6** — Referencias acordes a la propuesta: "en las referencias busca algo que vaa acorde a la propuesta de safe-map". Resuelto en §2.1.
+- **S8** — Paleta azul en vez de verde: "la paleta basada en verde no menagrada para esre tipo de proyecto. en este csso si me parece justificado usar tonos azules para evocar confianza en los visitantes, so colores de esa indole." y "mengusraeia ver una propuesta en el figma".
 - **S7** — Dirección aprobada y plan commiteado para retomar: "apruebo la direccion. pero quiero que dejes el plan bien detallado ommiteado para seguir desde otra instancia del repo. tiene que estar todo lo relevante para que no se pierda naa del contexto y del criterio qu ese usara"
 
 ## Tasks
@@ -166,9 +170,9 @@ Convenciones: frames con el nombre `Landing / Desktop`, `Landing / Mobile` y sec
 | ID | Specs | Tarea | Ruta | Estado | Evidencia |
 |---|---|---|---|---|---|
 | T0 | S4, S6, S7 | Analizar el informe y las referencias, elegir la dirección y commitear este plan | inline | ✅ hecho | commit de este archivo en `feat/landing-redesign` |
-| T1 | S3 | Crear el archivo Figma `SafeMap — Landing Redesign` en trinitycorp con las páginas de §4 y anotar acá la URL y el fileKey | inline | ⬜ pendiente | — |
+| T1 | S3 | Crear el archivo Figma `SafeMap — Landing Redesign` en trinitycorp con las páginas de §4 y anotar acá la URL y el fileKey | inline | ✅ hecho | https://www.figma.com/design/Nqg2FTMTqhVNziGwIF8Oki (fileKey `Nqg2FTMTqhVNziGwIF8Oki`) |
 | T2 | S4, S6 | `01 · Moodboard`: subir las 6 refs (descargarlas con curl desde `/api/media/<r2Key>`) con notas, paleta y tipografía candidata | inline | ⬜ pendiente | — |
-| T3 | S1, S3 | `02 · Foundations`: variables, estilos de texto y componentes base. Elegir la tipografía final y validar el contraste AA | inline | ⬜ pendiente | — |
+| T3 | S1, S3, S8 | `02 · Foundations`: variables, estilos de texto y componentes base. Elegir la tipografía final y validar el contraste AA | inline | 🟡 en curso | Variables de color v2 cargadas y tablero `Palette / Propuesta azul` (nodo `2:2`), **esperando aprobación de la paleta**. Faltan los estilos de texto, el espaciado, los radios y los componentes. |
 | T4 | S1, S3, S5 | `03 · Landing · Wireframes` desktop y mobile con la arquitectura de §3 → **gate de aprobación del usuario** | inline | ⬜ pendiente | — |
 | T5 | S1, S3 | `04 · Landing · Mockups` desktop y mobile en alta fidelidad, con notas de movimiento y copy según §3.1 → **gate de aprobación del usuario** | inline | ⬜ pendiente | — |
 | T6 | S5 | Elegir con el usuario qué pantallas de la app muestra la landing (candidatas: heatmap HU-19, reportar HU-12, ruta segura HU-14, alerta HU-11/07) | inline | ⬜ pendiente | — |
@@ -183,4 +187,6 @@ Convenciones: frames con el nombre `Landing / Desktop`, `Landing / Mobile` y sec
 - **L3** (2026-11-12, el usuario): "en las referencias busca algo que vaa acorde a la propuesta de safe-map". Se revisaron las 35 imágenes y las previews de los links del Garden. Elegidas: TrueEarth, Finmax, Aurora, Henka, See Beyond y Luno (§2.1).
 - **L4** (2026-11-12, el usuario): "apruebo la direccion. pero quiero que dejes el plan bien detallado ommiteado para seguir desde otra instancia del repo. tiene que estar todo lo relevante para que no se pierda naa del contexto y del criterio qu ese usara". Se aprueba la dirección "vigilancia serena" y se escribe y commitea este plan.
 - **L5** (2026-11-12, el usuario): "va. suvelo" — el informe `.docx` se commitea en la rama para que otros clones lo tengan.
-- **Próximo paso:** T1 (crear el archivo Figma en trinitycorp).
+- **L6** (2026-11-12, el usuario): "respecto a la propuesta de diseño, me gustaria revisitarla ya que la paleta basada en verde no menagrada para esre tipo de proyecto. en este csso si me parece justificado usar tonos azules para evocar confianza en los visitantes, so colores de esa indole." Se propone la paleta v2 azul nocturno (§2.2), con el verde solo como estado "validado" y el heatmap sin color en las zonas seguras.
+- **L7** (2026-11-12, el usuario): "vavava, mengusraeia ver una propuesta en el figma". Se crea el archivo Figma (T1) con las 6 páginas de §4, la colección de variables `Color` (11 tokens con scopes y code syntax `var(--color-…)`) y el tablero `Palette / Propuesta azul` en `02 · Foundations`: swatches, escala del heatmap y un boceto de hero en uso. Fuentes verificadas en Figma: Instrument Serif (Regular/Italic), Fraunces, Geist e Inter; el boceto usa Instrument Serif + Geist, y la elección final sigue pendiente en T3.
+- **Próximo paso:** que el usuario apruebe la paleta en Figma; después, completar T3 (tipografía final, estilos de texto, espaciado, radios y componentes base) y T2 (moodboard).
