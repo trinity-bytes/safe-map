@@ -223,4 +223,9 @@ Convenciones: frames con el nombre `Landing / Desktop`, `Landing / Mobile` y sec
   - **Registro:** campo azul con el diálogo de la app ya abierto ("Empieza por tu calle.").
   - **FAQ:** acordeón de fichas llenas, con la de emergencia (105) en ámbar.
   - **Footer:** el nombre en grande y la marca C.
-- **Próximo paso:** que el usuario apruebe los mockups v3 (gate T5/T7); después, T8 (implementación). Pendientes de dato: roles y fotos del equipo, si la beta está abierta, la cifra del INEI, el crédito UPC, el correo de contacto y la regla final de validación.
+- **L26** (2026-11-12, el usuario): "va bien. solo que hay secciones cuyos cfondos quedan simplones. hay escudos vacios  y el el footer el icono aparece a la derecha y no a la izquierda del nombre." **Aplicado solo en desktop (`50:314`):**
+  - Textura de glifos de baja opacidad en Problema, Privacidad, Instituciones, Planes, Equipo, Preguntas y Footer.
+  - Escenarios de la narrativa y retratos del equipo rellenos con curvas internas concéntricas, como el logo C. Los retratos llevan iniciales como placeholder.
+  - En el footer, la marca va a la izquierda del nombre.
+- **L27** (2026-11-12, el usuario): "pero veamos eso la sigueinte sesion. cerramos por ahora". Sesión cerrada antes de revisar estos ajustes.
+- **Próximo paso (siguiente sesión):** (1) revisar con el usuario los ajustes de L26 en desktop; (2) replicarlos en mobile (`54:329`): texturas, escudos con curvas y el orden marca → nombre en el footer; (3) aprobar los mockups v3 (gate T5/T7) → T8 (implementación). Pendientes de dato: roles y fotos del equipo, si la beta está abierta, la cifra del INEI, el crédito UPC, el correo de contacto y la regla final de validación.
