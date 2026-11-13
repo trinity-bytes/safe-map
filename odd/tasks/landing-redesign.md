@@ -109,7 +109,7 @@ Narrativa: **problema sentido → cómo lo resuelve la comunidad → la app → 
 
 | # | Sección | Contenido | Ref | Fuente del contenido |
 |---|---|---|---|---|
-| 1 | Header | Logo, anclas (Cómo funciona, App, Privacidad, Planes, FAQ) y CTA "Unirme a la beta" | Aurora | — |
+| 1 | Header | Logo, anclas (Cómo funciona, App, Privacidad, Planes, FAQ) y CTA "Descargar la app" (Google Play, L28) | Aurora | — |
 | 2 | Hero | Titular sans que hable del **beneficio para el visitante**, no de una idea abstracta (L9: "claridad" suena a visión o GPS). Las opciones están en el tablero `Hero / Opciones de titular` (nodo `9:2`); **Titular del hero (L13):** *"Llega a tu destino con más tranquilidad."* (destacado: "más tranquilidad")., bajada con los 3 pilares, CTA a `#registro` y CTA secundario a "Cómo funciona". Visual: **reemplazado en L21–L22** (ver Log); la versión L18 decía: **video de fondo** en loop, sin audio y de ~10–15 s, con dos capas: (1) un campo de caracteres (· ∘ ○ :) que dibuja las curvas de nivel de la marca en azul tenue y respira lento, en clave serena y **no** matrix/terminal; (2) un mockup animado de la app (llega la alerta → el anillo 3/5 se llena → la ruta se redibuja). Lleva un poster estático para la carga y para `prefers-reduced-motion`, y se rotula "vista previa" | TrueEarth + Luno + Aurora | Informe §Propósito |
 | 3 | Pilares | Anónimo · Validado por vecinos · A tiempo (alertas), con ícono lineal y una línea cada uno | Aurora | HU-12, HU-20, HU-07 |
 | 4 | Problema | Contexto INEI con la cita y fecha correctas; los datos públicos existen pero no se usan en el día a día | Henka (tono) | Informe + INEI 2024 |
@@ -119,10 +119,10 @@ Narrativa: **problema sentido → cómo lo resuelve la comunidad → la app → 
 | 8 | Privacidad y confianza | Anonimato, cifrado, validación colaborativa y por qué los datos son confiables. Ataca el riesgo de adopción | See Beyond (lista) | Informe §Conclusiones, §Restricciones |
 | 9 | Para instituciones | Municipalidades y empresas: datos agregados y reportes (B2B). Sin logos inventados | Henka | Informe §Propósito, objetivos (convenios) |
 | 10 | Planes | Free vs Premium (offline, alertas de voz, estadísticas, reportes prioritarios). **Sin precios inventados**: si no hay precio aprobado, va "Próximamente" | — | HU-24, HU-10, HU-17, HU-23 |
-| 10b | Equipo | (L19) "Las personas detrás de SafeMap.": los 4 integrantes de Vigilantix (UPC) que figuran en el informe, con foto, rol y enlaces. Va antes del registro para sumar confianza. **Sin códigos de alumno.** Faltan los roles, las fotos con permiso y los enlaces | — | Informe (integrantes) |
-| 11 | Registro beta `#registro` | Campo de email y CTA, beneficios con íconos y nota de privacidad | See Beyond | Flujo existente `BetaRegistration.astro` / `ContactForm.tsx` |
+| 10b | Equipo | (L19) "Las personas detrás de SafeMap.": los 5 integrantes de Vigilantix (UPC) que figuran en el informe (Piero Espada, Mariana Morocho, Fabrizio Santi, Mauricio Terán y Jahat Trinidad), con foto, rol y enlaces. Va antes del registro para sumar confianza. **Sin códigos de alumno.** Faltan los roles y los enlaces. Los retratos son ilustraciones generadas con el prompt de L28, no fotos | — | Informe (integrantes) |
+| 11 | Descarga `#descargar` (L28; antes registro beta) | Badge de Google Play como CTA principal, beneficios con íconos y nota de privacidad. Sin campo de email. Mientras la app no esté publicada, el enlace no se activa | See Beyond | L28 |
 | 12 | FAQ | Reusar las preguntas de `src/data/faq.json`, revisadas | — | `faq.json` |
-| 13 | Footer | Marca, enlaces legales (privacidad, términos HU-09), contacto, crédito académico si corresponde | — | — |
+| 13 | Footer | Marca, enlaces legales (privacidad, términos HU-09), contacto **X `@trinity-bytes`** (no hay correo, L28) y crédito académico: UPC, Ingeniería de Software, SI720 Diseño y Patrones de Software, sección 4122, Vigilantix, 2025 | — | Informe (portada), L28 |
 
 El orden y las secciones se pueden ajustar en los wireframes. Cualquier cambio de arquitectura queda registrado en el Log.
 
@@ -228,4 +228,21 @@ Convenciones: frames con el nombre `Landing / Desktop`, `Landing / Mobile` y sec
   - Escenarios de la narrativa y retratos del equipo rellenos con curvas internas concéntricas, como el logo C. Los retratos llevan iniciales como placeholder.
   - En el footer, la marca va a la izquierda del nombre.
 - **L27** (2026-11-12, el usuario): "pero veamos eso la sigueinte sesion. cerramos por ahora". Sesión cerrada antes de revisar estos ajustes.
-- **Próximo paso (siguiente sesión):** (1) revisar con el usuario los ajustes de L26 en desktop; (2) replicarlos en mobile (`54:329`): texturas, escudos con curvas y el orden marca → nombre en el footer; (3) aprobar los mockups v3 (gate T5/T7) → T8 (implementación). Pendientes de dato: roles y fotos del equipo, si la beta está abierta, la cifra del INEI, el crédito UPC, el correo de contacto y la regla final de validación.
+- **L28** (2026-11-12, el usuario): "para eel equipo pasame un prompt para generarles unos retratos bonitos y que combinen con la estetica de la landing. respecto a la cifra el inei en un momento te la paso, ya encontre la referencia en el ocumento y voy a consultar la fuente. ponle que 5 votos como regla de validacion, croe qu eseria lo adecuado por el momento. sobre la beta en realidad como sera app habria que cambiar eso para hacer que el cta sea bajar la app de playstore. no hay correo de contact, en todo caso pones mi usuario de x como contacto '@trinity-bytes'". Decisiones:
+  - **Regla de validación:** un reporte queda validado con **5 votos** de vecinos (el medidor de Privacidad pasa a leerse "x/5").
+  - **CTA:** se elimina la beta. El CTA principal es descargar la app en **Google Play**; la sección `#registro` pasa a `#descargar`, sin email.
+  - **Contacto:** X `@trinity-bytes`; no hay correo.
+  - **Crédito UPC y equipo:** salen de la portada del informe. El equipo son **5** integrantes, no 4.
+  - **Cifra del INEI:** la trae el usuario desde la fuente. Hasta entonces sigue como `PLACEHOLDER`.
+  - **Retratos:** ilustraciones generadas con un prompt común (ver la respuesta de esta sesión), no fotos.
+- **L29** (2026-11-12, el usuario): "https://cdn.www.gob.pe/uploads/document/file/7435979/6334643-estadisticas-de-criminalidad-seguridad-ciudadana-y-violencia-julio-setiembre-2024.pdf?v=1735573693 ese es el link del informe de inei del que se sacan las cifras+". **Cifra elegida** (p. 3 del PDF): en Lima Metropolitana hubo **55 358 denuncias por comisión de delitos entre julio y setiembre de 2024, un 14,9 % más que en el mismo trimestre de 2023** (el 35,1 % del total nacional). Fuente: INEI, *Estadísticas de Criminalidad, Seguridad Ciudadana y Violencia, julio–setiembre 2024*, informe técnico N.º 04, diciembre 2024. Otros datos disponibles en el cuadro resumen (p. 2): 563 257 denuncias a nivel nacional en 2023, frente a 446 508 en 2019.
+- **Aplicado en Figma (L28–L29):**
+  - **Desktop (`50:314`):**
+    - Los CTA dicen "Descargar la app" (header, hero, franja de acción y footer).
+    - `Section / Registro` pasó a `Section / Descarga`: la tarjeta lleva 3 beneficios y el badge de Google Play, con la nota `PLACEHOLDER` del enlace, y ya no tiene formulario.
+    - El footer lleva el contacto en X `@trinity-bytes` y el crédito UPC.
+    - Se borró la nota "Copy a validar…" de Privacidad, porque la regla ya está confirmada.
+    - El equipo tiene 5 integrantes (se sumó Piero Espada) con la etiqueta "Retrato pendiente".
+    - La cifra del INEI está cargada en Problema.
+  - **Mobile (`54:329`):** solo texto: CTA, footer y cifra del INEI. Siguen pendientes la tarjeta de descarga y el 5.º integrante.
+- **Próximo paso (siguiente sesión):** (1) revisar con el usuario los ajustes de L26 a L29 en desktop; (2) replicarlos en mobile (`54:329`): texturas, escudos con curvas, el orden marca → nombre en el footer, la tarjeta de descarga y el equipo de 5; (3) colocar los retratos generados dentro de los pin-escudos; (4) aprobar los mockups v3 (gate T5/T7) → T8 (implementación). Pendientes de dato: los roles y los enlaces del equipo.
