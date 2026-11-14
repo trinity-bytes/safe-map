@@ -23,7 +23,10 @@ try {
     assert.match(await page.locator('.goals-note').innerText(), /No son resultados/);
 
     const faq = page.locator('#preguntas');
-    assert.equal(await faq.locator('details').count(), 1);
+    assert.equal(await faq.locator('details').count(), 6);
+    assert.equal(await faq.locator('details[open]').count(), 1);
+    for (const answer of await faq.locator('details .answer').allTextContents()) assert.ok(answer.trim().length > 0);
+    assert.match(await faq.locator('details').nth(4).locator('.answer').textContent(), /105/);
     const details = faq.locator('details').first();
     assert.equal(await details.getAttribute('open'), '');
     const summary = details.locator('summary');
