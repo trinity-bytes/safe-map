@@ -1,0 +1,81 @@
+---
+import Container from '../ui/Container.astro';
+import Badge from '../ui/Badge.astro';
+import Icon from '../ui/Icon.astro';
+import GlyphField from '../ui/GlyphField.astro';
+import validationRing from '../../assets/landing/svg/desktop-privacidad-Ring35.svg';
+const promises = [
+  { icon: 'eye-off', title: 'Anónimo siempre', description: 'Nadie ve quién reportó: ni otros usuarios ni las instituciones.' },
+  { icon: 'users', title: 'Nada se publica sin cinco confirmaciones', description: 'Un reporte suelto no alarma a nadie: aparece en el mapa cuando cinco vecinos lo confirman.' },
+  { icon: 'lock', title: 'Cifrado', description: 'Tus datos viajan y se guardan cifrados.' },
+  { icon: 'user-x', title: 'Sin perfiles públicos', description: 'No hay foto, seguidores ni historial que otros puedan ver.' },
+  { icon: 'eye', title: 'Tú decides quién te ve', description: 'Compartes tu ruta solo con quien eliges, y solo mientras quieras.' },
+];
+---
+<section id="privacidad" class="privacy" aria-labelledby="privacy-heading">
+  <GlyphField variant="texture" />
+  <Container class="privacy-grid">
+    <div class="privacy-copy">
+      <h2 id="privacy-heading">Tú cuentas lo que viste.<br /><span>Nadie sabe que fuiste tú.</span></h2>
+      <p class="privacy-intro">SafeMap solo funciona si la gente se anima a contar lo que ve. Por eso el anonimato no es algo que activas: así está hecha la app.</p>
+      <ul class="promises">{promises.map(promise => <li>
+        <span class="promise-icon"><Icon name={promise.icon} /></span>
+        <div><h3>{promise.title}</h3><p>{promise.description}</p></div>
+      </li>)}</ul>
+    </div>
+    <div class="report-preview" data-ui>
+      <article class="report-card" aria-label="Ejemplo de reporte anónimo">
+        <div class="report-heading"><h3><span class="incident-dot" aria-hidden="true"></span>Robo reportado</h3><p>Hace 8 min · a 200 m de ti</p></div>
+        <p class="anonymous-chip"><Icon name="eye-off" size={14} /><span>Reportado por un vecino anónimo</span></p>
+        <div class="validation"><img src={validationRing.src} alt="" width="44" height="44" /><div><p class="validation-title">3 de 5 vecinos lo confirmaron</p><p>Con 2 más, pinta el mapa</p></div></div>
+        <p class="encrypted"><Icon name="lock" size={16} /><span>Ubicación aproximada · datos cifrados</span></p>
+      </article>
+      <div class="route-card"><div class="contacts" aria-hidden="true"><span>AM</span><span>LR</span></div><div><p class="route-title">Ruta compartida con 2 contactos</p><p>Se apaga sola cuando llegas</p></div></div>
+      <Badge variant="Demo">Vista previa · demo simulada</Badge>
+    </div>
+  </Container>
+</section>
+<style>
+.privacy { position: relative; overflow: clip; padding-block: 8.3125rem 6.75rem; background: var(--color-bg-night); }
+.privacy :global(.privacy-grid) { position: relative; display: grid; grid-template-columns: minmax(0, 38.75rem) minmax(0, 27.5rem); align-items: center; column-gap: clamp(4rem, 10vw, 9rem); }
+.privacy-copy h2 { font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; }
+.privacy-copy h2 span { color: var(--color-accent-glow); }
+.privacy-intro { max-width: 32.5rem; margin-top: 1.5rem; color: var(--color-text-secondary); font-size: 1.125rem; line-height: 1.5; }
+.promises { display: grid; gap: 1.75rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+.promises li { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr); gap: 1rem; padding-top: 0.125rem; }
+.promise-icon { display: flex; color: var(--color-accent-glow); padding-top: 0.1875rem; }
+.promises h3 { font-size: 1.25rem; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; }
+.promises p { margin-top: 0.25rem; color: var(--color-text-secondary); font-size: 1rem; line-height: 1.5; }
+.report-preview { display: flex; flex-direction: column; align-items: center; gap: 1rem; width: 100%; max-width: 27.5rem; justify-self: center; }
+.report-card { display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem; width: 100%; padding: 1.5rem; background: var(--color-bg-surface); border: 1px solid var(--color-line-subtle); border-radius: var(--radius-lg); }
+.report-heading h3 { display: flex; align-items: center; gap: 0.625rem; font-size: 1.25rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+.incident-dot { display: block; flex: 0 0 0.625rem; height: 0.625rem; border-radius: 50%; background: var(--color-alert-amber); }
+.report-heading p, .validation p:not(.validation-title), .encrypted, .route-card p:not(.route-title) { font-size: 0.875rem; line-height: 1.5; color: var(--color-text-secondary); }
+.report-heading p { margin-top: 0.25rem; }
+.anonymous-chip { display: flex; gap: 0.5rem; align-items: center; padding: 0.5rem 0.875rem 0.5rem 0.75rem; border-radius: var(--radius-full); background: var(--color-bg-raised); color: var(--color-text-secondary); font-size: 0.8125rem; font-weight: 500; line-height: 1.2; }
+.anonymous-chip :global(svg) { color: var(--color-accent-glow); flex-shrink: 0; }
+.validation { display: flex; align-items: center; gap: 0.875rem; width: 100%; padding: 0.875rem; background: var(--color-bg-raised); border-radius: var(--radius-md); }
+.validation img { flex-shrink: 0; }
+.validation-title, .route-title { font-size: 0.9375rem; font-weight: 700; line-height: 1.2; }
+.validation p + p, .route-card p + p { margin-top: 0.125rem; }
+.encrypted { display: flex; gap: 0.5rem; align-items: center; }
+.encrypted :global(svg) { flex-shrink: 0; }
+.route-card { display: flex; gap: 0.875rem; align-items: center; padding: 1rem 1.25rem; width: 100%; border: 1px solid var(--color-line-subtle); background: var(--color-bg-surface); border-radius: var(--radius-full); }
+.contacts { display: flex; flex-shrink: 0; }
+.contacts span { display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--color-accent-trust); color: var(--color-bg-night); font-size: 0.8125rem; font-weight: 500; }
+.contacts span + span { margin-left: -0.5rem; background: var(--color-state-validated); }
+.report-preview :global(.badge) { background: var(--color-bg-night); color: var(--color-text-secondary); }
+@media (max-width: 1000px) and (min-width: 768px) { .privacy :global(.privacy-grid) { column-gap: 2rem; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+@media (max-width: 767px) {
+  .privacy { padding-block: 6rem; }
+  .privacy :global(.privacy-grid) { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .privacy-copy h2 { font-size: 1.75rem; }
+  .privacy-intro { font-size: 1rem; }
+  .promises { margin-top: 1.5rem; }
+  .report-card { min-height: 17.75rem; justify-content: space-between; border: 0; }
+  .anonymous-chip, .validation { background: var(--color-bg-surface); }
+  .anonymous-chip { padding-inline: 0.75rem; }
+  .encrypted { font-size: 0.8125rem; }
+  .route-card { border: 0; }
+}
+</style>
