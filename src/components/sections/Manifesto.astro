@@ -38,6 +38,48 @@ const chips = [
     </div>
   </div>
 </section>
+<script>
+  // Magnetic chips: within reach, each chip is pulled toward the pointer and springs back when it leaves.
+  const chips = [...document.querySelectorAll<HTMLElement>('.manifesto .chip')];
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (chips.length && canHover.matches && !calm.matches) {
+    const REACH = 230;
+    const state = chips.map(() => ({ x: 0, y: 0, vx: 0, vy: 0, targetX: 0, targetY: 0, near: 0 }));
+    let frame = 0;
+
+    const loop = () => {
+      let moving = false;
+      chips.forEach((chip, index) => {
+        const item = state[index];
+        // Underdamped spring: a small overshoot is what makes the pull feel magnetic.
+        item.vx = (item.vx + (item.targetX - item.x) * 0.1) * 0.8;
+        item.vy = (item.vy + (item.targetY - item.y) * 0.1) * 0.8;
+        item.x += item.vx;
+        item.y += item.vy;
+        chip.style.translate = `${item.x.toFixed(2)}px ${item.y.toFixed(2)}px`;
+        chip.style.scale = (1 + item.near * 0.08).toFixed(3);
+        if (Math.abs(item.vx) + Math.abs(item.vy) + Math.abs(item.targetX - item.x) + Math.abs(item.targetY - item.y) > 0.05) moving = true;
+      });
+      frame = moving ? requestAnimationFrame(loop) : 0;
+    };
+
+    window.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      chips.forEach((chip, index) => {
+        const item = state[index];
+        const rect = chip.parentElement!.getBoundingClientRect();
+        const dx = event.clientX - (rect.left + rect.width / 2);
+        const dy = event.clientY - (rect.top + rect.height / 2);
+        const pull = Math.max(0, 1 - Math.hypot(dx, dy) / REACH);
+        item.near = pull;
+        item.targetX = dx * pull * 0.55;
+        item.targetY = dy * pull * 0.55;
+      });
+      if (!frame) frame = requestAnimationFrame(loop);
+    }, { passive: true });
+  }
+</script>
 <style>
   .manifesto { position: relative; background: var(--color-bg-night); overflow: hidden; }
   .manifesto-stage { position: relative; display: grid; place-items: center; max-width: 90rem; min-height: 37.5rem; margin-inline: auto; padding-block: 8rem; }
@@ -47,7 +89,7 @@ const chips = [
   .manifesto-copy p { max-width: 37.5rem; margin: 1.75rem auto 0; font-size: 1.25rem; line-height: 1.5; color: var(--color-text-secondary); }
   .chips { pointer-events: none; }
   .floating-chip { position: absolute; width: var(--chip-size); height: var(--chip-size); }
-  .chip { display: grid; place-items: center; width: 100%; height: 100%; border: 1.5px solid color-mix(in srgb, var(--chip-color) 60%, transparent); border-radius: var(--chip-radius); background: color-mix(in srgb, var(--chip-color) 18%, var(--color-bg-night)); transform: rotate(var(--chip-rotation)); }
+  .chip { display: grid; place-items: center; width: 100%; height: 100%; border: 1.5px solid color-mix(in srgb, var(--chip-color) 60%, transparent); border-radius: var(--chip-radius); background: color-mix(in srgb, var(--chip-color) 18%, var(--color-bg-night)); transform: rotate(var(--chip-rotation)); will-change: translate; }
   .mobile-icon { display: none; }
   .report { --chip-size: 6rem; --chip-radius: 1.8125rem; --chip-color: var(--color-alert-amber); --chip-rotation: 8deg; left: 10.357%; top: 7.612rem; }
   .report .chip { box-shadow: 0 0 1.75rem color-mix(in srgb, var(--chip-color) 16%, transparent); }

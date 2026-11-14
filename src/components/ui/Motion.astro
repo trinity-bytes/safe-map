@@ -1,0 +1,106 @@
+---
+// Page-wide motion layer: scroll reveals, a faint pointer aura, the hero phone tilt
+// and the count-up of the one real figure. Everything is decorative and skipped under reduced motion.
+---
+<div class="cursor-aura" aria-hidden="true"></div>
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  // Scroll reveals. Targets are listed here so section markup stays free of motion attributes.
+  const revealTargets = [
+    '.problem-copy > *', '.problem-figure > *',
+    '.manifesto-copy > *',
+    '.privacy-copy > h2', '.privacy-intro', '.promises > li', '.report-preview > *',
+    '.institutions-copy > *', '.district-preview',
+    '.plans-heading > *', '.plan',
+    '#team-heading', '.team-intro', '.team-list > li',
+    '.goals-heading > *', '.goals-list > li', '.goals-note',
+    '.faq-heading', '.faq-list > details', '.emergency-note',
+    '.download-copy > h2', '.download-intro',
+  ].join(',');
+
+  const countUp = (element: HTMLElement) => {
+    const match = element.textContent?.match(/^(\D*)(\d+),(\d)(.*)$/);
+    if (!match) return;
+    const [, prefix, whole, decimal, suffix] = match;
+    const target = Number(`${whole}.${decimal}`);
+    const started = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min(1, (now - started) / 1400);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      element.textContent = `${prefix}${(target * eased).toFixed(1).replace('.', ',')}${suffix}`;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!reduceMotion.matches) {
+    const targets = [...document.querySelectorAll<HTMLElement>(revealTargets)];
+    targets.forEach(target => target.setAttribute('data-reveal', ''));
+    const observer = new IntersectionObserver(entries => {
+      entries.filter(entry => entry.isIntersecting).forEach((entry, index) => {
+        const target = entry.target as HTMLElement;
+        observer.unobserve(target);
+        target.style.transitionDelay = `${Math.min(index, 8) * 70}ms`;
+        target.setAttribute('data-reveal', 'in');
+        if (target.classList.contains('figure')) countUp(target);
+        // Hand the element back to its own styles once the entrance is over.
+        window.setTimeout(() => { target.removeAttribute('data-reveal'); target.style.removeProperty('transition-delay'); }, 1500 + index * 70);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.1 });
+    targets.forEach(target => observer.observe(target));
+  }
+
+  // Pointer aura and hero phone tilt share one spring-like loop that sleeps when settled.
+  const aura = document.querySelector<HTMLElement>('.cursor-aura');
+  const hero = document.querySelector<HTMLElement>('.hero');
+  const heroPhone = hero?.querySelector<HTMLElement>('.phone-preview');
+  if (aura && finePointer.matches && !reduceMotion.matches) {
+    const pointer = { x: 0, y: 0 };
+    const auraAt = { x: 0, y: 0 };
+    const tilt = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    let frame = 0;
+    let seen = false;
+
+    const loop = () => {
+      auraAt.x += (pointer.x - auraAt.x) * 0.08;
+      auraAt.y += (pointer.y - auraAt.y) * 0.08;
+      tilt.x += (tilt.targetX - tilt.x) * 0.08;
+      tilt.y += (tilt.targetY - tilt.y) * 0.08;
+      aura.style.transform = `translate3d(${auraAt.x}px, ${auraAt.y}px, 0)`;
+      if (heroPhone) heroPhone.style.transform = `perspective(60rem) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`;
+      const settled = Math.abs(pointer.x - auraAt.x) + Math.abs(pointer.y - auraAt.y) < 0.2
+        && Math.abs(tilt.targetX - tilt.x) + Math.abs(tilt.targetY - tilt.y) < 0.01;
+      frame = settled ? 0 : requestAnimationFrame(loop);
+    };
+
+    window.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      if (!seen) {
+        seen = true;
+        auraAt.x = pointer.x;
+        auraAt.y = pointer.y;
+        document.documentElement.dataset.pointer = 'on';
+      }
+      if (hero) {
+        const rect = hero.getBoundingClientRect();
+        const over = event.clientY < rect.bottom;
+        tilt.targetY = over ? ((event.clientX - rect.left) / rect.width - 0.5) * 14 : 0;
+        tilt.targetX = over ? -((event.clientY - rect.top) / rect.height - 0.5) * 10 : 0;
+      }
+      if (!frame) frame = requestAnimationFrame(loop);
+    }, { passive: true });
+    document.addEventListener('pointerleave', () => { delete document.documentElement.dataset.pointer; seen = false; });
+  }
+</script>
+<style is:global>
+  :root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); }
+  [data-reveal] { opacity: 0; translate: 0 1.5rem; transition: opacity 800ms var(--ease-out), translate 800ms var(--ease-out); }
+  [data-reveal='in'] { opacity: 1; translate: 0 0; }
+  .cursor-aura { position: fixed; inset: 0 auto auto 0; z-index: 40; width: 36rem; height: 36rem; margin: -18rem 0 0 -18rem; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--color-accent-trust) 5%, transparent), transparent); mix-blend-mode: screen; pointer-events: none; opacity: 0; transition: opacity 400ms ease; will-change: transform; }
+  [data-pointer='on'] .cursor-aura { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .cursor-aura { display: none; } }
+</style>

@@ -12,7 +12,7 @@ const links = [
   <div class="shell header-row">
     <a class="brand" href={base} aria-label="Tranqui, inicio"><Logo /></a>
     <nav class="desktop-nav" aria-label="Navegación principal">
-      {links.filter(([id]) => !['instituciones', 'preguntas'].includes(id)).map(([id, text]) => <a href={`${base}#${id}`} data-section={id}>{text}</a>)}
+      {links.filter(([id]) => id !== 'preguntas').map(([id, text]) => <a href={`${base}#${id}`} data-section={id}>{id === 'instituciones' ? 'Instituciones' : text}</a>)}
     </nav>
     <div class="desktop-action"><Button href={`${base}#descargar`}>Descargar la app</Button></div>
     <button class="menu-toggle" id="menu-open" type="button" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false" hidden>Menú</button>
