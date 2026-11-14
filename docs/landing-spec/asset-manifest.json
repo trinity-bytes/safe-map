@@ -1,0 +1,868 @@
+[
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-reporta-Icon.svg",
+    "sourceContext": "mobile-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon",
+    "bytes": 357,
+    "sha256": "3961a9b18f054dcc463f06fa1da1257197980e6bbf00ed8a9b9a0a38a365f6b8"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-reporta-Icon1.svg",
+    "sourceContext": "mobile-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon1",
+    "bytes": 1376,
+    "sha256": "9919842c87c5b6651692029d771f5c564de36fb737f5dd12302036f12ece8be7"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-reporta-Frame.svg",
+    "sourceContext": "mobile-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgFrame",
+    "bytes": 340,
+    "sha256": "c8ea7f83255062f2b0e0731dcc39e265f482028628577317a7b575237d1b8ab5"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-reporta-Map.svg",
+    "sourceContext": "mobile-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgMap",
+    "bytes": 1524,
+    "sha256": "8524158af35c99563c248c5067191350183798e80ba13b81aa230d69483cead9"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-reporta-Icon2.svg",
+    "sourceContext": "mobile-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon2",
+    "bytes": 937,
+    "sha256": "d2604f978f1e7e5b46acb027fa668ba0686127c2f92d2ddd456193a997d174f9"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-reporta-Icon3.svg",
+    "sourceContext": "mobile-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon3",
+    "bytes": 672,
+    "sha256": "7a907ea58d70b9b5c3f28fac143a7d3c5829f0f760416c8a624418986789772d"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-llegas-Contours.svg",
+    "sourceContext": "desktop-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 27105,
+    "sha256": "6b258974e0aa883044ca92995477e487592964d169b9b2ef9c8dbe95d33e245a"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-llegas-Route.svg",
+    "sourceContext": "desktop-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgRoute",
+    "bytes": 1283,
+    "sha256": "543a800e0fe99d7655fe1d4a691d5fda686b2cf3f9e6b04d1912ab58cb1d04d3"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-llegas-Dot.svg",
+    "sourceContext": "desktop-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 240,
+    "sha256": "e7977c0b87a2a8347d328e361bb45a8a611361f635dfcbdb10b81eb19c933e41"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-llegas-Ellipse.svg",
+    "sourceContext": "desktop-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 227,
+    "sha256": "e7081a3e5faed25d5bac7c5179721bf7e220d7e0bcbe32cbf256e5ab3296d07b"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-descarga-IconGooglePlay.svg",
+    "sourceContext": "mobile-descarga.reference.txt",
+    "referenceVariable": "imgIconGooglePlay",
+    "bytes": 773,
+    "sha256": "cd1166ccd371891b31e3162b9b82b73649a7db01c29d3139abb9ec83a4363140"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-IconCheck.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgIconCheck",
+    "bytes": 347,
+    "sha256": "3935955e70ccbb0403abef9e568435004f656e6b6691c999dba2cc2e11410090"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Contours.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 37784,
+    "sha256": "563ece9dbf411b5d01922629301ed366407984f1bf10d8090688df8b7ee79ee4"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Ellipse.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 248,
+    "sha256": "428b7937abc09262d7bf112d6e3243588a3afb358410491dd2366c4486a2d9ea"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Dot.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 244,
+    "sha256": "2fc04beff3f795f487021c536eb352765eebfca4ea4e6c58a78fb80eafd8aacf"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Ellipse1.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgEllipse1",
+    "bytes": 248,
+    "sha256": "9869ea773ac4f446b45614817954b05bb39e380c0e2d92992ce3ddb69ac0a9cb"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Icon.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgIcon",
+    "bytes": 435,
+    "sha256": "6768a6b78d713b6cbb6772bfb244250d5fcf0b6f85d53b3ce4d4d4989be2953b"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Icon1.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgIcon1",
+    "bytes": 399,
+    "sha256": "d73875f205ff10752c20e510d899af81e711cb27d252b7b82e546da230335d85"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Icon2.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgIcon2",
+    "bytes": 934,
+    "sha256": "fb59968274f871a1004b29f8cceb3dcd01ccda3908e955a2dace232b3ad25e31"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-Icon3.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgIcon3",
+    "bytes": 859,
+    "sha256": "d27b298b6ee95606fccfb62b145dce9d786ac203edafe9f15e751fb9adb424f3"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-planes-IconCheck1.svg",
+    "sourceContext": "mobile-planes.reference.txt",
+    "referenceVariable": "imgIconCheck1",
+    "bytes": 347,
+    "sha256": "fe6eb1e072d2af12d36be3e8b27aee24a824380fd98efc96a4f2aa91ac164065"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-manifiesto-IconReporte.svg",
+    "sourceContext": "desktop-manifiesto.reference.txt",
+    "referenceVariable": "imgIconReporte",
+    "bytes": 985,
+    "sha256": "31434115f1c3bda5757c8444add8251fec0ca94fe14692225786fc0e7d11c6ec"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-manifiesto-IconAnonimo.svg",
+    "sourceContext": "desktop-manifiesto.reference.txt",
+    "referenceVariable": "imgIconAnonimo",
+    "bytes": 1382,
+    "sha256": "5c60955332ebf59bac5b2cf84c6250389a8e7c17a0df5068374f841aebc5f8fd"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-manifiesto-IconCifrado.svg",
+    "sourceContext": "desktop-manifiesto.reference.txt",
+    "referenceVariable": "imgIconCifrado",
+    "bytes": 870,
+    "sha256": "a87fdc574bae27081601d50619aca0d30d208dfa768ea6a6b0fa6483ece2f104"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-manifiesto-IconValidado.svg",
+    "sourceContext": "desktop-manifiesto.reference.txt",
+    "referenceVariable": "imgIconValidado",
+    "bytes": 956,
+    "sha256": "4336a54c219fbd152265f0266f03118d5e9bf43bba1d274e353dfc16c5313299"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-manifiesto-IconAlerta.svg",
+    "sourceContext": "desktop-manifiesto.reference.txt",
+    "referenceVariable": "imgIconAlerta",
+    "bytes": 1282,
+    "sha256": "5a89a08da3c7b01791e4721aa2f4ba80774a5a559bf50e6816df25b2ea0ade5b"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-manifiesto-IconRuta.svg",
+    "sourceContext": "desktop-manifiesto.reference.txt",
+    "referenceVariable": "imgIconRuta",
+    "bytes": 1285,
+    "sha256": "cea94c365d7802d80e297b1edd3aeb2e0baad0c7a873539920c44f15b84efb17"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-Icon.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon",
+    "bytes": 326,
+    "sha256": "27590b48727851752fcf6181f8a5a57b968302f34ef3ab6ef0b9e7fc524c272c"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-Icon1.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon1",
+    "bytes": 1359,
+    "sha256": "fd0d076af9736b5ba68c20e72493a7e847752ed452b3b90f356501e299af952c"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-Frame.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgFrame",
+    "bytes": 307,
+    "sha256": "2be505c5f550e2e84ea2a2bcaf9933e88949c81744871ff30a08d8e4d47f89a8"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-Map.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgMap",
+    "bytes": 1327,
+    "sha256": "99b2f256184ff87c6f0718a5809051a88e2d84a9cc11463ed4c36c90ffb286bc"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-Icon2.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon2",
+    "bytes": 855,
+    "sha256": "79bc5c3d23229de3ad390cc28f35786968124bc84c89c38e3898f63d546bd551"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-Icon3.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgIcon3",
+    "bytes": 740,
+    "sha256": "d9aee984cdfb761f35572739e1a4d2ae990ee59090ef72fcef2f8b6b9e44b9ab"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-LockupMark.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgLockupMark",
+    "bytes": 3256,
+    "sha256": "9fe44e272a1ba37018da36a7cf0439c18a4ad773afdb69e9574076e3824251a9"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-reporta-ActiveDot.svg",
+    "sourceContext": "desktop-narrativa-reporta.reference.txt",
+    "referenceVariable": "imgActiveDot",
+    "bytes": 230,
+    "sha256": "7096584fafe0da9d7b0592fd67463a81657276c09148505c3dcbe098241aeae5"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-LockupMark.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgLockupMark",
+    "bytes": 3256,
+    "sha256": "9fe44e272a1ba37018da36a7cf0439c18a4ad773afdb69e9574076e3824251a9"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Contours.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 38905,
+    "sha256": "61f91b6b6df7dcf87ca539419a0945ca83cb3d053b2574fe54e78cbb8a662445"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Ellipse.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 248,
+    "sha256": "f27715813ce0347ed87850699d16334184bbf25e6b6ac9786b211b9dd26bb00a"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Dot.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 247,
+    "sha256": "5de08258bfb15f742952cec3d664f09db17e8284d9b5cb347f8c595608a04f62"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Ellipse1.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgEllipse1",
+    "bytes": 248,
+    "sha256": "dd5339c41b30d3aa729e780fbfd23483a45c937d17d833ea5696cac388c8ced0"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Icon.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgIcon",
+    "bytes": 424,
+    "sha256": "ed2086923099c22598bf4d507447e07430ff8c0994ab2322a6a83f4f2ab62601"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Icon1.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgIcon1",
+    "bytes": 400,
+    "sha256": "1eb62bdb127e4e46c03465bd46e6a6200c8d0e3a6d00f192aaebd644d36503a4"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Icon2.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgIcon2",
+    "bytes": 928,
+    "sha256": "6c2393c1011b6f3e12f2c5d6c3e525891033378c7aaaa8b6c6c5d915e056d3ea"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-hero-Icon3.svg",
+    "sourceContext": "mobile-hero.reference.txt",
+    "referenceVariable": "imgIcon3",
+    "bytes": 846,
+    "sha256": "bfb385a1e0cadbc2e74bb4328ea61955479dbe2a579f8aef57b1029b654e3ded"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-validan-Contours.svg",
+    "sourceContext": "mobile-narrativa-validan.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 38840,
+    "sha256": "b70e94302a908f76903810e48da1868a214cb1b16cf2ba54d9d05ef0c6c1c4a6"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-validan-ReportPin.svg",
+    "sourceContext": "mobile-narrativa-validan.reference.txt",
+    "referenceVariable": "imgReportPin",
+    "bytes": 1163,
+    "sha256": "f25b0f0ab8fdfcd7f48afff363e7d5d31d9a14a3141500ac34fd1608902f8754"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-validan-Meter.svg",
+    "sourceContext": "mobile-narrativa-validan.reference.txt",
+    "referenceVariable": "imgMeter",
+    "bytes": 1176,
+    "sha256": "bb2d01b70284b6b80bf12a4918c7ecace7da5590fa3d9403dd58f3d44f0b2c06"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-descarga-IconGooglePlay.svg",
+    "sourceContext": "desktop-descarga.reference.txt",
+    "referenceVariable": "imgIconGooglePlay",
+    "bytes": 773,
+    "sha256": "cd1166ccd371891b31e3162b9b82b73649a7db01c29d3139abb9ec83a4363140"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-instituciones-MapDistrito.svg",
+    "sourceContext": "mobile-instituciones.reference.txt",
+    "referenceVariable": "imgMapDistrito",
+    "bytes": 15547,
+    "sha256": "cd3bc90500e5593bcf5e2e1ce4acc2fdb72aed7e5340d9b3754bdc41695f3946"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-instituciones-Dot.svg",
+    "sourceContext": "mobile-instituciones.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 227,
+    "sha256": "81342bc529ec85a673a050941c5688efe0f0610e9fa93365a402e23e76423b50"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-instituciones-Dot1.svg",
+    "sourceContext": "mobile-instituciones.reference.txt",
+    "referenceVariable": "imgDot1",
+    "bytes": 227,
+    "sha256": "b2b65ccb537d83c94368447cd091d3a8ee4cf46c81042df5ac99b418c2901ae0"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-instituciones-Ellipse.svg",
+    "sourceContext": "mobile-instituciones.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 227,
+    "sha256": "227a2b65131dc995000d0cd1e914f37e2c7a1f00f779030b1a1e88ea9eae7f65"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-instituciones-Ellipse1.svg",
+    "sourceContext": "mobile-instituciones.reference.txt",
+    "referenceVariable": "imgEllipse1",
+    "bytes": 227,
+    "sha256": "6f9876a116d63c8b15d6b1e9fd440d838a831bb617e24b69ecc0b71998984c8e"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-instituciones-Ellipse2.svg",
+    "sourceContext": "mobile-instituciones.reference.txt",
+    "referenceVariable": "imgEllipse2",
+    "bytes": 227,
+    "sha256": "3af7f572e85f270c69f0af8529a38231cb7034d695f62bba0f3e138a9d85058e"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-LockupMark.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgLockupMark",
+    "bytes": 3256,
+    "sha256": "9fe44e272a1ba37018da36a7cf0439c18a4ad773afdb69e9574076e3824251a9"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Contours.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 27019,
+    "sha256": "b65076dc66eef72df0e9e5b2d0bf02ce3f882cbb5fdfcc36bc45e3416bbaeccd"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Ellipse.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 227,
+    "sha256": "227a2b65131dc995000d0cd1e914f37e2c7a1f00f779030b1a1e88ea9eae7f65"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Dot.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 240,
+    "sha256": "e7977c0b87a2a8347d328e361bb45a8a611361f635dfcbdb10b81eb19c933e41"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Ellipse1.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgEllipse1",
+    "bytes": 227,
+    "sha256": "e7081a3e5faed25d5bac7c5179721bf7e220d7e0bcbe32cbf256e5ab3296d07b"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Icon.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgIcon",
+    "bytes": 398,
+    "sha256": "bf9703b58cee23dd3f0b13eb70a7dec1fe76888564dc8717ea8eb61cbb5dd6db"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Icon1.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgIcon1",
+    "bytes": 360,
+    "sha256": "0c017d3c65d33eb79c677fa7247088ac3df723f6eee11831923c8ee4f4d39a31"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Icon2.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgIcon2",
+    "bytes": 860,
+    "sha256": "503033b3f535e306f47976e6cbd7e74ea4ed22e8dce2bda55316344949b2420b"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-hero-Icon3.svg",
+    "sourceContext": "desktop-hero.reference.txt",
+    "referenceVariable": "imgIcon3",
+    "bytes": 827,
+    "sha256": "0dba72a55e1b5d2a8f4f79ecbc8c499d576e44800541b98c220e1c2e630f93af"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-manifiesto-IconReporte.svg",
+    "sourceContext": "mobile-manifiesto.reference.txt",
+    "referenceVariable": "imgIconReporte",
+    "bytes": 986,
+    "sha256": "cceda186e5f3fbd511937906bf4919765c206d48d6f939ae2b8d36a5810b6e45"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-manifiesto-IconValidado.svg",
+    "sourceContext": "mobile-manifiesto.reference.txt",
+    "referenceVariable": "imgIconValidado",
+    "bytes": 999,
+    "sha256": "aca19d48124a165010e210a48472e8273db2df5b72a248fb2c81499b4bd61b34"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-manifiesto-IconAnonimo.svg",
+    "sourceContext": "mobile-manifiesto.reference.txt",
+    "referenceVariable": "imgIconAnonimo",
+    "bytes": 1379,
+    "sha256": "803d020fcbed437f90fa379aef2bcd1d4e74c513508e7e8a1e5939da27a57988"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-manifiesto-IconCifrado.svg",
+    "sourceContext": "mobile-manifiesto.reference.txt",
+    "referenceVariable": "imgIconCifrado",
+    "bytes": 888,
+    "sha256": "38023bd5121559d342d6dd414edc581ec92fe0fa63962de3ab3d97573198db62"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-manifiesto-IconAlerta.svg",
+    "sourceContext": "mobile-manifiesto.reference.txt",
+    "referenceVariable": "imgIconAlerta",
+    "bytes": 1313,
+    "sha256": "8fcbd74ea59be6613c13cba12e8007a40116ee85ddf92e617705431b94009a87"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-manifiesto-IconRuta.svg",
+    "sourceContext": "mobile-manifiesto.reference.txt",
+    "referenceVariable": "imgIconRuta",
+    "bytes": 1337,
+    "sha256": "86933b9f72e3dfc00c0fc0153832a6601b35696104f5328d910187a351be4170"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-llegas-Contours.svg",
+    "sourceContext": "mobile-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 38811,
+    "sha256": "29ced1950cd2725e65622c7c30c7bbe3155830c22ab228512b6f1c5859c55e6b"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-llegas-Route.svg",
+    "sourceContext": "mobile-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgRoute",
+    "bytes": 1439,
+    "sha256": "e722495650794f6e1cb2dfe213fe501f590cf80cac2211109e7c85054806a8b8"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-llegas-Dot.svg",
+    "sourceContext": "mobile-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 244,
+    "sha256": "2fc04beff3f795f487021c536eb352765eebfca4ea4e6c58a78fb80eafd8aacf"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-llegas-Ellipse.svg",
+    "sourceContext": "mobile-narrativa-llegas.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 248,
+    "sha256": "9869ea773ac4f446b45614817954b05bb39e380c0e2d92992ce3ddb69ac0a9cb"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-instituciones-MapDistrito.svg",
+    "sourceContext": "desktop-instituciones.reference.txt",
+    "referenceVariable": "imgMapDistrito",
+    "bytes": 13072,
+    "sha256": "76ffbe1996720a7d39cddb1f431099154745626ce67e894543f70cee8ced3929"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-instituciones-Dot.svg",
+    "sourceContext": "desktop-instituciones.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 227,
+    "sha256": "b2b65ccb537d83c94368447cd091d3a8ee4cf46c81042df5ac99b418c2901ae0"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-instituciones-Dot1.svg",
+    "sourceContext": "desktop-instituciones.reference.txt",
+    "referenceVariable": "imgDot1",
+    "bytes": 227,
+    "sha256": "81342bc529ec85a673a050941c5688efe0f0610e9fa93365a402e23e76423b50"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-instituciones-Ellipse.svg",
+    "sourceContext": "desktop-instituciones.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 227,
+    "sha256": "227a2b65131dc995000d0cd1e914f37e2c7a1f00f779030b1a1e88ea9eae7f65"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-instituciones-Ellipse1.svg",
+    "sourceContext": "desktop-instituciones.reference.txt",
+    "referenceVariable": "imgEllipse1",
+    "bytes": 227,
+    "sha256": "6f9876a116d63c8b15d6b1e9fd440d838a831bb617e24b69ecc0b71998984c8e"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-instituciones-Ellipse2.svg",
+    "sourceContext": "desktop-instituciones.reference.txt",
+    "referenceVariable": "imgEllipse2",
+    "bytes": 227,
+    "sha256": "3af7f572e85f270c69f0af8529a38231cb7034d695f62bba0f3e138a9d85058e"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-validan-Contours.svg",
+    "sourceContext": "desktop-narrativa-validan.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 27019,
+    "sha256": "ced50801e87bf406afb8ac46b1d6863fd0a264c458acc33a2b860a8e55428efa"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-validan-ReportPin.svg",
+    "sourceContext": "desktop-narrativa-validan.reference.txt",
+    "referenceVariable": "imgReportPin",
+    "bytes": 949,
+    "sha256": "b8af5962f54ddd1421bb918f6d0fb4ce44ad09946b655ffdf08a6a815e817eee"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-validan-Meter.svg",
+    "sourceContext": "desktop-narrativa-validan.reference.txt",
+    "referenceVariable": "imgMeter",
+    "bytes": 1162,
+    "sha256": "45de84d5e7caac28fa122c5ee9d60bec1407abf0f7061e6d0297ae4d1b0c792e"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-IconCheck.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgIconCheck",
+    "bytes": 338,
+    "sha256": "c42ebb3f057b199b4792043a31853ccf8e3b381f9a13a88c58c5b80978842a8e"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Contours.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgContours",
+    "bytes": 27019,
+    "sha256": "7687ffd32542dd5cefd4d7570964bd58d4c79abe7bb20f42c59b3bc190c3e38f"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Ellipse.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 227,
+    "sha256": "227a2b65131dc995000d0cd1e914f37e2c7a1f00f779030b1a1e88ea9eae7f65"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Dot.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgDot",
+    "bytes": 240,
+    "sha256": "e7977c0b87a2a8347d328e361bb45a8a611361f635dfcbdb10b81eb19c933e41"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Ellipse1.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgEllipse1",
+    "bytes": 227,
+    "sha256": "e7081a3e5faed25d5bac7c5179721bf7e220d7e0bcbe32cbf256e5ab3296d07b"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Icon.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgIcon",
+    "bytes": 398,
+    "sha256": "bf9703b58cee23dd3f0b13eb70a7dec1fe76888564dc8717ea8eb61cbb5dd6db"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Icon1.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgIcon1",
+    "bytes": 360,
+    "sha256": "0c017d3c65d33eb79c677fa7247088ac3df723f6eee11831923c8ee4f4d39a31"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Icon2.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgIcon2",
+    "bytes": 860,
+    "sha256": "503033b3f535e306f47976e6cbd7e74ea4ed22e8dce2bda55316344949b2420b"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-Icon3.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgIcon3",
+    "bytes": 827,
+    "sha256": "0dba72a55e1b5d2a8f4f79ecbc8c499d576e44800541b98c220e1c2e630f93af"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-planes-IconCheck1.svg",
+    "sourceContext": "desktop-planes.reference.txt",
+    "referenceVariable": "imgIconCheck1",
+    "bytes": 338,
+    "sha256": "579ed88132f15693862955f3e9d825cbdd4f311aa4a26db1fefbdd3d574d1133"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-footer-MarkLarge.svg",
+    "sourceContext": "mobile-footer.reference.txt",
+    "referenceVariable": "imgMarkLarge",
+    "bytes": 3251,
+    "sha256": "18d21845317061ca3cc2e5b75963b59812ba979367ab578abc14bc85a9d92f3a"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-IconEyeOff.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgIconEyeOff",
+    "bytes": 1504,
+    "sha256": "c68e6a8475fe3343504e35029737ce8e7c967470d6d39897521f36f8d66c3584"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-IconUsers.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgIconUsers",
+    "bytes": 1352,
+    "sha256": "0666722c478b01844aef1fcb0b8863c57fb2b2aaa7fa79e0c6d4eb8a7326a05c"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-IconLock.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgIconLock",
+    "bytes": 856,
+    "sha256": "33626e7320f2753ab8946a30766c3bf179d951a7daecefccf3b215d51370f0d9"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-IconUserX.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgIconUserX",
+    "bytes": 1095,
+    "sha256": "4436043f2aca5db5e7781b72580a8ae4aedb84ad05a73356fda404a5b290e9c4"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-IconEye.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgIconEye",
+    "bytes": 1026,
+    "sha256": "19b31dbea57d0094717c687d9b88b498a72c324fce6042c317e72397a79c3c0f"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-Ellipse.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 231,
+    "sha256": "05def04d726c7e176a3440364a41fd343439cdd7b992cdd54af25c4c653e4bc3"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-IconEyeOff1.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgIconEyeOff1",
+    "bytes": 1522,
+    "sha256": "a13b42f4a45251836764dad5d61acd47c096d38658e71beda09649e0c6547360"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-Ring35.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgRing35",
+    "bytes": 1709,
+    "sha256": "8461b1ceac745e5c103801b9ed7a247a3ef5ba26877c9b7759c856d8904da643"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-privacidad-IconLock1.svg",
+    "sourceContext": "desktop-privacidad.reference.txt",
+    "referenceVariable": "imgIconLock1",
+    "bytes": 748,
+    "sha256": "32577a5aa297f9552ab04f4bfa46f98092380f13bc55a86026ccd992e61d15e0"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-menu-open-LockupMark.svg",
+    "sourceContext": "mobile-menu-open.reference.txt",
+    "referenceVariable": "imgLockupMark",
+    "bytes": 3256,
+    "sha256": "9fe44e272a1ba37018da36a7cf0439c18a4ad773afdb69e9574076e3824251a9"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-menu-open-ActiveDot.svg",
+    "sourceContext": "mobile-menu-open.reference.txt",
+    "referenceVariable": "imgActiveDot",
+    "bytes": 230,
+    "sha256": "43fc51aacc57cd2efbca130c1d9a9eb29f4bf721fd063b2d7dff099b1bbf1f60"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-footer-MarkLarge.svg",
+    "sourceContext": "desktop-footer.reference.txt",
+    "referenceVariable": "imgMarkLarge",
+    "bytes": 3157,
+    "sha256": "1621c9f772e6de986826f625d8d180da11745068313397bf6d2e80d79c1b4322"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-alerta-LockBg.svg",
+    "sourceContext": "mobile-narrativa-alerta.reference.txt",
+    "referenceVariable": "imgLockBg",
+    "bytes": 4314,
+    "sha256": "9099d9f5d492ed37764ecfad037851fb72bab0dbbbf1bb21788c13fd3219f3ea"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-alerta-MarkSmall.svg",
+    "sourceContext": "mobile-narrativa-alerta.reference.txt",
+    "referenceVariable": "imgMarkSmall",
+    "bytes": 2008,
+    "sha256": "75e8329a61c518344a412317e6a9df8214464e1f845885b8b284a719db4225f2"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-narrativa-alerta-Map.svg",
+    "sourceContext": "mobile-narrativa-alerta.reference.txt",
+    "referenceVariable": "imgMap",
+    "bytes": 1771,
+    "sha256": "2f7520d1fe38c5969d755bd84b1cbc3b02ac8c50677d9ef4ec5f29fd18a8d825"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-IconEyeOff.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgIconEyeOff",
+    "bytes": 1504,
+    "sha256": "c68e6a8475fe3343504e35029737ce8e7c967470d6d39897521f36f8d66c3584"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-IconUsers.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgIconUsers",
+    "bytes": 1352,
+    "sha256": "0666722c478b01844aef1fcb0b8863c57fb2b2aaa7fa79e0c6d4eb8a7326a05c"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-IconLock.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgIconLock",
+    "bytes": 856,
+    "sha256": "33626e7320f2753ab8946a30766c3bf179d951a7daecefccf3b215d51370f0d9"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-IconUserX.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgIconUserX",
+    "bytes": 1095,
+    "sha256": "4436043f2aca5db5e7781b72580a8ae4aedb84ad05a73356fda404a5b290e9c4"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-IconEye.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgIconEye",
+    "bytes": 1026,
+    "sha256": "19b31dbea57d0094717c687d9b88b498a72c324fce6042c317e72397a79c3c0f"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-Ellipse.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgEllipse",
+    "bytes": 231,
+    "sha256": "05def04d726c7e176a3440364a41fd343439cdd7b992cdd54af25c4c653e4bc3"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-IconEyeOff1.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgIconEyeOff1",
+    "bytes": 1522,
+    "sha256": "a13b42f4a45251836764dad5d61acd47c096d38658e71beda09649e0c6547360"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-Ring35.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgRing35",
+    "bytes": 1709,
+    "sha256": "8461b1ceac745e5c103801b9ed7a247a3ef5ba26877c9b7759c856d8904da643"
+  },
+  {
+    "path": "src/assets/landing/svg/mobile-privacidad-IconLock1.svg",
+    "sourceContext": "mobile-privacidad.reference.txt",
+    "referenceVariable": "imgIconLock1",
+    "bytes": 748,
+    "sha256": "32577a5aa297f9552ab04f4bfa46f98092380f13bc55a86026ccd992e61d15e0"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-alerta-LockBg.svg",
+    "sourceContext": "desktop-narrativa-alerta.reference.txt",
+    "referenceVariable": "imgLockBg",
+    "bytes": 3359,
+    "sha256": "7ad6696c3c0f3d815dfb00ac22ee590773fa10efbc4fdd925e1fc181c4277d77"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-alerta-MarkSmall.svg",
+    "sourceContext": "desktop-narrativa-alerta.reference.txt",
+    "referenceVariable": "imgMarkSmall",
+    "bytes": 1998,
+    "sha256": "2fe1e443b967387576899697e4a01504b0ffa64d2b4481a56420c32d4b1872db"
+  },
+  {
+    "path": "src/assets/landing/svg/desktop-narrativa-alerta-Map.svg",
+    "sourceContext": "desktop-narrativa-alerta.reference.txt",
+    "referenceVariable": "imgMap",
+    "bytes": 1482,
+    "sha256": "cc1adee70d7fb6559fbe43978430c7d15ebc6843f82588e2ef96e5b7bae17307"
+  },
+  {
+    "path": "src/assets/landing/svg/mark.svg",
+    "bytes": 3630,
+    "sha256": "40a81b290df33f26cf478dd2875440e2a5f5a9da49bd85398e3f0db68243527a"
+  },
+  {
+    "path": "src/assets/landing/svg/mark-small.svg",
+    "bytes": 2045,
+    "sha256": "59b0cd70f10ac59e86298918c3359c859e8043959c7b8f223b20b779f40f29a5",
+    "normalization": "Retained exact Mark (small) group and own clip path; removed ancestor notification/background export contamination."
+  },
+  {
+    "path": "src/assets/landing/svg/mark-large.svg",
+    "bytes": 3407,
+    "sha256": "2ed6b57ad582cc1cf9906299e1478ae902ce4df7dc491eef40a59eea903736a2"
+  },
+  {
+    "path": "src/assets/landing/svg/logo-lockup.svg",
+    "bytes": 11403,
+    "sha256": "0728faf6bac7981b1e41e6e9f940e15b2434d317e0b7f71dd852a2fc7eb2cfff"
+  },
+  {
+    "path": "src/assets/landing/svg/google-play.svg",
+    "bytes": 2090,
+    "sha256": "dab831fae486042430e9c1aa26d616ce55ee600a9708b8b92a29a97079c97f09"
+  }
+]

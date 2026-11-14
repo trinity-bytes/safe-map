@@ -1,0 +1,130 @@
+const assetPathPrefix = "ORIGINAL_PNG_SOURCE_USE_LOCAL_ASSETS";
+const imgPhoto = `${assetPathPrefix}/2a773.png`;
+const imgLockBg = "../../../src/assets/landing/svg/mobile-narrativa-alerta-LockBg.svg";
+const imgMarkSmall = "../../../src/assets/landing/svg/mobile-narrativa-alerta-MarkSmall.svg";
+const imgMap = "../../../src/assets/landing/svg/mobile-narrativa-alerta-Map.svg";
+
+export default function SectionNarrativa3() {
+  return (
+    <div className="bg-[var(--color-bg-surface,#0d1f36)] relative size-full" data-node-id="54:553" data-name="Section / Narrativa / 3">
+      <div className="absolute h-[812px] left-0 overflow-clip top-0 w-[390px]" data-node-id="175:93" data-name="Photo backdrop">
+        <div className="absolute h-[812px] left-0 top-0 w-[390px]" data-node-id="175:94" data-name="Photo">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgPhoto} />
+        </div>
+        <div className="absolute h-[812px] left-0 top-0 w-[390px]" data-node-id="175:95" style={{ backgroundImage: "linear-gradient(180deg, rgb(13, 31, 54) 0%, rgba(13, 31, 54, 0.94) 28.202%, rgba(13, 31, 54, 0.6) 42.202%, rgba(13, 31, 54, 0.38) 100%)" }} data-name="Fade / top" />
+      </div>
+      <div className="absolute bg-[#030a14] border-[1.5px] border-[var(--color-accent-glow,#8fd3ff)] border-solid h-[475.2px] left-[80px] overflow-clip rounded-[37.44px] shadow-[0px_0px_72px_0px_rgba(143,211,255,0.16)] top-[265px] w-[230.4px]" data-node-id="77:50" data-name="Phone / 04 undefined">
+        <div className="absolute bg-[var(--color-bg-night,#071426)] h-[457.92px] left-[7.14px] overflow-clip rounded-[30.24px] top-[7.14px] w-[213.12px]" data-node-id="77:51" data-name="Screen / 04 Alerta">
+          <div className="absolute h-[457.92px] left-0 top-0 w-[213.12px]" data-node-id="77:52" data-name="Lock bg">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLockBg} />
+          </div>
+          <div className="[word-break:break-word] absolute content-stretch flex font-['Schibsted_Grotesk:Medium'] font-medium items-start justify-between leading-[1.2] left-0 overflow-clip pt-[10.08px] px-[17.28px] text-[9.36px] text-[color:var(--color-text-primary,#eaf1fa)] top-0 w-[213.12px] whitespace-nowrap" data-node-id="77:67" data-name="Status bar">
+
+          </div>
+          
+          <p className="[word-break:break-word] absolute font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] left-[49.32px] text-[10.08px] text-[color:var(--color-text-secondary,#9fb3cc)] top-[99.36px] whitespace-nowrap" data-node-id="77:71">
+            Jueves, 12 de noviembre
+          </p>
+          <div className="absolute backdrop-blur-[7.2px] bg-[var(--color-bg-raised,#142b47)] border-[0.72px] border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex flex-col gap-[5.76px] items-start left-[8.64px] overflow-clip p-[10.08px] rounded-[15.84px] top-[132.48px] w-[195.84px]" data-node-id="77:72" data-name="Notification">
+            <div className="content-stretch flex gap-[5.76px] items-center overflow-clip relative shrink-0 w-full" data-node-id="77:73" data-name="Frame">
+              <div className="bg-[var(--color-bg-night,#071426)] content-stretch flex items-center justify-center overflow-clip p-[2.88px] relative rounded-[5.76px] shrink-0 size-[15.84px]" data-node-id="77:74" data-name="Frame">
+                <div className="h-[10.08px] relative shrink-0 w-[8.4px]" data-node-id="91:62" data-name="Mark (small)">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMarkSmall} />
+                </div>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:Medium'] font-medium leading-[1.2] min-w-px relative text-[8.64px] text-[color:var(--color-text-secondary,#9fb3cc)] tracking-[0.6912px] uppercase" data-node-id="77:78">
+                SAFEMAP
+              </p>
+              <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[7.92px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="77:79">
+                ahora
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[10.8px] text-[color:var(--color-alert-amber,#f4b740)] whitespace-nowrap" data-node-id="77:80">
+              Alerta cercana
+            </p>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[9.36px] text-[color:var(--color-text-primary,#eaf1fa)] w-[175.68px]" data-node-id="77:81">
+              Robo validado por 5 vecinos a 300 m de ti.
+            </p>
+            <div className="bg-[var(--color-bg-night,#071426)] border-[0.72px] border-[var(--color-line-subtle,#22395a)] border-solid h-[66.24px] overflow-clip relative rounded-[11.52px] shrink-0 w-full" data-node-id="77:82" data-name="Alert map">
+              <div className="absolute h-[86.4px] left-[-0.72px] top-[-10.8px] w-[184.32px]" data-node-id="77:83" data-name="Map">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMap} />
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[5.76px] items-start overflow-clip relative shrink-0 w-full" data-node-id="77:92" data-name="Actions">
+              <div className="bg-[var(--color-accent-trust,#5aa9ff)] content-stretch flex flex-[1_0_0] items-center justify-center min-w-px overflow-clip px-[5.76px] py-[6.48px] relative rounded-[719.28px]" data-node-id="77:93" data-name="Action / Ver en el mapa">
+                <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[normal] relative shrink-0 text-[8.64px] text-[color:var(--color-bg-night,#071426)] whitespace-nowrap" data-node-id="77:94">
+                  Ver en el mapa
+                </p>
+              </div>
+              <div className="border-[0.72px] border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex flex-[1_0_0] items-center justify-center min-w-px overflow-clip px-[5.76px] py-[6.48px] relative rounded-[719.28px]" data-node-id="77:95" data-name="Action / Ruta alternativa">
+                <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[normal] relative shrink-0 text-[8.64px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="77:96">
+                  Ruta alternativa
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute backdrop-blur-[7.2px] bg-[var(--color-bg-raised,#142b47)] border-[0.72px] border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex flex-col gap-[4.32px] items-start left-[8.64px] overflow-clip p-[10.08px] rounded-[15.84px] top-[331.92px] w-[195.84px]" data-node-id="77:97" data-name="Notification">
+            <div className="content-stretch flex gap-[5.76px] items-center overflow-clip relative shrink-0 w-full" data-node-id="77:98" data-name="Frame">
+              <div className="bg-[var(--color-bg-night,#071426)] content-stretch flex items-center justify-center overflow-clip p-[2.88px] relative rounded-[5.76px] shrink-0 size-[15.84px]" data-node-id="77:99" data-name="Frame">
+                <div className="h-[10.08px] relative shrink-0 w-[8.4px]" data-node-id="91:69" data-name="Mark (small)">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMarkSmall} />
+                </div>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:Medium'] font-medium leading-[1.2] min-w-px relative text-[8.64px] text-[color:var(--color-text-secondary,#9fb3cc)] tracking-[0.6912px] uppercase" data-node-id="77:103">
+                SAFEMAP
+              </p>
+              <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[7.92px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="77:104">
+                ahora
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[10.8px] text-[color:var(--color-accent-glow,#8fd3ff)] whitespace-nowrap" data-node-id="77:105">
+              Tu ruta de siempre pasa cerca
+            </p>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[9.36px] text-[color:var(--color-text-primary,#eaf1fa)] w-[175.68px]" data-node-id="77:106">
+              ¿Quieres ver una alternativa más tranquila?
+            </p>
+          </div>
+          <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[2.88px] left-[69.12px] rounded-[1.44px] top-[447.84px] w-[74.88px]" data-node-id="77:107" data-name="Home indicator" />
+        </div>
+      </div>
+      <div className="absolute content-stretch flex flex-col gap-[16px] items-start left-[20px] overflow-clip top-[64px]" data-node-id="175:81" data-name="Copy">
+        <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="175:82" data-name="Stepper">
+          <div className="bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[999px] shrink-0 size-[44px]" data-node-id="175:83" data-name="Step 01">
+            
+          </div>
+          <div className="bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[999px] shrink-0 size-[44px]" data-node-id="175:85" data-name="Step 02">
+            
+          </div>
+          <div className="[word-break:break-word] bg-[var(--color-accent-trust,#5aa9ff)] content-stretch flex font-['Schibsted_Grotesk:Bold'] font-bold gap-[8px] h-[44px] items-center justify-center leading-none overflow-clip pl-[16px] pr-[18px] relative rounded-[999px] shrink-0 text-[14px] text-[color:var(--color-bg-night,#071426)] whitespace-nowrap" data-node-id="175:87" data-name="Step 03 / current">
+            
+            <p className="relative shrink-0" data-node-id="175:89">
+              Alerta
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[999px] shrink-0 size-[44px]" data-node-id="175:90" data-name="Step 04">
+            
+          </div>
+        </div>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start overflow-clip pt-[8px] relative shrink-0 text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="175:92" data-name="Step text">
+          <p className="font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.2] relative shrink-0 text-[26px] tracking-[-0.39px] w-[350px]" data-node-id="54:559">
+            Entonces te llega la alerta.
+          </p>
+          <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[16px] w-[350px]" data-node-id="54:560">
+            Solo recibes lo que pasa en tu zona o en tu ruta, a tiempo para decidir.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

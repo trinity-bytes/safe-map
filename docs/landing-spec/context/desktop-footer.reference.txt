@@ -1,0 +1,84 @@
+const assetPathPrefix = "ORIGINAL_PNG_SOURCE_USE_LOCAL_ASSETS";
+const imgMarkLarge = "../../../src/assets/landing/svg/desktop-footer-MarkLarge.svg";
+
+export default function SectionFooter() {
+  return (
+    <div className="bg-[var(--color-bg-surface,#0d1f36)] relative size-full" data-node-id="53:372" data-name="Section / Footer">
+      <div className="[word-break:break-word] absolute font-['Geist_Mono:Regular'] font-normal leading-[0] left-0 opacity-22 text-[10px] text-[color:var(--color-accent-trust,#5aa9ff)] top-0 whitespace-nowrap" data-node-id="56:352">
+
+      </div>
+      <p className="[word-break:break-word] absolute font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[0.9] left-[270.13px] text-[250px] text-[color:var(--color-text-primary,#eaf1fa)] top-[64px] tracking-[-12.5px] whitespace-nowrap" data-node-id="53:373">
+        SafeMap
+      </p>
+      <div className="absolute h-[213.75px] left-[64px] top-[69.63px] w-[178.125px]" data-node-id="53:374" data-name="Mark (large)">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMarkLarge} />
+      </div>
+      <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[10px] items-start left-[64px] overflow-clip top-[361px] whitespace-nowrap" data-node-id="53:379" data-name="Frame">
+        <p className="font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="53:380">
+          Producto
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:381">
+          Cómo funciona
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:382">
+          Privacidad
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:383">
+          Planes
+        </p>
+      </div>
+      <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[10px] items-start left-[394px] overflow-clip top-[361px] whitespace-nowrap" data-node-id="53:384" data-name="Frame">
+        <p className="font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="53:385">
+          Comunidad
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:386">
+          Equipo
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:387">
+          Preguntas
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:388">
+          Para instituciones
+        </p>
+      </div>
+      <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[10px] items-start left-[724px] overflow-clip top-[361px] whitespace-nowrap" data-node-id="53:389" data-name="Frame">
+        <p className="font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="53:390">
+          Legal
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:391">
+          Privacidad de datos
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:392">
+          Términos de uso
+        </p>
+      </div>
+      <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[10px] items-start left-[1054px] overflow-clip top-[361px] whitespace-nowrap" data-node-id="53:393" data-name="Frame">
+        <p className="font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="53:394">
+          Contacto
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:395">
+          X · @trinity-bytes
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:396">
+          Lima, Perú
+        </p>
+      </div>
+      <div className="absolute content-stretch flex items-center justify-between left-[64px] overflow-clip top-[570px] w-[1312px]" data-node-id="53:397" data-name="Frame">
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[15px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="53:398">
+          © 2026 SafeMap · Vigilantix · Proyecto académico de Ingeniería de Software, UPC
+        </p>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

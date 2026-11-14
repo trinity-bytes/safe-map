@@ -1,26 +1,26 @@
 [
   {
-    "question": "Qué muestra la demo de SafeMap",
-    "answer": "Muestra un flujo ilustrativo con mapas, marcadores y rutas simuladas para explicar cómo podría organizarse el contexto de una zona. No representa datos operativos actuales."
+    "question": "¿Qué muestra la vista previa de Tranqui?",
+    "answer": "Una simulación de cómo funcionará la app. Los reportes, el mapa y las rutas que ves en esta página son de ejemplo."
   },
   {
-    "question": "SafeMap ya ofrece datos actuales o integraciones con autoridades",
-    "answer": "No debe asumirse. Esta landing presenta capacidades esperadas y una demo visual; las fuentes de datos, integraciones y disponibilidad deben confirmarse antes de anunciarse."
+    "question": "¿Tranqui ya tiene datos en vivo o convenios con autoridades?",
+    "answer": "Todavía no. Tranqui es un proyecto en desarrollo: los reportes que ves aquí son de ejemplo y aún no tenemos convenios con autoridades. Firmar al menos tres convenios con municipalidades o entidades de seguridad es una de nuestras metas para el primer año."
   },
   {
-    "question": "Cómo se aborda la privacidad",
-    "answer": "La privacidad es un principio de diseño: la experiencia debe explicar qué datos se solicitan, por qué y durante cuánto tiempo. Los mecanismos técnicos definitivos todavía requieren validación."
+    "question": "¿Cómo protegen mi privacidad?",
+    "answer": "Tus reportes son anónimos: nadie ve quién reportó, ni otros usuarios ni las instituciones. Todo lo que viaja entre la app y nuestros servidores va cifrado con HTTPS (TLS 1.3), y tus datos personales se guardan cifrados. No hay perfiles públicos, y tu ruta solo la ve quien tú eliges."
   },
   {
-    "question": "La ruta mostrada es una recomendacin",
-    "answer": "No. Las rutas de la demo son ejemplos visuales y no sustituyen una evaluacin actual del entorno ni el criterio personal."
+    "question": "¿La ruta sugerida es 100 % segura?",
+    "answer": "No. Ninguna ruta puede garantizarte seguridad total. Tranqui calcula la ruta evitando las zonas con reportes recientes, te muestra qué tramos pasan por zonas de riesgo moderado o alto y te ofrece alternativas cuando el riesgo es alto, para que decidas con más información."
   },
   {
-    "question": "Qu hago ante una emergencia real",
-    "answer": "SafeMap no reemplaza los servicios de emergencia. En una emergencia, contact inmediatamente a los servicios oficiales de tu localidad y segu sus indicaciones."
+    "question": "¿Qué hago ante una emergencia real?",
+    "answer": "Llama al 105 (Policía Nacional del Perú). Tranqui no reemplaza a los servicios de emergencia: te ayuda a informarte y a avisar a tu comunidad, pero no envía ayuda."
   },
   {
-    "question": "Cómo puedo participar",
-    "answer": "Pods registrarte en la beta para conocer las prximas validaciones del producto. La disponibilidad de funciones y ciudades se comunicar cuando est confirmada."
+    "question": "¿Cómo puedo participar?",
+    "answer": "Cuando la app esté disponible, reporta de forma anónima lo que veas y confirma los reportes de tus vecinos. Un reporte aparece en el mapa cuando cinco vecinos lo confirman, así que cada confirmación cuenta."
   }
 ]

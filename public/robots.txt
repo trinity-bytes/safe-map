@@ -1,13 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://safemap.app/sitemap.xml
-
-# Crawl-delay for politeness
-Crawl-delay: 1
-
-# Block access to private directories
-Disallow: /api/
-Disallow: /.well-known/
-Disallow: /admin/
+Sitemap: https://tranqui.jahattrinidad.com/sitemap-index.xml

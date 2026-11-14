@@ -1,0 +1,6 @@
+---
+interface Props { id?: string; tone?: 'night' | 'surface'; class?: string; labelledby?: string; }
+const { id, tone = 'night', class: className, labelledby } = Astro.props;
+---
+<section id={id} class:list={['section', tone, className]} aria-labelledby={labelledby}><slot /></section>
+<style>.surface { background: var(--color-bg-surface); }</style>

@@ -1,0 +1,131 @@
+---
+import reportIcon from '../../assets/landing/svg/desktop-manifiesto-IconReporte.svg';
+import anonymousIcon from '../../assets/landing/svg/desktop-manifiesto-IconAnonimo.svg';
+import lockIcon from '../../assets/landing/svg/desktop-manifiesto-IconCifrado.svg';
+import validatedIcon from '../../assets/landing/svg/desktop-manifiesto-IconValidado.svg';
+import alertIcon from '../../assets/landing/svg/desktop-manifiesto-IconAlerta.svg';
+import routeIcon from '../../assets/landing/svg/desktop-manifiesto-IconRuta.svg';
+import mobileReportIcon from '../../assets/landing/svg/mobile-manifiesto-IconReporte.svg';
+import mobileAnonymousIcon from '../../assets/landing/svg/mobile-manifiesto-IconAnonimo.svg';
+import mobileLockIcon from '../../assets/landing/svg/mobile-manifiesto-IconCifrado.svg';
+import mobileValidatedIcon from '../../assets/landing/svg/mobile-manifiesto-IconValidado.svg';
+import mobileAlertIcon from '../../assets/landing/svg/mobile-manifiesto-IconAlerta.svg';
+import mobileRouteIcon from '../../assets/landing/svg/mobile-manifiesto-IconRuta.svg';
+const chips = [
+  { name: 'report', desktop: reportIcon, mobile: mobileReportIcon },
+  { name: 'anonymous', desktop: anonymousIcon, mobile: mobileAnonymousIcon },
+  { name: 'lock', desktop: lockIcon, mobile: mobileLockIcon },
+  { name: 'validated', desktop: validatedIcon, mobile: mobileValidatedIcon },
+  { name: 'alert', desktop: alertIcon, mobile: mobileAlertIcon },
+  { name: 'route', desktop: routeIcon, mobile: mobileRouteIcon },
+];
+---
+<section class="manifesto" aria-labelledby="manifesto-title">
+  <div class="manifesto-stage">
+    <div class="manifesto-copy">
+      <h2 id="manifesto-title">Nadie conoce tu calle mejor<br class="desktop-break" /> que <span>quienes la caminan.</span></h2>
+      <p>Tranqui reúne lo que ven tus vecinos, espera a que varios lo confirmen y te avisa a tiempo.</p>
+    </div>
+    <div class="chips" aria-hidden="true">
+      {chips.map(({ name, desktop, mobile }) => (
+        <div class:list={['floating-chip', name]}>
+          <div class="chip">
+            <img class="desktop-icon" src={desktop.src} width={desktop.width} height={desktop.height} alt="" loading="lazy" />
+            <img class="mobile-icon" src={mobile.src} width={mobile.width} height={mobile.height} alt="" loading="lazy" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<script>
+  // Magnetic chips: within reach, each chip is pulled toward the pointer and springs back when it leaves.
+  const chips = [...document.querySelectorAll<HTMLElement>('.manifesto .chip')];
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (chips.length && canHover.matches && !calm.matches) {
+    const REACH = 230;
+    const state = chips.map(() => ({ x: 0, y: 0, vx: 0, vy: 0, targetX: 0, targetY: 0, near: 0 }));
+    let frame = 0;
+
+    const loop = () => {
+      let moving = false;
+      chips.forEach((chip, index) => {
+        const item = state[index];
+        // Underdamped spring: a small overshoot is what makes the pull feel magnetic.
+        item.vx = (item.vx + (item.targetX - item.x) * 0.1) * 0.8;
+        item.vy = (item.vy + (item.targetY - item.y) * 0.1) * 0.8;
+        item.x += item.vx;
+        item.y += item.vy;
+        chip.style.translate = `${item.x.toFixed(2)}px ${item.y.toFixed(2)}px`;
+        chip.style.scale = (1 + item.near * 0.08).toFixed(3);
+        if (Math.abs(item.vx) + Math.abs(item.vy) + Math.abs(item.targetX - item.x) + Math.abs(item.targetY - item.y) > 0.05) moving = true;
+      });
+      frame = moving ? requestAnimationFrame(loop) : 0;
+    };
+
+    window.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      chips.forEach((chip, index) => {
+        const item = state[index];
+        const rect = chip.parentElement!.getBoundingClientRect();
+        const dx = event.clientX - (rect.left + rect.width / 2);
+        const dy = event.clientY - (rect.top + rect.height / 2);
+        const pull = Math.max(0, 1 - Math.hypot(dx, dy) / REACH);
+        item.near = pull;
+        item.targetX = dx * pull * 0.55;
+        item.targetY = dy * pull * 0.55;
+      });
+      if (!frame) frame = requestAnimationFrame(loop);
+    }, { passive: true });
+  }
+</script>
+<style>
+  .manifesto { position: relative; background: var(--color-bg-night); overflow: hidden; }
+  .manifesto-stage { position: relative; display: grid; place-items: center; max-width: 90rem; min-height: 37.5rem; margin-inline: auto; padding-block: 8rem; }
+  .manifesto-copy { position: relative; z-index: 1; max-width: calc(100% - 8rem); text-align: center; }
+  h2 { font-size: clamp(2.25rem, 1.5rem + 2.5vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; }
+  h2 span { color: var(--color-accent-glow); }
+  .manifesto-copy p { max-width: 37.5rem; margin: 1.75rem auto 0; font-size: 1.25rem; line-height: 1.5; color: var(--color-text-secondary); }
+  .chips { pointer-events: none; }
+  .floating-chip { position: absolute; width: var(--chip-size); height: var(--chip-size); }
+  .chip { display: grid; place-items: center; width: 100%; height: 100%; border: 1.5px solid color-mix(in srgb, var(--chip-color) 60%, transparent); border-radius: var(--chip-radius); background: color-mix(in srgb, var(--chip-color) 18%, var(--color-bg-night)); transform: rotate(var(--chip-rotation)); will-change: translate; }
+  .mobile-icon { display: none; }
+  .report { --chip-size: 6rem; --chip-radius: 1.8125rem; --chip-color: var(--color-alert-amber); --chip-rotation: 8deg; left: 10.357%; top: 7.612rem; }
+  .report .chip { box-shadow: 0 0 1.75rem color-mix(in srgb, var(--chip-color) 16%, transparent); }
+  .anonymous { --chip-size: 3.5rem; --chip-radius: 1.0625rem; --chip-color: var(--color-text-secondary); --chip-rotation: -7deg; left: 18.666%; top: 20.726rem; opacity: 0.75; }
+  .lock { --chip-size: 4.25rem; --chip-radius: 1.25rem; --chip-color: var(--color-accent-trust); --chip-rotation: 5deg; left: 6.742%; top: 25.198rem; opacity: 0.9; }
+  .validated { --chip-size: 5.25rem; --chip-radius: 1.5625rem; --chip-color: var(--color-state-validated); --chip-rotation: -8deg; left: 82.539%; top: 7.141rem; }
+  .validated .chip, .alert .chip { box-shadow: 0 0 1.75rem color-mix(in srgb, var(--chip-color) 16%, transparent); }
+  .alert { --chip-size: 6.25rem; --chip-radius: 1.875rem; --chip-color: var(--color-accent-glow); --chip-rotation: 6deg; left: 86.91%; top: 19.815rem; }
+  .route { --chip-size: 3.5rem; --chip-radius: 1.0625rem; --chip-color: var(--color-accent-trust); --chip-rotation: -6deg; left: 77.724%; top: 27.818rem; opacity: 0.75; }
+  @media (prefers-reduced-motion: no-preference) {
+    .floating-chip { animation: chip-drift 6s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
+    .anonymous, .alert { animation-delay: -2s; }
+    .validated, .route { animation-delay: -4s; }
+  }
+  @keyframes chip-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+  @media (max-width: 1100px) and (min-width: 768px) {
+    .manifesto-copy { max-width: calc(100% - 12rem); }
+    .report { left: 3%; }
+    .anonymous { left: 5%; }
+    .validated { left: auto; right: 4%; }
+    .alert { left: auto; right: 3%; }
+    .route { left: auto; right: 13%; }
+  }
+  @media (max-width: 767px) {
+    .manifesto-stage { min-height: 38.75rem; padding-block: 12.75rem 13.3125rem; }
+    .manifesto-copy { width: calc(100% - 2.5rem); max-width: 21.875rem; }
+    h2 { font-size: 2.125rem; line-height: 1.1; letter-spacing: 0; text-wrap: initial; }
+    .desktop-break { display: none; }
+    .manifesto-copy p { max-width: 19.375rem; margin-block-start: 1.25rem; font-size: 1rem; }
+    .desktop-icon { display: none; }
+    .mobile-icon { display: block; }
+    .report { --chip-size: 4.5rem; --chip-radius: 1.359375rem; left: 9.23%; top: 4.5rem; }
+    .validated { --chip-size: 3.78rem; --chip-radius: 1.125rem; left: 73.33%; top: 6.25rem; }
+    .anonymous { --chip-size: 2.8rem; --chip-radius: 0.85rem; left: 44.1%; top: 3rem; }
+    .lock { --chip-size: 3.23rem; --chip-radius: 0.95rem; left: 11.28%; top: auto; bottom: 5.77rem; }
+    .alert { --chip-size: 5rem; --chip-radius: 1.5rem; left: 67.18%; top: auto; bottom: 5.75rem; }
+    .route { --chip-size: 2.8rem; --chip-radius: 0.85rem; left: 41.03%; top: auto; bottom: 2.95rem; }
+  }
+</style>
