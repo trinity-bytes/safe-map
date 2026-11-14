@@ -1,0 +1,100 @@
+const assetPathPrefix = "ORIGINAL_PNG_SOURCE_USE_LOCAL_ASSETS";
+const imgIconReporte = "../../../src/assets/landing/svg/mobile-manifiesto-IconReporte.svg";
+const imgIconValidado = "../../../src/assets/landing/svg/mobile-manifiesto-IconValidado.svg";
+const imgIconAnonimo = "../../../src/assets/landing/svg/mobile-manifiesto-IconAnonimo.svg";
+const imgIconCifrado = "../../../src/assets/landing/svg/mobile-manifiesto-IconCifrado.svg";
+const imgIconAlerta = "../../../src/assets/landing/svg/mobile-manifiesto-IconAlerta.svg";
+const imgIconRuta = "../../../src/assets/landing/svg/mobile-manifiesto-IconRuta.svg";
+
+export default function SectionManifiesto() {
+  return (
+    <div className="bg-[var(--color-bg-night,#071426)] relative size-full" data-node-id="174:47" data-name="Section / Manifiesto">
+      <div className="absolute flex items-center justify-center left-[25.98px] size-[81.32px] top-[72px]" data-node-id="174:48">
+        <div className="flex-none rotate-8">
+          <div className="bg-[var(--color-bg-night,#071426)] drop-shadow-[0px_0px_21px_rgba(244,183,64,0.16)] relative rounded-[21.75px] size-[72px]" data-name="Float / reporte">
+            <div className="absolute bg-[var(--color-alert-amber,#f4b740)] left-0 opacity-18 rounded-[21.75px] size-[72px] top-0" data-node-id="174:49" data-name="Tint" />
+            <div className="absolute border-[1.125px] border-[var(--color-alert-amber,#f4b740)] border-solid left-0 opacity-60 rounded-[21.75px] size-[72px] top-0" data-node-id="174:50" data-name="Ring" />
+            <div className="absolute left-[19.5px] size-[33px] top-[19.5px]" data-node-id="174:51" data-name="icon/reporte">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconReporte} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex items-center justify-center left-[286px] size-[68.309px] top-[91.58px]" data-node-id="174:54">
+        <div className="-rotate-8 flex-none">
+          <div className="bg-[var(--color-bg-night,#071426)] drop-shadow-[0px_0px_20.16px_rgba(111,214,168,0.16)] relative rounded-[18px] size-[60.48px]" data-name="Float / validado">
+            <div className="absolute bg-[var(--color-state-validated,#6fd6a8)] left-0 opacity-18 rounded-[18px] size-[60.48px] top-0" data-node-id="174:55" data-name="Tint" />
+            <div className="absolute border-[1.08px] border-[var(--color-state-validated,#6fd6a8)] border-solid left-0 opacity-60 rounded-[18px] size-[60.48px] top-0" data-node-id="174:56" data-name="Ring" />
+            <div className="absolute left-[16.2px] size-[28.08px] top-[16.2px]" data-node-id="174:57" data-name="icon/validado">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconValidado} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex items-center justify-center left-[172px] size-[49.926px] top-[42.54px]" data-node-id="174:61">
+        <div className="-rotate-7 flex-none">
+          <div className="bg-[var(--color-bg-night,#071426)] opacity-75 relative rounded-[13.6px] size-[44.8px]" data-name="Float / anonimo">
+            <div className="absolute bg-[var(--color-text-secondary,#9fb3cc)] left-0 opacity-18 rounded-[13.6px] size-[44.8px] top-0" data-node-id="174:62" data-name="Tint" />
+            <div className="absolute border-[1.2px] border-[var(--color-text-secondary,#9fb3cc)] border-solid left-0 opacity-60 rounded-[13.6px] size-[44.8px] top-0" data-node-id="174:63" data-name="Ring" />
+            <div className="absolute left-[12px] size-[20.8px] top-[12px]" data-node-id="174:64" data-name="icon/anonimo">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconAnonimo} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex items-center justify-center left-[39.5px] size-[55.988px] top-[476px]" data-node-id="174:69">
+        <div className="flex-none rotate-5">
+          <div className="bg-[var(--color-bg-night,#071426)] opacity-90 relative rounded-[15.2px] size-[51.68px]" data-name="Float / cifrado">
+            <div className="absolute bg-[var(--color-accent-trust,#5aa9ff)] left-0 opacity-18 rounded-[15.2px] size-[51.68px] top-0" data-node-id="174:70" data-name="Tint" />
+            <div className="absolute border-[1.14px] border-[var(--color-accent-trust,#5aa9ff)] border-solid left-0 opacity-60 rounded-[15.2px] size-[51.68px] top-0" data-node-id="174:71" data-name="Ring" />
+            <div className="absolute left-[14.06px] size-[23.56px] top-[14.06px]" data-node-id="174:72" data-name="icon/cifrado">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconCifrado} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex items-center justify-center left-[253.64px] size-[87.924px] top-[448px]" data-node-id="174:75">
+        <div className="flex-none rotate-6">
+          <div className="bg-[var(--color-bg-night,#071426)] drop-shadow-[0px_0px_22.4px_rgba(143,211,255,0.16)] relative rounded-[24px] size-[80px]" data-name="Float / alerta">
+            <div className="absolute bg-[var(--color-accent-glow,#8fd3ff)] left-0 opacity-18 rounded-[24px] size-[80px] top-0" data-node-id="174:76" data-name="Tint" />
+            <div className="absolute border-[1.2px] border-[var(--color-accent-glow,#8fd3ff)] border-solid left-0 opacity-60 rounded-[24px] size-[80px] top-0" data-node-id="174:77" data-name="Ring" />
+            <div className="absolute left-[21.6px] size-[36.8px] top-[21.6px]" data-node-id="174:78" data-name="icon/alerta">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconAlerta} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex items-center justify-center left-[160px] size-[49.237px] top-[523.32px]" data-node-id="174:81">
+        <div className="-rotate-6 flex-none">
+          <div className="bg-[var(--color-bg-night,#071426)] opacity-75 relative rounded-[13.6px] size-[44.8px]" data-name="Float / ruta">
+            <div className="absolute bg-[var(--color-accent-trust,#5aa9ff)] left-0 opacity-18 rounded-[13.6px] size-[44.8px] top-0" data-node-id="174:82" data-name="Tint" />
+            <div className="absolute border-[1.2px] border-[var(--color-accent-trust,#5aa9ff)] border-solid left-0 opacity-60 rounded-[13.6px] size-[44.8px] top-0" data-node-id="174:83" data-name="Ring" />
+            <div className="absolute left-[12px] size-[20.8px] top-[12px]" data-node-id="174:84" data-name="icon/ruta">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconRuta} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[20px] items-center left-[20px] overflow-clip text-center top-[204px]" data-node-id="174:88" data-name="Copy">
+        <p className="font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[0] relative shrink-0 text-[34px] text-[color:var(--color-text-primary,#eaf1fa)] w-[350px]" data-node-id="174:89">
+          <span className="leading-[1.1]">{`Nadie conoce tu calle mejor que `}</span>
+          <span className="leading-[1.1] text-[color:var(--color-accent-glow,#8fd3ff)]">quienes la caminan.</span>
+        </p>
+        <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[16px] text-[color:var(--color-text-secondary,#9fb3cc)] w-[310px]" data-node-id="174:90">
+          SafeMap reúne lo que ven tus vecinos, espera a que varios lo confirmen y te avisa a tiempo.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

@@ -1,0 +1,87 @@
+const assetPathPrefix = "ORIGINAL_PNG_SOURCE_USE_LOCAL_ASSETS";
+const imgPhoto = `${assetPathPrefix}/c8a82.png`;
+const imgPhoto1 = `${assetPathPrefix}/d49be.png`;
+const imgPhoto2 = `${assetPathPrefix}/17fa5.png`;
+const imgPhoto3 = `${assetPathPrefix}/41043.png`;
+const imgPhoto4 = `${assetPathPrefix}/18fb9.png`;
+
+export default function SectionEquipo() {
+  return (
+    <div className="bg-[var(--color-bg-surface,#0d1f36)] content-stretch flex flex-col gap-[24px] items-start pb-[64px] pt-[96px] px-[20px] relative size-full" data-node-id="54:746" data-name="Section / Equipo">
+      <p className="[word-break:break-word] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.1] relative shrink-0 text-[32px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.64px] w-[350px]" data-node-id="54:747">
+        Cinco estudiantes que caminan las mismas calles que tú.
+      </p>
+      <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#eaf1fa)] w-[350px]" data-node-id="54:748">
+        Somos Vigilantix, un equipo de Ingeniería de Software de la UPC, en Lima. Hicimos SafeMap pensando en nuestros propios trayectos.
+      </p>
+      <div className="content-start flex flex-wrap gap-[28px_14px] items-start justify-center overflow-clip relative shrink-0 w-full" data-node-id="54:749" data-name="Frame">
+        <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip relative shrink-0 w-[168px]" data-node-id="63:405" data-name="Frame">
+          <div className="h-[208.091px] relative rounded-[16px] shrink-0 w-[168px]" data-node-id="99:182" data-name="Photo">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={imgPhoto} />
+          </div>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="63:407">
+            Piero Espada
+          </p>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#eaf1fa)] w-[168px]" data-node-id="63:408">
+            Arquitectura y pruebas
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip relative shrink-0 w-[168px]" data-node-id="54:750" data-name="Frame">
+          <div className="h-[208.091px] relative rounded-[16px] shrink-0 w-[168px]" data-node-id="99:183" data-name="Photo">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={imgPhoto1} />
+          </div>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="54:752">
+            Mariana Morocho
+          </p>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#eaf1fa)] w-[168px]" data-node-id="54:753">
+            Calidad y riesgos
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip relative shrink-0 w-[168px]" data-node-id="54:754" data-name="Frame">
+          <div className="h-[208.091px] relative rounded-[16px] shrink-0 w-[168px]" data-node-id="99:184" data-name="Photo">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={imgPhoto2} />
+          </div>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="54:756">
+            Fabrizio Santi
+          </p>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#eaf1fa)] w-[168px]" data-node-id="54:757">
+            Coordinación y documentación
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip relative shrink-0 w-[168px]" data-node-id="54:758" data-name="Frame">
+          <div className="h-[208.091px] relative rounded-[16px] shrink-0 w-[168px]" data-node-id="99:185" data-name="Photo">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={imgPhoto3} />
+          </div>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="54:760">
+            Mauricio Terán
+          </p>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#eaf1fa)] w-[168px]" data-node-id="54:761">
+            Análisis y modelado
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip relative shrink-0 w-[168px]" data-node-id="54:762" data-name="Frame">
+          <div className="h-[208.091px] relative rounded-[16px] shrink-0 w-[168px]" data-node-id="99:186" data-name="Photo">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={imgPhoto4} />
+          </div>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="54:764">
+            Jahat Trinidad
+          </p>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#eaf1fa)] w-[168px]" data-node-id="54:765">
+            Producto y experiencia
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

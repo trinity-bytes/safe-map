@@ -1,0 +1,108 @@
+export default function SectionPreguntas() {
+  return (
+    <div className="bg-[var(--color-bg-night,#071426)] content-stretch flex gap-[8px] items-start px-[64px] py-[140px] relative size-full" data-node-id="53:329" data-name="Section / Preguntas">
+      <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip relative shrink-0 w-[432px]" data-node-id="53:330" data-name="Frame">
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.1] relative shrink-0 text-[48px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.96px] w-[408px]" data-node-id="53:331">
+          Lo que quizá te estás preguntando.
+        </p>
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[18px] text-[color:var(--color-text-primary,#eaf1fa)] w-[392px]" data-node-id="53:332">
+          ¿Te queda otra duda? Escríbenos y te respondemos.
+        </p>
+        <div className="bg-[var(--color-bg-surface,#0d1f36)] border border-[var(--color-alert-amber,#f4b740)] border-solid content-stretch flex items-center overflow-clip px-[28px] py-[20px] relative rounded-[20px] shrink-0 w-[392px]" data-node-id="53:370" data-name="Frame">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] min-w-px relative text-[17px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="53:371">
+            En una emergencia, llama al 105 (Policía Nacional del Perú). SafeMap no reemplaza a los servicios de emergencia.
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative" data-node-id="53:333" data-name="FAQ list">
+        <div className="border-[var(--color-line-subtle,#22395a)] border-solid border-t content-stretch flex flex-col gap-[14px] items-start overflow-clip py-[28px] relative shrink-0 w-full" data-node-id="53:334" data-name="FAQ / 01 (open)">
+          <div className="content-stretch flex gap-[20px] items-center overflow-clip relative shrink-0 w-full" data-node-id="53:335" data-name="Frame">
+            
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] min-w-px relative text-[24px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.24px]" data-node-id="53:336">
+              ¿Qué muestra la vista previa de SafeMap?
+            </p>
+            <div className="overflow-clip relative shrink-0 size-[16px]" data-node-id="53:337" data-name="Minus">
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[3px] left-0 top-[6.5px] w-[16px]" data-node-id="53:338" data-name="Rectangle" />
+            </div>
+          </div>
+          <div className="content-stretch flex items-start overflow-clip pl-[48px] relative shrink-0" data-node-id="166:48" data-name="Answer">
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[18px] text-[color:var(--color-text-secondary,#9fb3cc)] w-[640px]" data-node-id="53:339">
+              Una simulación de cómo funcionará la app. Los reportes, el mapa y las rutas que ves en esta página son de ejemplo.
+            </p>
+          </div>
+        </div>
+        <div className="border-[var(--color-line-subtle,#22395a)] border-solid border-t content-stretch flex flex-col items-start overflow-clip py-[28px] relative shrink-0 w-full" data-node-id="53:340" data-name="FAQ / 02">
+          <div className="content-stretch flex gap-[20px] items-center overflow-clip relative shrink-0 w-full" data-node-id="53:341" data-name="Frame">
+            
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] min-w-px relative text-[24px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.24px]" data-node-id="53:342">
+              ¿SafeMap ya tiene datos en vivo o convenios con autoridades?
+            </p>
+            <div className="overflow-clip relative shrink-0 size-[16px]" data-node-id="53:343" data-name="Plus">
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[3px] left-0 top-[6.5px] w-[16px]" data-node-id="53:344" data-name="Rectangle" />
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[16px] left-[6.5px] top-0 w-[3px]" data-node-id="53:345" data-name="Rectangle" />
+            </div>
+          </div>
+        </div>
+        <div className="border-[var(--color-line-subtle,#22395a)] border-solid border-t content-stretch flex flex-col items-start overflow-clip py-[28px] relative shrink-0 w-full" data-node-id="53:346" data-name="FAQ / 03">
+          <div className="content-stretch flex gap-[20px] items-center overflow-clip relative shrink-0 w-full" data-node-id="53:347" data-name="Frame">
+            
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] min-w-px relative text-[24px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.24px]" data-node-id="53:348">
+              ¿Cómo protegen mi privacidad?
+            </p>
+            <div className="overflow-clip relative shrink-0 size-[16px]" data-node-id="53:349" data-name="Plus">
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[3px] left-0 top-[6.5px] w-[16px]" data-node-id="53:350" data-name="Rectangle" />
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[16px] left-[6.5px] top-0 w-[3px]" data-node-id="53:351" data-name="Rectangle" />
+            </div>
+          </div>
+        </div>
+        <div className="border-[var(--color-line-subtle,#22395a)] border-solid border-t content-stretch flex flex-col items-start overflow-clip py-[28px] relative shrink-0 w-full" data-node-id="53:352" data-name="FAQ / 04">
+          <div className="content-stretch flex gap-[20px] items-center overflow-clip relative shrink-0 w-full" data-node-id="53:353" data-name="Frame">
+            
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] min-w-px relative text-[24px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.24px]" data-node-id="53:354">
+              ¿La ruta sugerida es 100 % segura?
+            </p>
+            <div className="overflow-clip relative shrink-0 size-[16px]" data-node-id="53:355" data-name="Plus">
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[3px] left-0 top-[6.5px] w-[16px]" data-node-id="53:356" data-name="Rectangle" />
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[16px] left-[6.5px] top-0 w-[3px]" data-node-id="53:357" data-name="Rectangle" />
+            </div>
+          </div>
+        </div>
+        <div className="border-[var(--color-line-subtle,#22395a)] border-solid border-t content-stretch flex flex-col items-start overflow-clip py-[28px] relative shrink-0 w-full" data-node-id="53:358" data-name="FAQ / 05">
+          <div className="content-stretch flex gap-[20px] items-center overflow-clip relative shrink-0 w-full" data-node-id="53:359" data-name="Frame">
+            
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] min-w-px relative text-[24px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.24px]" data-node-id="53:360">
+              ¿Qué hago ante una emergencia real?
+            </p>
+            <div className="overflow-clip relative shrink-0 size-[16px]" data-node-id="53:361" data-name="Plus">
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[3px] left-0 top-[6.5px] w-[16px]" data-node-id="53:362" data-name="Rectangle" />
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[16px] left-[6.5px] top-0 w-[3px]" data-node-id="53:363" data-name="Rectangle" />
+            </div>
+          </div>
+        </div>
+        <div className="border-[var(--color-line-subtle,#22395a)] border-b border-solid border-t content-stretch flex flex-col items-start overflow-clip py-[28px] relative shrink-0 w-full" data-node-id="53:364" data-name="FAQ / 06">
+          <div className="content-stretch flex gap-[20px] items-center overflow-clip relative shrink-0 w-full" data-node-id="53:365" data-name="Frame">
+            
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] min-w-px relative text-[24px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.24px]" data-node-id="53:366">
+              ¿Cómo puedo participar?
+            </p>
+            <div className="overflow-clip relative shrink-0 size-[16px]" data-node-id="53:367" data-name="Plus">
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[3px] left-0 top-[6.5px] w-[16px]" data-node-id="53:368" data-name="Rectangle" />
+              <div className="absolute bg-[var(--color-text-primary,#eaf1fa)] h-[16px] left-[6.5px] top-0 w-[3px]" data-node-id="53:369" data-name="Rectangle" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.
