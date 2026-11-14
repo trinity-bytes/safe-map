@@ -1,6 +1,6 @@
-# SafeMap — Landing
+# Tranqui — Landing
 
-Landing informativa del proyecto académico SafeMap: reportes anónimos validados por vecinos para conocer lo que pasa en tu zona. Implementada en Astro 7 y Tailwind 4, sin runtime de React ni prototipo de mapas web. La futura app Flutter se mantiene en otro repositorio.
+Landing informativa del proyecto académico Tranqui: reportes anónimos validados por vecinos para conocer lo que pasa en tu zona. Implementada en Astro 7 y Tailwind 4, sin runtime de React ni prototipo de mapas web. La futura app Flutter se mantiene en otro repositorio.
 
 ## Desarrollo
 
@@ -27,7 +27,7 @@ npm run build
 npm run preview
 ```
 
-`build` limita el heap de Node a 768 MiB y el pool de trabajo de imágenes a un hilo. Conserva los argumentos de Astro (`npm run build -- --outDir /tmp/safemap-preview`). Los PNG originales no se modifican: Astro/Sharp produce variantes AVIF/WebP durante el build. El primer build tarda más por las imágenes; los siguientes reutilizan caché.
+`build` limita el heap de Node a 768 MiB y el pool de trabajo de imágenes a un hilo. Conserva los argumentos de Astro (`npm run build -- --outDir /tmp/tranqui-preview`). Los PNG originales no se modifican: Astro/Sharp produce variantes AVIF/WebP durante el build. El primer build tarda más por las imágenes; los siguientes reutilizan caché.
 
 Las regresiones de navegador usan Playwright. Instalar Chromium una vez con `npx playwright install chromium` si no existe. Con el servidor activo, ejecutar **un script por vez**:
 

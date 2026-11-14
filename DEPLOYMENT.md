@@ -1,4 +1,4 @@
-# Desplegar la landing de SafeMap
+# Desplegar la landing de Tranqui
 
 El sitio es estático y GitHub Pages lo sirve bajo `/safe-map/`. La implementación se integra en `develop`; esa rama no publica en producción y no se fusiona automáticamente con `main`.
 

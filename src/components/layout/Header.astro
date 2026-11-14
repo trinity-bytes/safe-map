@@ -10,7 +10,7 @@ const links = [
 ---
 <header class="site-header">
   <div class="shell header-row">
-    <a class="brand" href={base} aria-label="SafeMap, inicio"><Logo /></a>
+    <a class="brand" href={base} aria-label="Tranqui, inicio"><Logo /></a>
     <nav class="desktop-nav" aria-label="Navegación principal">
       {links.filter(([id]) => !['instituciones', 'preguntas'].includes(id)).map(([id, text]) => <a href={`${base}#${id}`} data-section={id}>{text}</a>)}
     </nav>
@@ -21,7 +21,7 @@ const links = [
 </header>
 <dialog id="mobile-menu" aria-label="Navegación principal">
   <div class="menu-content">
-    <div class="menu-heading"><a href={base} aria-label="SafeMap, inicio"><Logo /></a><button type="button" id="menu-close" autofocus>Cerrar</button></div>
+    <div class="menu-heading"><a href={base} aria-label="Tranqui, inicio"><Logo /></a><button type="button" id="menu-close" autofocus>Cerrar</button></div>
     <nav aria-label="Navegación móvil">
       {links.map(([id, text]) => <a href={`${base}#${id}`} data-section={id}>{text}</a>)}
     </nav>

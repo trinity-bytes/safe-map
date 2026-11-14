@@ -1,11 +1,11 @@
 [
   {
-    "question": "¿Qué muestra la vista previa de SafeMap?",
+    "question": "¿Qué muestra la vista previa de Tranqui?",
     "answer": "Una simulación de cómo funcionará la app. Los reportes, el mapa y las rutas que ves en esta página son de ejemplo."
   },
   {
-    "question": "¿SafeMap ya tiene datos en vivo o convenios con autoridades?",
-    "answer": "Todavía no. SafeMap es un proyecto en desarrollo: los reportes que ves aquí son de ejemplo y aún no tenemos convenios con autoridades. Firmar al menos tres convenios con municipalidades o entidades de seguridad es una de nuestras metas para el primer año."
+    "question": "¿Tranqui ya tiene datos en vivo o convenios con autoridades?",
+    "answer": "Todavía no. Tranqui es un proyecto en desarrollo: los reportes que ves aquí son de ejemplo y aún no tenemos convenios con autoridades. Firmar al menos tres convenios con municipalidades o entidades de seguridad es una de nuestras metas para el primer año."
   },
   {
     "question": "¿Cómo protegen mi privacidad?",
@@ -13,11 +13,11 @@
   },
   {
     "question": "¿La ruta sugerida es 100 % segura?",
-    "answer": "No. Ninguna ruta puede garantizarte seguridad total. SafeMap calcula la ruta evitando las zonas con reportes recientes, te muestra qué tramos pasan por zonas de riesgo moderado o alto y te ofrece alternativas cuando el riesgo es alto, para que decidas con más información."
+    "answer": "No. Ninguna ruta puede garantizarte seguridad total. Tranqui calcula la ruta evitando las zonas con reportes recientes, te muestra qué tramos pasan por zonas de riesgo moderado o alto y te ofrece alternativas cuando el riesgo es alto, para que decidas con más información."
   },
   {
     "question": "¿Qué hago ante una emergencia real?",
-    "answer": "Llama al 105 (Policía Nacional del Perú). SafeMap no reemplaza a los servicios de emergencia: te ayuda a informarte y a avisar a tu comunidad, pero no envía ayuda."
+    "answer": "Llama al 105 (Policía Nacional del Perú). Tranqui no reemplaza a los servicios de emergencia: te ayuda a informarte y a avisar a tu comunidad, pero no envía ayuda."
   },
   {
     "question": "¿Cómo puedo participar?",
