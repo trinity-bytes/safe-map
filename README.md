@@ -35,9 +35,11 @@ node tests/glyph-field.mjs
 node tests/narrative.mjs
 node tests/trust-content.mjs
 node tests/closing-content.mjs
+node tests/integration.mjs
+node tests/metadata.mjs
 ```
 
-`TEST_URL` cambia la URL de prueba; `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` permite usar un Chromium ya instalado, sin descargar otro. Los navegadores se cierran al terminar cada script.
+`TEST_URL` cambia la URL de prueba; `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` permite usar un Chromium ya instalado, sin descargar otro. Los navegadores se cierran al terminar cada script. `QA_SCREENSHOT_DIR` permite guardar capturas desde el test de integración fuera del repositorio. [Informe observado](docs/landing-qa/README.md).
 
 ## Estructura
 

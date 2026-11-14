@@ -336,9 +336,10 @@ const source = variant === 'hero'
       this.buffer = document.createElement('canvas');
       this.resizeObserver = new ResizeObserver(() => this.resize());
       this.intersectionObserver = new IntersectionObserver(([entry]) => {
-        this.visible = entry.isIntersecting;
+        this.visible = entry.isIntersecting && entry.intersectionRatio > 0;
+        if (this.visible) this.resize();
         this.updatePlayback();
-      });
+      }, { threshold: 0.001 });
       document.addEventListener('visibilitychange', this.updatePlayback);
       this.motion.addEventListener('change', this.updatePlayback);
 
@@ -368,6 +369,7 @@ const source = variant === 'hero'
 
     private resize() {
       if (!this.canvas || !this.buffer || !this.views) return;
+      if (this.dataset.variant === 'texture' && !this.visible) return;
       const width = this.clientWidth;
       const height = this.clientHeight;
       if (!width || !height) return;
@@ -390,7 +392,11 @@ const source = variant === 'hero'
         context.fillStyle = style.getPropertyValue(layer.token).trim();
         context.globalAlpha = layer.opacity;
         text.split('\n').forEach((line, row) => {
-          if (line.trim()) context.fillText(line, layer.x, layer.y + row * layer.lineHeight);
+          // Figma's 242-character / 1452px lines use a fixed 6px cell.
+          // Symbol fallbacks otherwise widen circle glyphs in whole-line fillText.
+          [...line].forEach((character, column) => {
+            if (character !== ' ') context.fillText(character, layer.x + column * layer.size * 0.6, layer.y + row * layer.lineHeight, layer.size * 0.6);
+          });
         });
       }
       this.paint(0);

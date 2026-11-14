@@ -96,15 +96,15 @@ Cada tarea es un commit. **Dependencias:** T1 antes de todo lo visual (T3 a T9);
 | ID | Specs | Tarea | Depende de | Necesita Figma | Ruta | Estado | Commit |
 |---|---|---|---|---|---|---|---|
 | T1 | S1, S4 | Exportar el diseño al repo (§3): copy verbatim y medidas por sección, capturas desktop/mobile/menú y SVG (logo, `Mark (small)`, íconos, mapas) | — | **Sí** | delegated | ✅ completada | 5ab24cb |
-| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | ✅ con excepción lint preexistente (T3) | b216517 |
+| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | ✅ completada (lint reparado T3) | b216517 |
 | T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ✅ completada | e3aa57f |
-| T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ✅ implementada; visual final T10 | commit feat: implement accessible landing navigation and footer | — |
-| T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | delegated | ✅ funcional; visual T10 | 2539559 | — |
-| T6 | S1, S3, S6 | Narrativa con scroll | T4 | No | delegated | ✅ funcional; visual T10 | 3db44bb | — |
-| T7 | S1, S3, S5 | Privacidad, Instituciones y Planes | T4 | No | delegated | ✅ funcional; visual T10 | d687684 | — |
+| T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ✅ completada | 4a45aa6 | — |
+| T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | delegated | ✅ completada | 2539559 | — |
+| T6 | S1, S3, S6 | Narrativa con scroll | T4 | No | delegated | ✅ completada | 3db44bb | — |
+| T7 | S1, S3, S5 | Privacidad, Instituciones y Planes | T4 | No | delegated | ✅ completada | d687684 | — |
 | T8 | S1, S3, S5 | Equipo, Metas, Preguntas y Descarga | T4 | No | delegated | ⚠️ implementada salvo FAQ02–06 sin copy | 37511d6 | — |
-| T9 | S1, S6 | SEO, favicon nuevo, Node del CI y documentación | T5–T8 | No | inline | ✅ completada | commit T9 (ver historial) | — |
-| T10 | S1–S6 | Verificación final | T9 | No | inline | ⏳ pendiente | — |
+| T9 | S1, S6 | SEO, favicon nuevo, Node del CI y documentación | T5–T8 | No | inline | ✅ completada | 73e176d | — |
+| T10 | S1–S6 | Verificación final | T9 | No | inline | ✅ checks técnicos; S1 parcial por FAQ | `feat/landing-verification` |
 
 ### T1 — Exportar el diseño al repo
 
@@ -198,7 +198,7 @@ Especificación (L49, L53, L43):
 
 - **L1** (2026-11-14, el usuario, pedido verbatim): "ah ok, entonces que sstro se encsrgue. ahora dejame listo el plan de imomementacion osra qye oueda ser fscilmnete seguido por codex tambien." Antes, en la misma sesión, se verificó que en la máquina no hay herramientas de imágenes instaladas y que `sharp` ya está en `package-lock.json` como dependencia de Astro 5.8.1; el usuario eligió que Astro optimice en el build y que los originales no se toquen.
 - **L2** (2026-11-14): hallazgos al planificar. No existe `node_modules` (correr `npm ci` antes de cualquier comando). `@astrojs/check` no está en el lockfile, así que `npm run type-check` falla hasta T3. El CI usa Node 18 (se sube en T9). `astro.config.mjs` tiene `manualChunks` con `react` y `leaflet`, que hay que quitar en T2. Se crea `AGENTS.md` en la raíz para que Codex encuentre este plan.
-- **Próximo paso:** T1 (necesita el MCP de Figma) y T2, que no depende de Figma y se puede hacer en paralelo.
+- **Próximo paso vigente:** aprobar las cinco respuestas FAQ ausentes y planificar la actualización de dependencias heredadas. Implementación técnica integrada a `develop`; no publicar ni tocar `main` sin nueva decisión.
 
 - **L3** (2026-11-14, usuario, verbatim): "crea la rama develop, y realizas las imomementacionesnsobre esa rama, osea creas ramas en base a esa y vas consolidando los camvios en esa rama. nada de prs, haz merges directos, te autorizo a ello. usa las herramientas y tomanlas decisiones que creas convenientes oero mantenme informado. te dejare trabajando por tu cuenta, evita bloquearte oor tonterias  ya te dije que te autorizo a hacer push pull y lo aue necesites. simolemente deja main sin tocar"
 - **L4** (2026-11-14): `develop` creada desde `95aa4a5`, conservando el diseño y los originales; `main` permanece en `80adfa8`. T1 y T2 delegadas como unidades independientes con superficies disjuntas (exportación documental/recursos frente a eliminación del prototipo). Previsión: varios miles de líneas, una tarea por commit, merges a develop sin PR. RDD desactivado globalmente; se mantienen verificaciones funcionales.
@@ -225,3 +225,8 @@ Especificación (L49, L53, L43):
 - **L15** (2026-11-14): T8: Equipo5 retratos, metas explícitas, FAQ nativa y descarga inactiva. Solo se publica pregunta01 con respuesta aprobada; preguntas02–06 quedan answer:null sin publicar hasta copy aprobado (S1 parcial). RED sin secciones y GREEN navegador desktop/mobile y sinJS aprobado. Aviso emergencia permanece. No se inventa contacto. Risk: none.
 
 - **L16** (2026-11-14): T9: metadatos/canonical/OG1200×630 obtenida del hero, favicon exacto y apple180×180, manifest relativo, robots y documentación nueva. CI solo cambia18→22, trigger main intacto, no workflow ejecutado. Test metadata, lint, types0/0/0 y build58 variantes aprobados. Build51s; MemAvailable mínima observada1779MiB. Verificación independiente confirma compatibilidad declaradaNode22, sin bloqueadores; ejecución real local esNode26 (CI22 no ejecutado). Risk: item5(CI/tooling). Social card pública pendiente hasta despliegue autorizado.
+
+- **L17** (2026-11-14): T10, corrección visual/recursos: fuentes Unicode ○/∘/∙ ausentes en Geist Mono provocaban avance variable en fillText; Figma usa celdas6px (242×6=1452). Campo con avance fijo y halo circular limitado a su geometría, sin invadir texto. Se eliminó text-wrap:balance que cambiaba saltos frente a Figma; se añadió textura del footer y calidad de pantallas. Mark(small) traía ancestros del panel de notificación en su SVG: se conserva solo grupo exacto+clip, se actualiza manifiesto y favicon/icono opaco.
+- **L18** (2026-11-14): Performance detectó rasterizado fuera de pantalla: RED12 pinturas tempranas; GREEN0 tras diferir texturas a IntersectionObserver con umbral0.001 (contacto de borde no cuenta como visible). Hero eager usa prioridad alta y sizes correcto. Lighthouse mobile final90/100/100/100 (Performance/Accessibility/Best Practices/SEO), FCP1.0s/LCP3.3s/TBT150ms. Baseline inicial78 con570msTBT.
+- **L19** (2026-11-14): Verificación final serial observada: npm ci, lint, type-check0/0/0, test wrapper1/1, build58 variantes, metadata, navegación, glifos, narrativa, confianza, cierre e integración. Viewports1440/390, todas las imágenes/anclas, cero errores de página/red, teclado Tab/Shift+Tab/Escape, reduced motion y contenido sinJS. Build frío51s, mínimo MemAvailable1779MiB; build caché3s. Informe y capturas: docs/landing-qa/README.md. Node26 local; Node22 solo verificado estáticamente/configurado en CI, no se ejecutó Actions.
+- **L20** (2026-11-14): Alcance pendiente honesto: S1 parcial/T8 no cerrado por FAQ02–06 ausentes de Figma (answer:null, sin publicar). Destinos Play/contacto/legales/perfiles siguen pendientes y no se inventaron. npm audit28 vulnerabilidades heredadas(1crítica de AVIF no confiable, GHSA-26w7-cxv4-gfx2); no se migra Astro5 a7 fuera del plan ni se ejecuta audit fix force. Publicación/social-card remota no ejecutadas. Risk: item5(dependencias/CI), verificación independiente sin bloqueadores del cambio. RDD sigue off; no review/consent nativo iniciado. main80adfa8 intacta, sin push/PR/deploy.

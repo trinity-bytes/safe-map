@@ -12,15 +12,18 @@ try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
   await page.addInitScript(() => {
     window.__heroPaints = 0;
+    window.__texturePaints = 0;
     const clear = CanvasRenderingContext2D.prototype.clearRect;
     CanvasRenderingContext2D.prototype.clearRect = function (...args) {
       if (this.canvas.closest('glyph-field[data-variant="hero"]')) window.__heroPaints++;
+      if (this.canvas.closest('glyph-field[data-variant="texture"]')) window.__texturePaints++;
       return clear.apply(this, args);
     };
   });
   await page.goto(url);
   await page.getByRole('heading', { name: 'Llega a tu destino con más tranquilidad.', exact: true }).waitFor();
   await page.waitForFunction(() => window.__heroPaints > 2);
+  assert.equal(await page.evaluate(() => window.__texturePaints), 0, 'offscreen textures must not rasterize during startup');
   const canvas = page.locator('glyph-field[data-variant="hero"] canvas');
   assert.equal(await canvas.getAttribute('aria-hidden'), null);
   assert.equal(await canvas.evaluate(node => node.width), 2880);
