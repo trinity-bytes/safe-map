@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import { readFile, access } from 'node:fs/promises';
+const html = await readFile('dist/index.html', 'utf8');
+const canonical = 'https://trinity-bytes.github.io/safe-map/';
+assert.match(html, /<html lang="es"/);
+assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
+assert.equal((html.match(/<title>/g) ?? []).length, 1);
+assert(html.includes(`rel="canonical" href="${canonical}"`));
+assert(html.includes(`property="og:url" content="${canonical}"`));
+assert(html.includes(`property="og:image" content="${canonical}og-image.png"`));
+assert(html.includes('name="twitter:card" content="summary_large_image"'));
+assert(!html.includes('PLACEHOLDER'));
+for (const file of ['favicon.svg', 'apple-touch-icon.png', 'og-image.png', 'site.webmanifest']) await access(`dist/${file}`);
+const manifest = JSON.parse(await readFile('dist/site.webmanifest', 'utf8'));
+assert.equal(manifest.start_url, './');
+assert.equal(manifest.theme_color, '#071426');
+assert.equal(manifest.icons.length, 2);
+console.log('metadata PASS: canonical, OG, locale, manifest, icons, one h1 and no placeholders');

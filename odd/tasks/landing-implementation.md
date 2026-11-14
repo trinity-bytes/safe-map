@@ -102,8 +102,8 @@ Cada tarea es un commit. **Dependencias:** T1 antes de todo lo visual (T3 a T9);
 | T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | delegated | ✅ funcional; visual T10 | 2539559 | — |
 | T6 | S1, S3, S6 | Narrativa con scroll | T4 | No | delegated | ✅ funcional; visual T10 | 3db44bb | — |
 | T7 | S1, S3, S5 | Privacidad, Instituciones y Planes | T4 | No | delegated | ✅ funcional; visual T10 | d687684 | — |
-| T8 | S1, S3, S5 | Equipo, Metas, Preguntas y Descarga | T4 | No | delegated | ⚠️ implementada salvo FAQ02–06 sin copy | commit T8 (ver historial) | — |
-| T9 | S1, S6 | SEO, favicon nuevo, Node del CI y documentación | T5–T8 | No | inline | ⏳ pendiente | — |
+| T8 | S1, S3, S5 | Equipo, Metas, Preguntas y Descarga | T4 | No | delegated | ⚠️ implementada salvo FAQ02–06 sin copy | 37511d6 | — |
+| T9 | S1, S6 | SEO, favicon nuevo, Node del CI y documentación | T5–T8 | No | inline | ✅ completada | commit T9 (ver historial) | — |
 | T10 | S1–S6 | Verificación final | T9 | No | inline | ⏳ pendiente | — |
 
 ### T1 — Exportar el diseño al repo
@@ -223,3 +223,5 @@ Especificación (L49, L53, L43):
 - **L14** (2026-11-14): T7: Privacidad/Instituciones/Planes con SVG exactos, cifras de ejemplo rotuladas, Free y Premium800/504; Conversemos no interactivo al faltar destino, sin enlaces inventados. RED sin secciones y GREEN navegador1440/390 de promesas, cifras, planes, demo, imágenes y overflow observado. Risk: none. Assessment de writers no disponible por inventario de archivos nuevos durante integración compartida; RDD off y no se inicia review.
 
 - **L15** (2026-11-14): T8: Equipo5 retratos, metas explícitas, FAQ nativa y descarga inactiva. Solo se publica pregunta01 con respuesta aprobada; preguntas02–06 quedan answer:null sin publicar hasta copy aprobado (S1 parcial). RED sin secciones y GREEN navegador desktop/mobile y sinJS aprobado. Aviso emergencia permanece. No se inventa contacto. Risk: none.
+
+- **L16** (2026-11-14): T9: metadatos/canonical/OG1200×630 obtenida del hero, favicon exacto y apple180×180, manifest relativo, robots y documentación nueva. CI solo cambia18→22, trigger main intacto, no workflow ejecutado. Test metadata, lint, types0/0/0 y build58 variantes aprobados. Build51s; MemAvailable mínima observada1779MiB. Verificación independiente confirma compatibilidad declaradaNode22, sin bloqueadores; ejecución real local esNode26 (CI22 no ejecutado). Risk: item5(CI/tooling). Social card pública pendiente hasta despliegue autorizado.
