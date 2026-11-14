@@ -45,7 +45,7 @@ const steps = [
   },
 ];
 
-// The halo is text, like Figma's three concentric glyph bands, not a new brand mark.
+// Circular glyphs use fixed cells so missing Unicode font glyphs cannot widen the halo.
 const halo = (band: number) => {
   const width = 76;
   const height = 74;
@@ -59,10 +59,13 @@ const halo = (band: number) => {
       const dx = Math.max(x - halfWidth + radius, 0);
       const dy = Math.max(y - halfHeight + radius, 0);
       const distance = Math.hypot(dx, dy) - radius;
-      return Math.abs(distance) < 0.65 && x <= halfWidth + 1 && y <= halfHeight + 1
-        ? ['○', '∘', '·'][band] : ' ';
+      if (!(Math.abs(distance) < 0.65 && x <= halfWidth + 1 && y <= halfHeight + 1)) return '';
+      const glyphRadius = [2.5, 1.2, 0.35][band];
+      const cx = col * 6 + 3;
+      const cy = row * 11 + 5.5;
+      return `M${cx - glyphRadius},${cy}a${glyphRadius},${glyphRadius} 0 1,0 ${glyphRadius * 2},0a${glyphRadius},${glyphRadius} 0 1,0 ${-glyphRadius * 2},0`;
     }).join('')
-  ).join('\n');
+  ).join('');
 };
 ---
 
@@ -103,7 +106,7 @@ const halo = (band: number) => {
       ))}
     </div>
     <div class="narrative-phone-stage" hidden>
-      {[0, 1, 2].map(band => <pre class:list={['narrative-halo', `halo-${band + 1}`]} aria-hidden="true">{halo(band)}</pre>)}
+      {[0, 1, 2].map(band => <svg class:list={['narrative-halo', `halo-${band + 1}`]} width="456" height="814" viewBox="0 0 456 814" aria-hidden="true"><path d={halo(band)} fill="none" stroke="currentColor" stroke-width="0.6" /></svg>)}
     </div>
   </div>
   <div class="narrative-track" aria-hidden="true" hidden>
@@ -255,7 +258,7 @@ const halo = (band: number) => {
 .fallback-phone :global(.phone img) { border-radius: 2.625rem; }
 .narrative-phone-stage[hidden], .narrative-track[hidden] { display: none; }
 .narrative-photo-stack { position: absolute; inset: 0 0 0 auto; width: 51.4%; pointer-events: none; }
-.narrative-halo { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); margin: 0; color: var(--color-accent-glow); font: 10px / 11px var(--font-mono); white-space: pre; pointer-events: none; opacity: 0.5; animation: halo-wave 3.6s ease-in-out infinite; animation-play-state: paused; }
+.narrative-halo { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); margin: 0; color: var(--color-accent-glow); font: 10px / 11px monospace; white-space: pre; pointer-events: none; opacity: 0.5; animation: halo-wave 3.6s ease-in-out infinite; animation-play-state: paused; }
 .halo-1 { animation-delay: 0s; opacity: 0.8; }
 .halo-2 { animation-delay: 0.6s; }
 .halo-3 { animation-delay: 1.2s; color: var(--color-accent-trust); }

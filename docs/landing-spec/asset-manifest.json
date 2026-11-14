@@ -846,8 +846,9 @@
   },
   {
     "path": "src/assets/landing/svg/mark-small.svg",
-    "bytes": 4052,
-    "sha256": "2bcc95e348ea8705dfc96145eaabd30fc15119b3cc7a77cbcd7c19da7c5d06b9"
+    "bytes": 2045,
+    "sha256": "59b0cd70f10ac59e86298918c3359c859e8043959c7b8f223b20b779f40f29a5",
+    "normalization": "Retained exact Mark (small) group and own clip path; removed ancestor notification/background export contamination."
   },
   {
     "path": "src/assets/landing/svg/mark-large.svg",

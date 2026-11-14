@@ -2,11 +2,11 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Badge from './Badge.astro';
-interface Props { screen: ImageMetadata; alt: string; class?: string; loading?: 'eager' | 'lazy'; label?: boolean; }
-const { screen, alt, class: className, loading = 'lazy', label = true } = Astro.props;
+interface Props { screen: ImageMetadata; alt: string; class?: string; loading?: 'eager' | 'lazy'; label?: boolean; sizes?: string; }
+const { screen, alt, class: className, loading = 'lazy', label = true, sizes = '(max-width: 767px) 212px, 296px' } = Astro.props;
 ---
 <div class:list={['phone-preview', className]}>
-  <div class="phone"><Image src={screen} alt={alt} widths={[296, 592]} sizes="(max-width: 767px) 212px, 296px" width={296} height={636} format="webp" loading={loading} /></div>
+  <div class="phone"><Image src={screen} alt={alt} widths={[296, 592]} sizes={sizes} fetchpriority={loading === 'eager' ? 'high' : 'auto'} width={296} height={636} format="webp" quality={100} loading={loading} /></div>
   {label && <div class="preview-label"><Badge variant="Demo">Vista previa · demo simulada</Badge></div>}
 </div>
 <style>
