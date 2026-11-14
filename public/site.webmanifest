@@ -1,6 +1,6 @@
 {
-  "name": "SafeMap",
-  "short_name": "SafeMap",
+  "name": "Tranqui",
+  "short_name": "Tranqui",
   "description": "Reportes anónimos validados por vecinos. Proyecto académico en desarrollo.",
   "start_url": "./",
   "scope": "./",

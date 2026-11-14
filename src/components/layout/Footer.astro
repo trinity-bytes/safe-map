@@ -10,12 +10,12 @@ const groups = [
 <footer class="footer">
   <GlyphField variant="texture" />
   <div class="shell">
-    <a href={base} class="footer-brand" aria-label="SafeMap, inicio"><img src={mark.src} width="178" height="214" alt="" /><span>SafeMap</span></a>
+    <a href={base} class="footer-brand" aria-label="Tranqui, inicio"><img src={mark.src} width="178" height="214" alt="" /><span>Tranqui</span></a>
     <nav id="footer-navigation" class="footer-navigation" aria-label="Navegación del pie de página">
       {groups.map(group => <div><h2>{group.title}</h2><ul>{group.links.map(([id, text]) => <li><a href={`${base}#${id}`}>{text}</a></li>)}</ul></div>)}
       <div><h2>Contacto</h2><ul><li><span>X · @trinity-bytes</span></li><li>Lima, Perú</li></ul></div>
     </nav>
-    <p class="copyright">© 2026 SafeMap · Vigilantix · Proyecto académico de Ingeniería de Software, UPC</p>
+    <p class="copyright">© 2026 Tranqui · Vigilantix · Proyecto académico de Ingeniería de Software, UPC</p>
     <p class="course-credit">SI720 Diseño y Patrones de Software · Sección 4122 · 2025</p>
   </div>
 </footer>
