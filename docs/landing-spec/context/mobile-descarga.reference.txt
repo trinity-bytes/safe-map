@@ -1,0 +1,57 @@
+const assetPathPrefix = "ORIGINAL_PNG_SOURCE_USE_LOCAL_ASSETS";
+const imgPhoto = `${assetPathPrefix}/f1b3c.png`;
+const imgIconGooglePlay = "../../../src/assets/landing/svg/mobile-descarga-IconGooglePlay.svg";
+
+export default function SectionDescarga() {
+  return (
+    <div className="bg-[var(--color-bg-night,#071426)] relative size-full" data-node-id="54:766" data-name="Section / Descarga">
+      <div className="absolute h-[620px] left-0 overflow-clip top-0 w-[390px]" data-node-id="176:154" data-name="Photo backdrop">
+        <div className="absolute h-[620px] left-0 top-0 w-[390px]" data-node-id="176:155" data-name="Photo">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgPhoto} />
+        </div>
+        <div className="absolute h-[620px] left-0 top-0 w-[390px]" data-node-id="176:156" style={{ backgroundImage: "linear-gradient(180deg, rgb(7, 20, 38) 0%, rgba(7, 20, 38, 0.3) 16%, rgba(7, 20, 38, 0.3) 50%, rgba(7, 20, 38, 0.9) 82%, rgb(7, 20, 38) 100%)" }} data-name="Fade / top and bottom" />
+      </div>
+      <div className="absolute content-stretch flex flex-col gap-[20px] items-start left-[20px] overflow-clip top-[440px]" data-node-id="176:157" data-name="Copy">
+        <div className="[word-break:break-word] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[0] relative shrink-0 text-[40px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="176:158">
+          <p className="leading-[1.04] mb-0">Alguien espera</p>
+          <p className="leading-[1.04] text-[color:var(--color-accent-glow,#8fd3ff)]">que llegues bien.</p>
+        </div>
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[17px] text-[color:var(--color-text-primary,#eaf1fa)] w-[350px]" data-node-id="176:159">
+          Descarga SafeMap gratis y vuelve a casa sabiendo qué pasa en tu camino.
+        </p>
+        <div className="content-stretch flex flex-col gap-[12px] items-start overflow-clip pt-[8px] relative shrink-0" data-node-id="176:160" data-name="CTA">
+          <div className="bg-[var(--color-text-primary,#eaf1fa)] content-stretch flex gap-[12px] items-center overflow-clip pl-[20px] pr-[24px] py-[12px] relative rounded-[12px] shadow-[0px_0px_48px_0px_rgba(143,211,255,0.28)] shrink-0" data-node-id="176:161" data-name="Badge / Google Play">
+            <div className="h-[26px] relative shrink-0 w-[24px]" data-node-id="176:162" data-name="icon/google-play">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconGooglePlay} />
+            </div>
+            <div className="[word-break:break-word] content-stretch flex flex-col font-['Schibsted_Grotesk:Medium'] font-medium items-start leading-[1.2] overflow-clip relative shrink-0 text-[color:var(--color-bg-night,#071426)] whitespace-nowrap" data-node-id="176:167" data-name="Label">
+              <p className="relative shrink-0 text-[10px] tracking-[0.6px]" data-node-id="176:168">
+                DISPONIBLE EN
+              </p>
+              <p className="relative shrink-0 text-[20px]" data-node-id="176:169">
+                Google Play
+              </p>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Medium'] font-medium leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="176:170">
+            Gratis · Reportes anónimos · Android
+          </p>
+        </div>
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:Medium'] font-medium leading-[1.3] opacity-70 relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)] w-[350px]" data-node-id="176:171">
+          PLACEHOLDER — no publicar: el enlace se activa cuando la app esté en Google Play. En producción va el badge oficial.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

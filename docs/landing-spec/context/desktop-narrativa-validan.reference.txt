@@ -1,0 +1,127 @@
+const assetPathPrefix = "ORIGINAL_PNG_SOURCE_USE_LOCAL_ASSETS";
+const imgPhoto = `${assetPathPrefix}/36826.png`;
+const imgContours = "../../../src/assets/landing/svg/desktop-narrativa-validan-Contours.svg";
+const imgReportPin = "../../../src/assets/landing/svg/desktop-narrativa-validan-ReportPin.svg";
+const imgMeter = "../../../src/assets/landing/svg/desktop-narrativa-validan-Meter.svg";
+
+export default function SectionNarrativaValidan() {
+  return (
+    <div className="bg-[var(--color-bg-night,#071426)] relative size-full" data-node-id="50:490" data-name="Section / Narrativa / Validan">
+      <div className="absolute h-[860px] left-[700px] overflow-clip top-0 w-[740px]" data-node-id="129:38" data-name="Photo backdrop">
+        <div className="absolute h-[860px] left-0 top-0 w-[740px]" data-node-id="129:39" data-name="Photo">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgPhoto} />
+        </div>
+        <div className="absolute h-[860px] left-0 top-0 w-[740px]" data-node-id="129:40" style={{ backgroundImage: "linear-gradient(90deg, rgb(7, 20, 38) 0%, rgba(7, 20, 38, 0.8) 20%, rgba(7, 20, 38, 0.45) 36%, rgba(7, 20, 38, 0.28) 100%)" }} data-name="Fade / left" />
+      </div>
+      <div className="[word-break:break-word] absolute font-['Geist_Mono:Regular'] font-normal leading-[0] left-0 opacity-80 text-[10px] text-[color:var(--color-accent-glow,#8fd3ff)] top-0 whitespace-nowrap" data-node-id="116:37">
+
+      </div>
+      <div className="[word-break:break-word] absolute font-['Geist_Mono:Regular'] font-normal leading-[0] left-0 opacity-50 text-[10px] text-[color:var(--color-accent-glow,#8fd3ff)] top-0 whitespace-nowrap" data-node-id="116:38">
+
+      </div>
+      <div className="[word-break:break-word] absolute font-['Geist_Mono:Regular'] font-normal leading-[0] left-0 opacity-50 text-[10px] text-[color:var(--color-accent-trust,#5aa9ff)] top-0 whitespace-nowrap" data-node-id="116:39">
+
+      </div>
+      <div className="absolute bg-[#030a14] border-[1.5px] border-[var(--color-accent-glow,#8fd3ff)] border-solid h-[660px] left-[536px] overflow-clip rounded-[52px] shadow-[0px_0px_72px_0px_rgba(143,211,255,0.16)] top-[100px] w-[320px]" data-node-id="50:493" data-name="Phone / 03 undefined">
+        <div className="absolute bg-[var(--color-bg-surface,#0d1f36)] h-[636px] left-[10.5px] overflow-clip rounded-[42px] top-[10.5px] w-[296px]" data-node-id="50:494" data-name="Screen / 03 Validar">
+          <div className="absolute h-[636px] left-0 top-0 w-[296px]" data-node-id="50:495" data-name="Contours">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContours} />
+          </div>
+          <div className="[word-break:break-word] absolute content-stretch flex font-['Schibsted_Grotesk:Medium'] font-medium items-start justify-between leading-[1.2] left-0 overflow-clip pt-[14px] px-[24px] text-[13px] text-[color:var(--color-text-primary,#eaf1fa)] top-0 w-[296px] whitespace-nowrap" data-node-id="50:519" data-name="Status bar">
+
+          </div>
+          <div className="absolute bg-[var(--color-bg-night,#071426)] h-[636px] left-0 opacity-50 top-0 w-[296px]" data-node-id="50:522" data-name="Scrim" />
+          <div className="absolute left-[88px] size-[120px] top-[120px]" data-node-id="50:523" data-name="Report pin">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgReportPin} />
+          </div>
+          <div className="absolute bg-[var(--color-bg-night,#071426)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex flex-col gap-[14px] items-start left-0 overflow-clip pb-[26px] pt-[22px] px-[20px] rounded-bl-[36px] rounded-br-[36px] rounded-tl-[28px] rounded-tr-[28px] top-[256px] w-[296px]" data-node-id="50:528" data-name="Validate sheet">
+            <div className="bg-[var(--color-line-subtle,#22395a)] h-[4px] relative rounded-[4px] shrink-0 w-[36px]" data-node-id="50:529" data-name="Rectangle" />
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Medium'] font-medium leading-[1.2] relative shrink-0 text-[12px] text-[color:var(--color-accent-trust,#5aa9ff)] tracking-[0.96px] uppercase whitespace-nowrap" data-node-id="50:530">
+              ¿Viste esto cerca?
+            </p>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.2] relative shrink-0 text-[24px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.36px] whitespace-nowrap" data-node-id="50:531">
+              Robo reportado
+            </p>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="50:532">
+              Hace 8 min · a 200 m de ti
+            </p>
+            <div className="bg-[var(--color-bg-surface,#0d1f36)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex gap-[12px] items-center overflow-clip px-[14px] py-[12px] relative rounded-[16px] shrink-0 w-full" data-node-id="50:533" data-name="Frame">
+              <div className="relative shrink-0 size-[40px]" data-node-id="50:534" data-name="Meter">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMeter} />
+              </div>
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="50:540" data-name="Frame">
+                <p className="font-['Schibsted_Grotesk:Medium'] font-medium leading-[1.2] relative shrink-0 text-[13px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="50:541">
+                  3 de 5 vecinos
+                </p>
+                <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="50:542">
+                  lo confirmaron
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--color-accent-trust,#5aa9ff)] content-stretch flex gap-[var(--space-2,8px)] items-center justify-center px-[var(--space-6,24px)] py-[var(--space-3,12px)] relative rounded-[var(--radius-full,999px)] shrink-0 w-full" data-node-id="50:543" data-name="Button">
+              <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-bg-night,#071426)] whitespace-nowrap" data-node-id="I50:543;20:4">
+                Sí, lo confirmo
+              </p>
+            </div>
+            <div className="border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex gap-[var(--space-2,8px)] items-center justify-center px-[var(--space-6,24px)] py-[var(--space-3,12px)] relative rounded-[var(--radius-full,999px)] shrink-0 w-full" data-node-id="50:544" data-name="Button">
+              <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="I50:544;20:6">
+                No lo vi
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="50:545">
+              Tu respuesta también es anónima.
+            </p>
+          </div>
+          <div className="[word-break:break-word] absolute content-stretch flex font-['Schibsted_Grotesk:Medium'] font-medium items-start justify-between leading-[1.2] left-0 overflow-clip pt-[14px] px-[24px] text-[13px] text-[color:var(--color-text-primary,#eaf1fa)] top-0 w-[296px] whitespace-nowrap" data-node-id="50:546" data-name="Status bar">
+
+          </div>
+        </div>
+      </div>
+      <div className="absolute content-stretch flex flex-col gap-[28px] items-start left-[64px] overflow-clip top-[292px] w-[416px]" data-node-id="50:549" data-name="Copy">
+        <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="155:52" data-name="Stepper">
+          <div className="bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[999px] shrink-0 size-[44px]" data-node-id="155:53" data-name="Step 01">
+            
+          </div>
+          <div className="[word-break:break-word] bg-[var(--color-accent-trust,#5aa9ff)] content-stretch flex font-['Schibsted_Grotesk:Bold'] font-bold gap-[8px] h-[44px] items-center justify-center leading-none overflow-clip pl-[16px] pr-[18px] relative rounded-[999px] shrink-0 text-[14px] text-[color:var(--color-bg-night,#071426)] whitespace-nowrap" data-node-id="155:55" data-name="Step 02 / current">
+            
+            <p className="relative shrink-0" data-node-id="155:57">
+              Validan
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[999px] shrink-0 size-[44px]" data-node-id="155:58" data-name="Step 03">
+            
+          </div>
+          <div className="bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[999px] shrink-0 size-[44px]" data-node-id="155:60" data-name="Step 04">
+            
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.2] relative shrink-0 text-[36px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.54px] w-[416px]" data-node-id="50:559">
+          Luego, los vecinos de la zona lo confirman.
+        </p>
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[20px] text-[color:var(--color-text-primary,#eaf1fa)] w-[416px]" data-node-id="50:560">
+          Quienes están cerca responden si lo vieron. Con cinco confirmaciones, el reporte queda validado y pinta el mapa.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: Label/S: Font(family: "Schibsted Grotesk", style: Medium, size: 13, weight: 500, lineHeight: 1.2000000476837158, letterSpacing: 0), Overline: Font(family: "Schibsted Grotesk", style: Medium, size: 12, weight: 500, lineHeight: 1.2000000476837158, letterSpacing: 8), Body/S: Font(family: "Schibsted Grotesk", style: Regular, size: 14, weight: 400, lineHeight: 1.5, letterSpacing: 0), Label/M: Font(family: "Schibsted Grotesk", style: Bold, size: 15, weight: 700, lineHeight: 1.2000000476837158, letterSpacing: 0).
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## Button
+**Node ID:** 20:9
+
+Pill CTA. Primary = main action (#registro). Secondary = outline. Ghost = inline link-like action.
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

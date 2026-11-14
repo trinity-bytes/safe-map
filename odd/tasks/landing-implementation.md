@@ -1,7 +1,7 @@
 # SafeMap — Implementación de la landing v3 (T8 de `landing-redesign`)
 
 Objetivo: implementar en este repo la landing aprobada en Figma (gate L62 de `odd/tasks/landing-redesign.md`) y quitar el prototipo web.
-Rama: `feat/landing-redesign` · Entrega: `ask-on-risk` (se pregunta la estrategia de PR cuando se superen ~400 líneas) · Tests: no hay runner de tests; cada tarea se cierra con `npm run build`, `npm run lint`, `npm run type-check` y una comparación visual contra las capturas de referencia (§3).
+Rama de integración: `develop` · Entrega: ramas por tarea desde `develop`, merges directos, sin PR; `main` intocable · Tests: no hay runner de tests; cada tarea se cierra con `npm run build`, `npm run lint`, `npm run type-check` y una comparación visual contra las capturas de referencia (§3).
 
 ---
 
@@ -95,8 +95,8 @@ Cada tarea es un commit. **Dependencias:** T1 antes de todo lo visual (T3 a T9);
 
 | ID | Specs | Tarea | Depende de | Necesita Figma | Ruta | Estado | Commit |
 |---|---|---|---|---|---|---|---|
-| T1 | S1, S4 | Exportar el diseño al repo (§3): copy verbatim y medidas por sección, capturas desktop/mobile/menú y SVG (logo, `Mark (small)`, íconos, mapas) | — | **Sí** | inline | ⏳ pendiente | — |
-| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | inline | ⏳ pendiente | — |
+| T1 | S1, S4 | Exportar el diseño al repo (§3): copy verbatim y medidas por sección, capturas desktop/mobile/menú y SVG (logo, `Mark (small)`, íconos, mapas) | — | **Sí** | delegated | ✅ completada | commit T1 (ver historial) |
+| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | 🔄 en curso | — |
 | T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ⏳ pendiente | — |
 | T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ⏳ pendiente | — |
 | T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | inline | ⏳ pendiente | — |
@@ -199,3 +199,9 @@ Especificación (L49, L53, L43):
 - **L1** (2026-11-14, el usuario, pedido verbatim): "ah ok, entonces que sstro se encsrgue. ahora dejame listo el plan de imomementacion osra qye oueda ser fscilmnete seguido por codex tambien." Antes, en la misma sesión, se verificó que en la máquina no hay herramientas de imágenes instaladas y que `sharp` ya está en `package-lock.json` como dependencia de Astro 5.8.1; el usuario eligió que Astro optimice en el build y que los originales no se toquen.
 - **L2** (2026-11-14): hallazgos al planificar. No existe `node_modules` (correr `npm ci` antes de cualquier comando). `@astrojs/check` no está en el lockfile, así que `npm run type-check` falla hasta T3. El CI usa Node 18 (se sube en T9). `astro.config.mjs` tiene `manualChunks` con `react` y `leaflet`, que hay que quitar en T2. Se crea `AGENTS.md` en la raíz para que Codex encuentre este plan.
 - **Próximo paso:** T1 (necesita el MCP de Figma) y T2, que no depende de Figma y se puede hacer en paralelo.
+
+- **L3** (2026-11-14, usuario, verbatim): "crea la rama develop, y realizas las imomementacionesnsobre esa rama, osea creas ramas en base a esa y vas consolidando los camvios en esa rama. nada de prs, haz merges directos, te autorizo a ello. usa las herramientas y tomanlas decisiones que creas convenientes oero mantenme informado. te dejare trabajando por tu cuenta, evita bloquearte oor tonterias  ya te dije que te autorizo a hacer push pull y lo aue necesites. simolemente deja main sin tocar"
+- **L4** (2026-11-14): `develop` creada desde `95aa4a5`, conservando el diseño y los originales; `main` permanece en `80adfa8`. T1 y T2 delegadas como unidades independientes con superficies disjuntas (exportación documental/recursos frente a eliminación del prototipo). Previsión: varios miles de líneas, una tarea por commit, merges a develop sin PR. RDD desactivado globalmente; se mantienen verificaciones funcionales.
+
+- **L5** (2026-11-14): T1 exportada: 31 capturas a resolución nativa, 31 contextos completos y geometría, 125 SVG y README con todo el texto. Validación estructural aprobada. Faltan respuestas FAQ 02–06 y destino de contacto en Figma: no inventar. T2: build aprobado; lint preexistente falla por parser Astro ausente (se corrige en T3). Verificación independiente de dependencias: sin bloqueadores.
+- **L6** (2026-11-14, usuario, verbatim): "anotacion: cuando llegues a la oarte de ejecutar test, vigila que ko use mucha rsm porque acs tienes como 3gb nomss y si se llena la mawuina va a crashear". Checks pesados seriales, Node heap limitado a 768–1024 MiB, procesamiento de imágenes de baja concurrencia.

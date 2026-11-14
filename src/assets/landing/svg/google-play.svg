@@ -1,0 +1,39 @@
+<svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="26" fill="#F5F5F5"/>
+<g id="Landing v3 / Desktop">
+<rect width="1440" height="12374" transform="translate(-84 -11437)" fill="#071426"/>
+<g id="Section / Descarga">
+<rect width="1440" height="780" transform="translate(-84 -519)" fill="#071426"/>
+<g id="Copy">
+<g id="CTA" clip-path="url(#clip0_1_5)">
+<g id="Badge / Google Play" filter="url(#filter0_d_1_5)">
+<rect x="-20" y="-17" width="193" height="60" rx="12" fill="#EAF1FA"/>
+<g id="icon/google-play" clip-path="url(#clip1_1_5)">
+<path id="Vector" d="M0.800003 0.599609L13.2 12.9996L0.800003 25.3996C0.500003 25.0996 0.300003 24.5996 0.300003 23.9996V1.99961C0.300003 1.39961 0.500003 0.899609 0.800003 0.599609Z" fill="#2196F3"/>
+<path id="Vector_2" d="M0.800003 0.599624C1.3 0.0996238 2.1 -0.000376195 3 0.499624L17.5 8.79962L13.2 12.9996L0.800003 0.599624Z" fill="#34A853"/>
+<path id="Vector_3" d="M0.800003 25.4L13.2 13L17.5 17.2L3 25.5C2.1 26 1.3 25.9 0.800003 25.4Z" fill="#EA4335"/>
+<path id="Vector_4" d="M17.5 8.7998L22.3 11.4998C23.6 12.2998 23.6 13.6998 22.3 14.4998L17.5 17.1998L13.2 12.9998L17.5 8.7998Z" fill="#FBBC04"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_1_5" x="-68" y="-65" width="289" height="156" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="24"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.560784 0 0 0 0 0.827451 0 0 0 0 1 0 0 0 0.28 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_5"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_5" result="shape"/>
+</filter>
+<clipPath id="clip0_1_5">
+<rect width="476" height="72" fill="white" transform="translate(-20 -29)"/>
+</clipPath>
+<clipPath id="clip1_1_5">
+<rect width="24" height="26" fill="white"/>
+</clipPath>
+</defs>
+</svg>

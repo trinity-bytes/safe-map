@@ -1,0 +1,215 @@
+const assetPathPrefix = "ORIGINAL_PNG_SOURCE_USE_LOCAL_ASSETS";
+const imgPhoto = `${assetPathPrefix}/2d6c9.png`;
+const imgMapDistrito = "../../../src/assets/landing/svg/mobile-instituciones-MapDistrito.svg";
+const imgDot = "../../../src/assets/landing/svg/mobile-instituciones-Dot.svg";
+const imgDot1 = "../../../src/assets/landing/svg/mobile-instituciones-Dot1.svg";
+const imgEllipse = "../../../src/assets/landing/svg/mobile-instituciones-Ellipse.svg";
+const imgEllipse1 = "../../../src/assets/landing/svg/mobile-instituciones-Ellipse1.svg";
+const imgEllipse2 = "../../../src/assets/landing/svg/mobile-instituciones-Ellipse2.svg";
+
+export default function SectionInstituciones() {
+  return (
+    <div className="bg-[var(--color-bg-surface,#0d1f36)] content-stretch flex flex-col gap-[24px] items-start px-[20px] py-[96px] relative size-full" data-node-id="54:690" data-name="Section / Instituciones">
+      <div className="absolute h-[640px] left-0 overflow-clip top-0 w-[390px]" data-node-id="176:51" data-name="Photo backdrop">
+        <div className="absolute h-[640px] left-0 top-0 w-[390px]" data-node-id="176:52" data-name="Photo">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgPhoto} />
+        </div>
+        <div className="absolute h-[640px] left-0 top-0 w-[390px]" data-node-id="176:53" style={{ backgroundImage: "linear-gradient(180deg, rgb(13, 31, 54) 0%, rgba(13, 31, 54, 0.62) 20%, rgba(13, 31, 54, 0.76) 60%, rgb(13, 31, 54) 100%)" }} data-name="Fade / top and bottom" />
+      </div>
+      <div className="[word-break:break-word] absolute font-['Geist_Mono:Regular'] font-normal leading-[0] left-[-1062px] opacity-20 text-[10px] text-[color:var(--color-accent-trust,#5aa9ff)] top-0 whitespace-nowrap" data-node-id="91:215">
+
+      </div>
+      <div className="[word-break:break-word] absolute font-['Geist_Mono:Regular'] font-normal leading-[0] left-[-1062px] opacity-32 text-[10px] text-[color:var(--color-alert-amber,#f4b740)] top-0 whitespace-nowrap" data-node-id="91:214">
+
+      </div>
+      <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="54:691" data-name="Frame">
+        <p className="[word-break:break-word] font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.1] min-w-full relative shrink-0 text-[30px] text-[color:var(--color-text-primary,#eaf1fa)] tracking-[-0.6px] w-[min-content]" data-node-id="54:692">
+          Qué pasa en cada zona y a qué hora.
+        </p>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[6px] items-start overflow-clip relative shrink-0 text-[color:var(--color-text-primary,#eaf1fa)] w-full" data-node-id="54:693" data-name="Frame">
+          <p className="font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] relative shrink-0 text-[20px] tracking-[-0.2px] w-full" data-node-id="54:694">
+            Para municipalidades
+          </p>
+          <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[16px] w-full" data-node-id="54:695">
+            Reportes validados y agregados por zona y por hora, para decidir dónde poner luz, serenazgo o una patrulla. Nunca con datos personales.
+          </p>
+        </div>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[6px] items-start overflow-clip relative shrink-0 text-[color:var(--color-text-primary,#eaf1fa)] w-full" data-node-id="54:696" data-name="Frame">
+          <p className="font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] relative shrink-0 text-[20px] tracking-[-0.2px] w-full" data-node-id="54:697">
+            Para empresas
+          </p>
+          <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[16px] w-full" data-node-id="54:698">
+            Un mapa de la zona de tu local o de las rutas de tu equipo, para planificar turnos y traslados con información del día.
+          </p>
+        </div>
+        <div className="bg-[var(--color-accent-trust,#5aa9ff)] content-stretch flex items-start overflow-clip px-[22px] py-[12px] relative rounded-[999px] shrink-0" data-node-id="54:699" data-name="Frame">
+          <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-bg-night,#071426)] whitespace-nowrap" data-node-id="54:700">
+            Conversemos
+          </p>
+        </div>
+        <div className="bg-[var(--color-bg-night,#071426)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[24px] shrink-0 w-full" data-node-id="176:54" data-name="Dashboard / Vista previa">
+          <div className="h-[304px] overflow-clip relative shrink-0 w-full" data-node-id="176:55" data-name="Map area">
+            <div className="absolute h-[414.6px] left-[-62px] top-[-10px] w-[446.4px]" data-node-id="176:56" data-name="Map / Distrito">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMapDistrito} />
+            </div>
+            <div className="absolute bg-gradient-to-b from-[rgba(7,20,38,0.95)] h-[110px] left-0 to-[rgba(7,20,38,0)] top-0 via-[55%] via-[rgba(7,20,38,0.7)] w-[350px]" data-node-id="176:89" data-name="Scrim / top" />
+            <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[2px] items-start left-[20px] overflow-clip top-[18px] whitespace-nowrap" data-node-id="176:90" data-name="Header">
+              <p className="font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="176:91">
+                Panel de zona
+              </p>
+              <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.4] relative shrink-0 text-[13px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="176:92">
+                Distrito de ejemplo · últimos 7 días
+              </p>
+            </div>
+            <div className="absolute backdrop-blur-[6px] bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex gap-[var(--space-2,8px)] items-center left-[12px] px-[var(--space-3,12px)] py-[var(--space-2,8px)] rounded-[var(--radius-md,16px)] top-[84px]" data-node-id="176:93" data-name="Pin label">
+              <div className="relative shrink-0 size-[10px]" data-node-id="I176:93;20:41" data-name="Dot">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDot} />
+              </div>
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="I176:93;20:42" data-name="Text">
+                <p className="font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.2] relative shrink-0 text-[13px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="I176:93;20:43">
+                  Reportes recientes
+                </p>
+                <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="I176:93;20:44">
+                  17 en los últimos 7 días
+                </p>
+              </div>
+            </div>
+            <div className="absolute backdrop-blur-[6px] bg-[var(--color-bg-raised,#142b47)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex gap-[var(--space-2,8px)] items-center left-[164px] px-[var(--space-3,12px)] py-[var(--space-2,8px)] rounded-[var(--radius-md,16px)] top-[190px]" data-node-id="176:98" data-name="Pin label">
+              <div className="relative shrink-0 size-[10px]" data-node-id="I176:98;20:41" data-name="Dot">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDot1} />
+              </div>
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="I176:98;20:42" data-name="Text">
+                <p className="font-['Schibsted_Grotesk:SemiBold'] font-semibold leading-[1.2] relative shrink-0 text-[13px] text-[color:var(--color-text-primary,#eaf1fa)]" data-node-id="I176:98;20:43">
+                  Zona en observación
+                </p>
+                <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)]" data-node-id="I176:98;20:44">
+                  42 reportes validados
+                </p>
+              </div>
+            </div>
+            <div className="absolute bg-[var(--color-bg-night,#071426)] border border-[var(--color-line-subtle,#22395a)] border-solid content-stretch flex items-start left-[12px] overflow-clip px-[12px] py-[6px] rounded-[var(--radius-full,999px)] top-[262px]" data-node-id="176:103" data-name="Frame">
+              <p className="[word-break:break-word] font-['Schibsted_Grotesk:Medium'] font-medium leading-[1.2] relative shrink-0 text-[13px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="176:104">
+                Vista previa · cifras de ejemplo
+              </p>
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-surface,#0d1f36)] content-stretch flex flex-col gap-[16px] items-start overflow-clip pb-[20px] pt-[18px] px-[20px] relative shrink-0 w-full" data-node-id="176:105" data-name="Card / Cifras">
+            <div className="content-start flex flex-wrap gap-[6px_16px] items-start overflow-clip relative shrink-0 w-full" data-node-id="176:106" data-name="Legend">
+              <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="176:107" data-name="Frame">
+                <div className="relative shrink-0 size-[8px]" data-node-id="176:108" data-name="Ellipse">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+                </div>
+                <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="176:109">
+                  Actividad baja
+                </p>
+              </div>
+              <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="176:110" data-name="Frame">
+                <div className="relative shrink-0 size-[8px]" data-node-id="176:111" data-name="Ellipse">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse1} />
+                </div>
+                <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="176:112">
+                  Reportes recientes
+                </p>
+              </div>
+              <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="176:113" data-name="Frame">
+                <div className="relative shrink-0 size-[8px]" data-node-id="176:114" data-name="Ellipse">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse2} />
+                </div>
+                <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#9fb3cc)] whitespace-nowrap" data-node-id="176:115">
+                  Riesgo alto
+                </p>
+              </div>
+            </div>
+            <div className="[word-break:break-word] content-stretch flex gap-[12px] items-end overflow-clip relative shrink-0 w-full" data-node-id="176:116" data-name="Frame">
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start min-w-px relative rounded-[var(--radius-md,16px)]" data-node-id="176:117" data-name="Frame">
+                <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] min-w-full relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)] w-[min-content]" data-node-id="176:118">
+                  Reportes validados
+                </p>
+                
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start min-w-px relative rounded-[var(--radius-md,16px)]" data-node-id="176:120" data-name="Frame">
+                <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] min-w-full relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)] w-[min-content]" data-node-id="176:121">
+                  Zonas en observación
+                </p>
+                
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start min-w-px relative rounded-[var(--radius-md,16px)]" data-node-id="176:123" data-name="Frame">
+                <p className="font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] min-w-full relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#9fb3cc)] w-[min-content]" data-node-id="176:124">
+                  Hora con más reportes
+                </p>
+                
+              </div>
+            </div>
+            <div className="bg-[var(--color-line-subtle,#22395a)] h-px relative shrink-0 w-full" data-node-id="176:126" data-name="Divider" />
+            <div className="content-stretch flex flex-col gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="176:127" data-name="Frame">
+              <p className="[word-break:break-word] font-['Schibsted_Grotesk:Bold'] font-bold leading-[1.2] relative shrink-0 text-[15px] text-[color:var(--color-text-primary,#eaf1fa)] whitespace-nowrap" data-node-id="176:128">
+                Reportes por hora
+              </p>
+              <div className="content-stretch flex gap-[3px] h-[26px] items-end overflow-clip relative shrink-0 w-full" data-node-id="176:129" data-name="Heat strip / por hora">
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-35 relative rounded-[6px]" data-node-id="176:130" data-name="Hora 6" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-24 relative rounded-[6px]" data-node-id="176:131" data-name="Hora 7" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-24 relative rounded-[6px]" data-node-id="176:132" data-name="Hora 8" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-35 relative rounded-[6px]" data-node-id="176:133" data-name="Hora 9" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-55 relative rounded-[6px]" data-node-id="176:134" data-name="Hora 10" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-76 relative rounded-[6px]" data-node-id="176:135" data-name="Hora 11" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-65 relative rounded-[6px]" data-node-id="176:136" data-name="Hora 12" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-55 relative rounded-[6px]" data-node-id="176:137" data-name="Hora 13" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-65 relative rounded-[6px]" data-node-id="176:138" data-name="Hora 14" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-85 relative rounded-[6px]" data-node-id="176:139" data-name="Hora 15" />
+                <div className="bg-[var(--color-alert-amber,#f4b740)] flex-[1_0_0] h-[26px] min-w-px relative rounded-[6px]" data-node-id="176:140" data-name="Hora 16" />
+                <div className="bg-[var(--color-alert-amber,#f4b740)] flex-[1_0_0] h-[26px] min-w-px opacity-95 relative rounded-[6px]" data-node-id="176:141" data-name="Hora 17" />
+                <div className="bg-[var(--color-alert-amber,#f4b740)] flex-[1_0_0] h-[26px] min-w-px opacity-80 relative rounded-[6px]" data-node-id="176:142" data-name="Hora 18" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-65 relative rounded-[6px]" data-node-id="176:143" data-name="Hora 19" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-45 relative rounded-[6px]" data-node-id="176:144" data-name="Hora 20" />
+                <div className="bg-[var(--color-accent-trust,#5aa9ff)] flex-[1_0_0] h-[26px] min-w-px opacity-35 relative rounded-[6px]" data-node-id="176:145" data-name="Hora 21" />
+              </div>
+              <div className="[word-break:break-word] content-stretch flex font-['Schibsted_Grotesk:Regular'] font-normal items-start justify-between leading-[1.5] overflow-clip relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#9fb3cc)] w-full whitespace-nowrap" data-node-id="176:146" data-name="Frame">
+                <p className="relative shrink-0" data-node-id="176:147">
+                  6 h
+                </p>
+                <p className="relative shrink-0" data-node-id="176:148">
+                  9 h
+                </p>
+                <p className="relative shrink-0" data-node-id="176:149">
+                  12 h
+                </p>
+                <p className="relative shrink-0" data-node-id="176:150">
+                  15 h
+                </p>
+                <p className="relative shrink-0" data-node-id="176:151">
+                  18 h
+                </p>
+                <p className="relative shrink-0" data-node-id="176:152">
+                  21 h
+                </p>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Schibsted_Grotesk:Regular'] font-normal leading-[1.5] relative shrink-0 text-[13px] text-[color:var(--color-text-secondary,#9fb3cc)] w-full" data-node-id="176:153">
+              Datos agregados por zona y hora. Nunca muestra quién reportó.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: Label/S: Font(family: "Schibsted Grotesk", style: Medium, size: 13, weight: 500, lineHeight: 1.2000000476837158, letterSpacing: 0), Body/S: Font(family: "Schibsted Grotesk", style: Regular, size: 14, weight: 400, lineHeight: 1.5, letterSpacing: 0), Label/M: Font(family: "Schibsted Grotesk", style: Bold, size: 15, weight: 700, lineHeight: 1.2000000476837158, letterSpacing: 0).
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## Pin label
+**Node ID:** 20:45
+
+Floating map label (TrueEarth ref). Tone is semantic: Validated=green, Alert=amber, Route=blue, Risk=coral (map only).
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.
