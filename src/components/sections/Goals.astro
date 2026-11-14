@@ -1,0 +1,55 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+const goals = [
+  { number: '< 5 min', description: 'entre que un reporte queda validado y te llega la alerta.' },
+  { number: '40 %', description: 'de quienes usan la app cada mes, con al menos un reporte validado.' },
+  { number: '3', description: 'convenios con municipalidades.' },
+  { number: '0', description: 'brechas de seguridad en tus datos.' },
+];
+---
+<Section tone="surface" class="goals-section" labelledby="goals-heading">
+  <Container>
+    <div class="goals-content">
+      <div class="goals-heading">
+        <h2 id="goals-heading">Todavía somos un proyecto.</h2>
+        <p>SafeMap nació en un curso de Ingeniería de Software de la UPC. Aún no tenemos usuarios ni convenios que mostrarte, y no vamos a inventarlos. Esto es lo que nos proponemos para el primer año.</p>
+      </div>
+      <ul class="goals-list">
+        {goals.map(goal => (
+          <li>
+            <p class="goal-label">Meta</p>
+            <p class="goal-number">{goal.number}</p>
+            <p class="goal-description">{goal.description}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="goals-note">Metas del informe del proyecto (UPC, 2025). No son resultados: los publicaremos cuando existan.</p>
+    </div>
+  </Container>
+</Section>
+<style>
+  :global(.goals-section) { padding-block: 0 8.75rem; }
+  .goals-content { padding-top: 6rem; border-top: 1px solid var(--color-line-subtle); }
+  .goals-heading { display: grid; grid-template-columns: minmax(0, 760fr) minmax(0, 520fr); gap: 2rem; align-items: start; }
+  #goals-heading { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.5rem); }
+  .goals-heading > p { font-size: 1.25rem; line-height: 1.5; }
+  .goals-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; padding: 0; margin: 4rem 0 0; list-style: none; }
+  .goals-list li { border-top: 1px solid var(--color-line-subtle); padding-top: 1.5rem; }
+  .goal-label { font-size: 0.75rem; font-weight: 500; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent-glow); }
+  .goal-number { margin-top: 0.5rem; font-size: clamp(2.75rem, 1.8rem + 3vw, 4.5rem); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+  .goal-description { margin-top: 0.5rem; max-inline-size: 16.875rem; color: var(--color-text-secondary); font-size: 1rem; line-height: 1.5; }
+  .goals-note { margin-top: 4rem; font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5; }
+  @media (max-width: 767px) {
+    :global(.goals-section) { padding-block: 0 6rem; }
+    .goals-content { padding-top: 4rem; }
+    .goals-heading { grid-template-columns: 1fr; gap: 1rem; }
+    #goals-heading { font-size: 1.875rem; letter-spacing: 0; }
+    .goals-heading > p { font-size: 1rem; }
+    .goals-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; margin-top: 2rem; }
+    .goals-list li { padding-top: 1rem; }
+    .goal-number { margin-top: 0.375rem; font-size: clamp(2rem, 0.8rem + 8vw, 2.75rem); letter-spacing: 0; }
+    .goal-description { margin-top: 0.375rem; font-size: 0.875rem; }
+    .goals-note { margin-top: 2rem; font-size: 0.8125rem; }
+  }
+</style>

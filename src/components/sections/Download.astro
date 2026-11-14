@@ -1,0 +1,54 @@
+---
+import { Picture } from 'astro:assets';
+import Container from '../ui/Container.astro';
+import homePhoto from '../../assets/landing/photos/narrativa-04-llegas.png';
+import googlePlayIcon from '../../assets/landing/svg/google-play.svg';
+---
+<section id="descargar" class="download-section" aria-labelledby="download-heading">
+  <div class="download-backdrop" aria-hidden="true">
+    <Picture src={homePhoto} alt="" formats={['avif', 'webp']} fallbackFormat="webp" widths={[390, 780, 1122]} sizes="(max-width: 767px) 100vw, 67vw" width={960} height={780} loading="lazy" />
+  </div>
+  <Container>
+    <div class="download-copy">
+      <h2 id="download-heading">Alguien espera<br /><span>que llegues bien.</span></h2>
+      <p class="download-intro">Descarga SafeMap gratis y vuelve a casa sabiendo qué pasa en tu camino.</p>
+      <div class="download-action">
+        <span class="store-badge" aria-disabled="true">
+          <img src={googlePlayIcon.src} width="24" height="26" alt="" />
+          <span><span class="store-kicker">Próximamente en</span><span class="store-name">Google Play</span></span>
+        </span>
+        <p class="download-trust">Gratis · Reportes anónimos · Android</p>
+      </div>
+    </div>
+  </Container>
+</section>
+<style>
+  .download-section { position: relative; min-block-size: 48.75rem; background: var(--color-bg-night); isolation: isolate; }
+  .download-backdrop { position: absolute; z-index: -1; inset: 0 0 0 33.333333%; overflow: hidden; }
+  .download-backdrop :global(picture) { display: block; inline-size: 100%; block-size: 100%; }
+  .download-backdrop :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .download-backdrop::before, .download-backdrop::after { content: ''; position: absolute; inset: 0; }
+  .download-backdrop::before { background: linear-gradient(90deg, var(--color-bg-night) 0%, rgb(7 20 38 / 82%) 28%, rgb(7 20 38 / 40%) 60%, rgb(7 20 38 / 18%) 100%); }
+  .download-backdrop::after { background: linear-gradient(180deg, var(--color-bg-night) 0%, rgb(7 20 38 / 60%) 10%, transparent 26%); }
+  .download-copy { position: relative; padding-block: 11rem; }
+  #download-heading { max-inline-size: 50rem; font-size: clamp(2.5rem, 1.25rem + 5.3vw, 6rem); line-height: 1; letter-spacing: -0.03em; }
+  #download-heading span { color: var(--color-accent-glow); }
+  .download-intro { max-inline-size: 32.5rem; margin-top: 1.75rem; font-size: 1.375rem; line-height: 1.5; }
+  .download-action { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 1.75rem; padding-top: 0.75rem; }
+  .store-badge { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem 0.75rem 1.25rem; border-radius: 0.75rem; background: var(--color-text-primary); color: var(--color-bg-night); }
+  .store-badge > span { display: flex; flex-direction: column; font-weight: 500; line-height: 1.2; }
+  .store-kicker { font-size: 0.625rem; }
+  .store-name { font-size: 1.25rem; }
+  .download-trust { font-size: 0.9375rem; font-weight: 500; line-height: 1.4; color: var(--color-text-secondary); }
+  @media (max-width: 767px) {
+    .download-section { min-block-size: 52.5rem; }
+    .download-backdrop { inset: 0 0 auto; block-size: 38.75rem; }
+    .download-backdrop::before { background: linear-gradient(180deg, var(--color-bg-night) 0%, rgb(7 20 38 / 30%) 16%, rgb(7 20 38 / 30%) 50%, rgb(7 20 38 / 90%) 82%, var(--color-bg-night) 100%); }
+    .download-backdrop::after { display: none; }
+    .download-copy { padding-block: 27.5rem 4.5rem; }
+    #download-heading { font-size: clamp(2rem, 0.875rem + 6.6667vw, 2.5rem); line-height: 1.04; letter-spacing: 0; }
+    .download-intro { margin-top: 1.25rem; font-size: 1.0625rem; }
+    .download-action { flex-direction: column; align-items: flex-start; gap: 0.75rem; margin-top: 1.25rem; padding-top: 0.5rem; }
+    .download-trust { font-size: 0.875rem; }
+  }
+</style>

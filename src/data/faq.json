@@ -1,26 +1,26 @@
 [
   {
-    "question": "Qué muestra la demo de SafeMap",
-    "answer": "Muestra un flujo ilustrativo con mapas, marcadores y rutas simuladas para explicar cómo podría organizarse el contexto de una zona. No representa datos operativos actuales."
+    "question": "¿Qué muestra la vista previa de SafeMap?",
+    "answer": "Una simulación de cómo funcionará la app. Los reportes, el mapa y las rutas que ves en esta página son de ejemplo."
   },
   {
-    "question": "SafeMap ya ofrece datos actuales o integraciones con autoridades",
-    "answer": "No debe asumirse. Esta landing presenta capacidades esperadas y una demo visual; las fuentes de datos, integraciones y disponibilidad deben confirmarse antes de anunciarse."
+    "question": "¿SafeMap ya tiene datos en vivo o convenios con autoridades?",
+    "answer": null
   },
   {
-    "question": "Cómo se aborda la privacidad",
-    "answer": "La privacidad es un principio de diseño: la experiencia debe explicar qué datos se solicitan, por qué y durante cuánto tiempo. Los mecanismos técnicos definitivos todavía requieren validación."
+    "question": "¿Cómo protegen mi privacidad?",
+    "answer": null
   },
   {
-    "question": "La ruta mostrada es una recomendacin",
-    "answer": "No. Las rutas de la demo son ejemplos visuales y no sustituyen una evaluacin actual del entorno ni el criterio personal."
+    "question": "¿La ruta sugerida es 100 % segura?",
+    "answer": null
   },
   {
-    "question": "Qu hago ante una emergencia real",
-    "answer": "SafeMap no reemplaza los servicios de emergencia. En una emergencia, contact inmediatamente a los servicios oficiales de tu localidad y segu sus indicaciones."
+    "question": "¿Qué hago ante una emergencia real?",
+    "answer": null
   },
   {
-    "question": "Cómo puedo participar",
-    "answer": "Pods registrarte en la beta para conocer las prximas validaciones del producto. La disponibilidad de funciones y ciudades se comunicar cuando est confirmada."
+    "question": "¿Cómo puedo participar?",
+    "answer": null
   }
 ]
