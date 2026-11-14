@@ -95,8 +95,8 @@ Cada tarea es un commit. **Dependencias:** T1 antes de todo lo visual (T3 a T9);
 
 | ID | Specs | Tarea | Depende de | Necesita Figma | Ruta | Estado | Commit |
 |---|---|---|---|---|---|---|---|
-| T1 | S1, S4 | Exportar el diseño al repo (§3): copy verbatim y medidas por sección, capturas desktop/mobile/menú y SVG (logo, `Mark (small)`, íconos, mapas) | — | **Sí** | delegated | ✅ completada | commit T1 (ver historial) |
-| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | 🔄 en curso | — |
+| T1 | S1, S4 | Exportar el diseño al repo (§3): copy verbatim y medidas por sección, capturas desktop/mobile/menú y SVG (logo, `Mark (small)`, íconos, mapas) | — | **Sí** | delegated | ✅ completada | 5ab24cb |
+| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | ✅ con excepción lint preexistente (T3) | commit T2 (ver historial) |
 | T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ⏳ pendiente | — |
 | T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ⏳ pendiente | — |
 | T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | inline | ⏳ pendiente | — |
@@ -205,3 +205,5 @@ Especificación (L49, L53, L43):
 
 - **L5** (2026-11-14): T1 exportada: 31 capturas a resolución nativa, 31 contextos completos y geometría, 125 SVG y README con todo el texto. Validación estructural aprobada. Faltan respuestas FAQ 02–06 y destino de contacto en Figma: no inventar. T2: build aprobado; lint preexistente falla por parser Astro ausente (se corrige en T3). Verificación independiente de dependencias: sin bloqueadores.
 - **L6** (2026-11-14, usuario, verbatim): "anotacion: cuando llegues a la oarte de ejecutar test, vigila que ko use mucha rsm porque acs tienes como 3gb nomss y si se llena la mawuina va a crashear". Checks pesados seriales, Node heap limitado a 768–1024 MiB, procesamiento de imágenes de baja concurrencia.
+
+- **L7** (2026-11-14): T2: npm ci, build y grep de dependencias observados; build repetido por parent con heap 768 MiB aprobado. Verificador independiente confirma S2 y originales intactos. Lint falla por configuración preexistente; T3 la repara. RDD off; assessment inicial no disponible por inventario sin stage, sin inferir bajo riesgo. Risk: item 5 (dependencias).
