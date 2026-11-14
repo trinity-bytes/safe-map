@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
@@ -16,20 +15,10 @@ const [ghOwner, ghRepo] = (
 export default defineConfig({
   site: `https://${ghOwner}.github.io/${ghRepo}`,
   base: `/${ghRepo}/`,
-  integrations: [react(), tailwind(), sitemap()],
+  integrations: [tailwind(), sitemap()],
   vite: {
     define: {
       __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
-    },
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            vendor: ["react", "react-dom"],
-            leaflet: ["leaflet"],
-          },
-        },
-      },
     },
   },
   build: {
