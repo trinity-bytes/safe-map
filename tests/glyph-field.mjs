@@ -41,6 +41,21 @@ try {
   assert.equal(await page.evaluate(() => window.__heroPaints), reduced, 'reduced motion must draw a static field');
   await page.close();
 
+  // The hero fills the viewport, keeps the Figma height as its minimum and the phone keeps bleeding off its bottom edge.
+  for (const [width, height, minimum] of [[1440, 900, 900], [1675, 989, 900], [1920, 1200, 900], [390, 844, 880], [430, 932, 880]]) {
+    const sized = await browser.newPage({ viewport: { width, height } });
+    await sized.goto(url);
+    const box = await sized.evaluate(() => {
+      const hero = document.querySelector('.hero').getBoundingClientRect();
+      const phone = document.querySelector('.hero-phone').getBoundingClientRect();
+      return { hero: hero.height, phoneTop: phone.top, phoneBottom: phone.bottom };
+    });
+    assert.equal(Math.round(box.hero), Math.max(minimum, height), `hero height at ${width}x${height}`);
+    assert(box.phoneBottom > box.hero, `phone must bleed off the hero at ${width}x${height}`);
+    assert(box.phoneTop < box.hero, `phone must be visible in the hero at ${width}x${height}`);
+    await sized.close();
+  }
+
   const noScript = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const fallback = await noScript.newPage();
   await fallback.goto(url);
