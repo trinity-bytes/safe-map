@@ -11,26 +11,31 @@
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.astro",
     "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx,.astro --fix",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,astro,json,css,md}",
-    "type-check": "astro check && tsc --noEmit"
+    "type-check": "astro check && tsc --noEmit",
+    "postinstall": "node scripts/astro-compiler-fallback.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.4.0",
-    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/sitemap": "^3.7.5",
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
     "@fontsource/geist-mono": "^5.3.0",
-    "@midudev/tailwind-animations": "^0.2.0",
-    "astro": "^5.8.1",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.3"
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.12",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "@typescript-eslint/eslint-plugin": "^8.33.0",
-    "@typescript-eslint/parser": "^8.33.0",
-    "eslint": "^9.28.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-astro": "^1.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.72.2",
+    "@typescript-eslint/parser": "^8.72.2",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^3.2.1",
     "playwright": "^1.65.1",
-    "prettier": "^3.5.3"
+    "prettier": "^3.10.1"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.8"
+    }
   }
 }

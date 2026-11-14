@@ -1,6 +1,6 @@
 # Agent instructions
 
-This repository is the SafeMap landing page (Astro 5 + Tailwind, deployed to GitHub Pages under `/safe-map/`).
+This repository is the SafeMap landing page (Astro 7 + Tailwind 4, deployed to GitHub Pages under `/safe-map/`).
 
 ## Active work
 
