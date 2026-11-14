@@ -9,7 +9,7 @@ try {
   const page = await browser.newPage();
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/safe-map/');
+    await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/');
     for (const id of ['privacidad', 'instituciones', 'planes']) {
       const section = page.locator(`#${id}`);
       assert.equal(await section.count(), 1, `${id} exists`);
@@ -24,7 +24,7 @@ try {
     assert.equal(await page.locator('#planes .free li').count(), 4);
     assert.equal(await page.locator('#planes .premium li').count(), 5);
     assert.equal(await page.locator('#planes .premium a, #planes .premium button').count(), 0);
-    assert.match(await page.locator('#planes .download-strip').getAttribute('href'), /\/safe-map\/#descargar$/);
+    assert.match(await page.locator('#planes .download-strip').getAttribute('href'), /^\/#descargar$/);
     const phoneImage = page.locator('#planes .free .phone img');
     await phoneImage.scrollIntoViewIfNeeded();
     await phoneImage.evaluate(image => image.decode());

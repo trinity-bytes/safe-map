@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH, headless: true, args: ['--no-sandbox','--disable-dev-shm-usage','--renderer-process-limit=1'] });
 try {
   const page = await browser.newPage({viewport:{width:390,height:844}});
-  await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/safe-map/');
+  await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/');
   const menu = page.getByRole('button',{name:'Menú',exact:true});
   await menu.click({timeout:3000});
   assert(await page.getByRole('dialog').isVisible());

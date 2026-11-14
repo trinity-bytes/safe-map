@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://trinity-bytes.github.io/safe-map/sitemap-index.xml
+Sitemap: https://tranqui.jahattrinidad.com/sitemap-index.xml

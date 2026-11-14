@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 
-const url = process.env.TEST_URL ?? 'http://127.0.0.1:4321/safe-map/';
+const url = process.env.TEST_URL ?? 'http://127.0.0.1:4321/';
 const browser = await chromium.launch({
   executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
   headless: true,

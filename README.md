@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Abrir `http://localhost:4321/safe-map/`. La ruta base es obligatoria también en desarrollo.
+Abrir `http://localhost:4321/`. Producción: https://tranqui.jahattrinidad.com/
 
 ## Verificación
 
