@@ -1,10 +1,12 @@
 # SafeMap — Landing
 
-Landing informativa del proyecto académico SafeMap: reportes anónimos validados por vecinos para conocer lo que pasa en tu zona. Implementada en Astro 5 y Tailwind, sin runtime de React ni prototipo de mapas web. La futura app Flutter se mantiene en otro repositorio.
+Landing informativa del proyecto académico SafeMap: reportes anónimos validados por vecinos para conocer lo que pasa en tu zona. Implementada en Astro 7 y Tailwind 4, sin runtime de React ni prototipo de mapas web. La futura app Flutter se mantiene en otro repositorio.
 
 ## Desarrollo
 
-Requisitos: Node.js 22 y npm.
+Requisitos: Node.js 22.23.4 o superior y npm.
+
+En Linux x64 sin AVX2 (CPUs anteriores a 2013), el compilador nativo de Astro 7 termina con `Illegal instruction`. El `postinstall` (`scripts/astro-compiler-fallback.mjs`) lo detecta y usa la versión WASI oficial del mismo compilador; en el resto de equipos y en CI no hace nada.
 
 ```sh
 npm ci
@@ -20,7 +22,7 @@ Ejecutar de a uno, no en paralelo: el entorno de desarrollo tiene aproximadament
 ```sh
 npm run lint
 NODE_OPTIONS=--max-old-space-size=768 npm run type-check
-node --test --test-concurrency=1 tests/build-wrapper.test.mjs
+node --test --test-concurrency=1 tests/build-wrapper.test.mjs tests/astro-compiler-fallback.test.mjs
 npm run build
 npm run preview
 ```
