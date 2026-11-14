@@ -100,8 +100,8 @@ Cada tarea es un commit. **Dependencias:** T1 antes de todo lo visual (T3 a T9);
 | T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ✅ completada | e3aa57f |
 | T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ✅ implementada; visual final T10 | commit feat: implement accessible landing navigation and footer | — |
 | T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | delegated | ✅ funcional; visual T10 | 2539559 | — |
-| T6 | S1, S3, S6 | Narrativa con scroll | T4 | No | delegated | ✅ funcional; visual T10 | commit T6 (ver historial) | — |
-| T7 | S1, S3, S5 | Privacidad, Instituciones y Planes | T4 | No | delegated | 🔄 en curso | — |
+| T6 | S1, S3, S6 | Narrativa con scroll | T4 | No | delegated | ✅ funcional; visual T10 | 3db44bb | — |
+| T7 | S1, S3, S5 | Privacidad, Instituciones y Planes | T4 | No | delegated | ✅ funcional; visual T10 | commit T7 (ver historial) | — |
 | T8 | S1, S3, S5 | Equipo, Metas, Preguntas y Descarga | T4 | No | delegated | 🔄 en curso | — |
 | T9 | S1, S6 | SEO, favicon nuevo, Node del CI y documentación | T5–T8 | No | inline | ⏳ pendiente | — |
 | T10 | S1–S6 | Verificación final | T9 | No | inline | ⏳ pendiente | — |
@@ -219,3 +219,5 @@ Especificación (L49, L53, L43):
 - **L12** (2026-11-14): T5: Hero/Problema/Manifiesto y GlyphField con glifos originales recuperados de Figma y RLE sin pérdida. Test navegador pasa DPR, decoración, pausa fuera de viewport y reduced motion, copy sin JS. Lint pasa; type-check detectó colisión private animate con HTMLElement.animate, corregida a tick (recheck final T10). La integración completa se usó para seam tests de las cuatro unidades; commits preservan index por tarea. Risk: none.
 
 - **L13** (2026-11-14): T6: un solo PhoneFrame estacionario, pantallas reales reparentadas; 4 pasos sticky con scroll reversible/stepper, fallback completo sin JS. En viewport corto se apilan para no recortar copy/imagen (storyboard mobile excede viewport común). RED sin sección en index y GREEN de 01→04→01, marco fijo, reduced motion, no-JS y viewport corto observados. Risk: none.
+
+- **L14** (2026-11-14): T7: Privacidad/Instituciones/Planes con SVG exactos, cifras de ejemplo rotuladas, Free y Premium800/504; Conversemos no interactivo al faltar destino, sin enlaces inventados. RED sin secciones y GREEN navegador1440/390 de promesas, cifras, planes, demo, imágenes y overflow observado. Risk: none. Assessment de writers no disponible por inventario de archivos nuevos durante integración compartida; RDD off y no se inicia review.

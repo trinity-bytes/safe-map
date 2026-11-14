@@ -1,0 +1,106 @@
+---
+import Container from '../ui/Container.astro';
+import Badge from '../ui/Badge.astro';
+import Icon from '../ui/Icon.astro';
+import PhoneFrame from '../ui/PhoneFrame.astro';
+import mapScreen from '../../assets/landing/screens/01-mapa.png';
+const base = import.meta.env.BASE_URL;
+const freeFeatures = [
+  ['Mapa de tu zona', 'Dónde hay reportes validados hoy.'],
+  ['Alertas cerca de ti', 'Solo lo que pasa en tu zona o en tu ruta.'],
+  ['Reportar y validar', 'Siempre sin tu nombre.'],
+  ['Rutas sugeridas', 'El camino con menos reportes.'],
+];
+const premiumFeatures = [
+  ['Todo lo de Free', 'Mapa, alertas, reportes y rutas.'],
+  ['Mapas sin conexión', 'Tu zona, aunque te quedes sin señal.'],
+  ['Alertas por voz', 'Escucha el aviso sin mirar el celular.'],
+  ['Estadísticas de tu zona', 'Cómo cambia tu barrio con el tiempo.'],
+  ['Reportes prioritarios', 'Tus reportes se revisan primero.'],
+];
+---
+<section id="planes" class="plans section" aria-labelledby="plans-heading">
+  <Container>
+    <div class="plans-heading">
+      <h2 id="plans-heading">Lo que usas todos los días es gratis.</h2>
+      <p class="desktop-copy">Ver el mapa, recibir alertas y reportar no cuesta nada. Premium llega más adelante, con funciones para quien sale todos los días.</p>
+      <p class="mobile-copy">Ver el mapa, recibir alertas y reportar no cuesta nada. Premium llega más adelante.</p>
+    </div>
+    <div class="plans-grid">
+      <article class="plan free" aria-labelledby="free-heading">
+        <div class="plan-copy"><h3 id="free-heading">Free</h3><p class="price">S/ 0</p>
+          <ul>{freeFeatures.map(([title, description]) => <li><span class="feature-icon"><Icon name="check" size={16} /></span><div><p class="feature-title">{title}</p><p class="feature-description">{description}</p></div></li>)}</ul>
+          <div class="free-demo"><Badge variant="Demo">Vista previa · demo simulada</Badge></div>
+        </div>
+        <div class="phone-window" data-ui><PhoneFrame screen={mapScreen} alt="Vista previa del mapa de SafeMap con reportes de ejemplo" label={false} /></div>
+        <a class="download-strip" href={`${base}#descargar`}><span>Descargar la app</span><span aria-hidden="true">→</span></a>
+      </article>
+      <article class="plan premium" aria-labelledby="premium-heading">
+        <div class="plan-copy"><h3 id="premium-heading">Premium</h3><p class="coming-soon">Próximamente</p>
+          <ul>{premiumFeatures.map(([title, description]) => <li><span class="feature-icon"><Icon name="check" size={16} /></span><div><p class="feature-title">{title}</p><p class="feature-description">{description}</p></div></li>)}</ul>
+        </div>
+        <p class="premium-note">Llega en una próxima versión</p>
+      </article>
+    </div>
+  </Container>
+</section>
+<style>
+.plans-heading { display: grid; grid-template-columns: minmax(0, 700fr) minmax(0, 520fr); gap: 5.75rem; align-items: start; }
+.plans-heading h2 { font-size: clamp(2rem, 1.25rem + 2.5vw, 3.5rem); max-width: 43.75rem; }
+.plans-heading > p { font-size: 1.25rem; line-height: 1.5; padding-top: 0.25rem; }
+.plans-grid { display: grid; grid-template-columns: minmax(0, 800fr) minmax(0, 504fr); gap: 0.5rem; margin-top: 4.75rem; }
+.plan { position: relative; min-width: 0; min-height: 35.75rem; overflow: hidden; border-radius: var(--radius-lg); }
+.plan-copy { position: relative; z-index: 1; padding: 2rem; }
+.plan h3 { font-size: 1.75rem; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; }
+.free { background: var(--color-bg-raised); }
+.price { margin-top: 0.625rem; font-size: 3.5rem; font-weight: 600; line-height: 1.04; letter-spacing: -0.03em; }
+.plan ul { display: grid; gap: 1rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+.plan li { display: grid; grid-template-columns: 1rem minmax(0, 1fr); gap: 0.75rem; }
+.feature-icon { padding-top: 0.375rem; }
+.feature-title { font-size: 1.125rem; font-weight: 500; line-height: 1.5; }
+.feature-description { margin-top: 0.125rem; font-size: 0.9375rem; line-height: 1.5; color: var(--color-text-secondary); }
+.free .plan-copy { max-width: 27.5rem; padding-bottom: 1rem; }
+.free-demo { margin-top: 2rem; }
+.free-demo :global(.badge) { color: var(--color-text-secondary); background: var(--color-bg-night); }
+.phone-window { position: absolute; top: 2.75rem; left: 55%; width: 20rem; }
+.phone-window :global(.phone-preview) { width: 20rem; }
+.phone-window :global(.phone) { background: var(--color-bg-night); border-color: color-mix(in srgb, var(--color-accent-glow) 45%, transparent); border-radius: 3.25rem; }
+.phone-window :global(.phone img) { border-radius: 2.625rem; }
+.phone-window::before { content: ''; position: absolute; inset: -3rem; background: radial-gradient(ellipse, color-mix(in srgb, var(--color-accent-glow) 15%, transparent), transparent 70%); pointer-events: none; }
+.download-strip { position: absolute; z-index: 2; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; padding: 1.5rem 2rem; background: var(--color-accent-trust); color: var(--color-bg-night); font-size: 1.125rem; font-weight: 700; line-height: 1.2; }
+.download-strip span:last-child { font-size: 1.375rem; line-height: 1; }
+.premium { display: flex; flex-direction: column; border: 1px solid var(--color-line-subtle); color: var(--color-text-secondary); }
+.coming-soon { margin-top: 0.625rem; font-size: 2rem; line-height: 1.04; font-weight: 600; letter-spacing: -0.03em; }
+.premium ul { margin-top: 1.875rem; }
+.premium .feature-description { opacity: 0.8; }
+.premium-note { margin-top: auto; padding: 1.5rem 2rem; min-height: 4.5rem; font-size: 1.125rem; font-weight: 700; line-height: 1.2; }
+@media (max-width: 1100px) and (min-width: 768px) { .plans-heading { gap: 2rem; } .plans-grid { grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); } .phone-window { opacity: 0.35; left: 62%; } .free .plan-copy { max-width: 100%; } .plan-copy { padding: 1.5rem; } .feature-title { font-size: 1rem; } }
+@media (max-width: 767px) {
+  .plans { padding-block: 6rem; }
+  .plans-heading { display: block; }
+  .plans-heading h2 { font-size: 2rem; }
+  .plans-heading > p { margin-top: 1.5rem; padding: 0; font-size: 1rem; }
+  .plans-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+  .plan { border-radius: 1.25rem; min-height: 0; }
+  .plan-copy { padding: 1.5rem; }
+  .plan h3 { font-size: 1.375rem; }
+  .price { margin-top: 0.875rem; font-size: 2.5rem; }
+  .plan ul { margin-top: 0.875rem; gap: 0.875rem; }
+  .plan li { grid-template-columns: 0.875rem minmax(0,1fr); gap: 0.625rem; }
+  .feature-icon { padding-top: 0.3125rem; }
+  .feature-icon :global(svg) { width: 0.875rem; height: 0.875rem; }
+  .feature-title { font-size: 1rem; }
+  .feature-description { font-size: 0.875rem; }
+  .free .plan-copy { padding-bottom: 1.25rem; }
+  .free-demo { margin-top: 1rem; }
+  .phone-window { position: relative; top: auto; left: auto; display: flex; justify-content: center; width: 100%; height: 15.625rem; padding-top: 1.25rem; overflow: hidden; }
+  .phone-window :global(.phone-preview) { width: 14.4rem; }
+  .phone-window :global(.phone) { border-radius: 2.34rem; }
+  .phone-window :global(.phone img) { border-radius: 1.89rem; }
+  .download-strip { position: relative; min-height: 3.625rem; padding: 1.125rem 1.5rem; font-size: 1rem; }
+  .coming-soon { font-size: 1.5rem; margin-top: 0.875rem; }
+  .premium ul { margin-top: 0.875rem; }
+  .premium .plan-copy { padding-bottom: 1.5rem; }
+  .premium-note { padding: 1.125rem 1.5rem; min-height: 3.625rem; font-size: 1rem; }
+}
+</style>
