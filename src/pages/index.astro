@@ -2,13 +2,17 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Problem from '@/components/sections/Problem.astro';
+import Manifesto from '@/components/sections/Manifesto.astro';
 ---
 
-<BaseLayout
-  title="SafeMap — contexto para moverte mejor"
-  description="SafeMap es una experiencia de exploración y reporte ciudadano en desarrollo."
->
+<BaseLayout>
   <Header />
-  <main id="contenido"></main>
+  <main id="contenido">
+    <Hero />
+    <Problem />
+    <Manifesto />
+  </main>
   <Footer />
 </BaseLayout>

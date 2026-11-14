@@ -1,0 +1,55 @@
+---
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+import PhoneFrame from '../ui/PhoneFrame.astro';
+import GlyphField from '../ui/GlyphField.astro';
+import mapScreen from '../../assets/landing/screens/01-mapa.png';
+const base = import.meta.env.BASE_URL;
+---
+<section class="hero" aria-labelledby="hero-title">
+  <GlyphField />
+  <div class="hero-copy">
+    <h1 id="hero-title">Llega a tu destino<br class="desktop-break" /> con más tranquilidad.</h1>
+    <p class="desktop-copy">SafeMap es una app de reportes anónimos que tus vecinos validan: mira qué pasa en tu zona, recibe alertas cerca de ti y elige por dónde ir.</p>
+    <p class="mobile-copy">Una app de reportes anónimos que tus vecinos validan: mira qué pasa en tu zona y elige por dónde ir.</p>
+    <div class="hero-actions">
+      <Button href={`${base}#descargar`}>Descargar la app</Button>
+      <a class="how-link" href={`${base}#como-funciona`}>Ver cómo funciona ↓</a>
+    </div>
+  </div>
+  <div class="hero-phone">
+    <div class="demo-label"><Badge variant="Demo">Vista previa · demo simulada</Badge></div>
+    <PhoneFrame screen={mapScreen} alt="Vista previa del mapa de SafeMap con reportes de ejemplo." loading="eager" label={false} />
+  </div>
+</section>
+<style>
+  .hero { position: relative; height: 56.25rem; padding-block-start: 15.75rem; overflow: hidden; background: var(--color-bg-night); }
+  .hero-copy { position: relative; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; width: min(100% - 2.5rem, 53.75rem); margin-inline: auto; text-align: center; }
+  h1 { font-size: clamp(2.5rem, 1.5rem + 2.65vw, 3.875rem); line-height: 0.98; letter-spacing: -0.03em; }
+  .hero-copy p { max-width: 35rem; font-size: 1.125rem; line-height: 1.5; }
+  .hero-copy .desktop-copy { display: block; }
+  .hero-copy .mobile-copy { display: none; }
+  .hero-actions { display: flex; align-items: center; gap: 1.5rem; }
+  .how-link { color: var(--color-accent-glow); font-size: 0.9375rem; font-weight: 700; }
+  .how-link:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  .hero-phone { position: relative; width: fit-content; margin: 3.25rem auto 0; }
+  .demo-label { position: absolute; inset: auto 0 calc(100% + 0.5rem); display: flex; justify-content: center; white-space: nowrap; }
+  .demo-label :global(.badge) { font-size: 0.6875rem; padding-block: 0.25rem; background: var(--color-bg-night); }
+  .hero-phone :global(.phone) { padding: 0.65625rem; border-width: 0.09375rem; border-radius: 3.25rem; background: var(--color-bg-night); }
+  .hero-phone :global(.phone img) { border-radius: 2.625rem; }
+  @media (max-width: 767px) {
+    .hero { height: 55rem; padding-block-start: 9.375rem; }
+    .hero-copy { gap: 1rem; max-width: 21.875rem; }
+    h1 { font-size: 1.9375rem; line-height: 1.04; }
+    .desktop-break { display: none; }
+    .hero-copy p { max-width: 18.125rem; font-size: 1rem; }
+    .hero-copy .desktop-copy { display: none; }
+    .hero-copy .mobile-copy { display: block; }
+    .hero-actions :global(.button) { min-height: 2.95rem; padding-block: 0.875rem; border-width: 0; font-size: 1rem; line-height: 1.2; }
+    .how-link { display: none; }
+    .hero-phone { margin-block-start: 2.5rem; }
+    .hero-phone :global(.phone-preview) { width: 15.6rem; }
+    .hero-phone :global(.phone) { padding: 0.511875rem; border-width: 0.073125rem; border-radius: 2.535rem; }
+    .hero-phone :global(.phone img) { border-radius: 2.0475rem; }
+  }
+</style>
