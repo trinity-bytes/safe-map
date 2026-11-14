@@ -96,8 +96,8 @@ Cada tarea es un commit. **Dependencias:** T1 antes de todo lo visual (T3 a T9);
 | ID | Specs | Tarea | Depende de | Necesita Figma | Ruta | Estado | Commit |
 |---|---|---|---|---|---|---|---|
 | T1 | S1, S4 | Exportar el diseño al repo (§3): copy verbatim y medidas por sección, capturas desktop/mobile/menú y SVG (logo, `Mark (small)`, íconos, mapas) | — | **Sí** | delegated | ✅ completada | 5ab24cb |
-| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | ✅ con excepción lint preexistente (T3) | commit T2 (ver historial) |
-| T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ⏳ pendiente | — |
+| T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | ✅ con excepción lint preexistente (T3) | b216517 |
+| T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ✅ completada | commit T3 (ver historial) |
 | T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ⏳ pendiente | — |
 | T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | inline | ⏳ pendiente | — |
 | T6 | S1, S3, S6 | Narrativa con scroll | T4 | No | inline | ⏳ pendiente | — |
@@ -207,3 +207,7 @@ Especificación (L49, L53, L43):
 - **L6** (2026-11-14, usuario, verbatim): "anotacion: cuando llegues a la oarte de ejecutar test, vigila que ko use mucha rsm porque acs tienes como 3gb nomss y si se llena la mawuina va a crashear". Checks pesados seriales, Node heap limitado a 768–1024 MiB, procesamiento de imágenes de baja concurrencia.
 
 - **L7** (2026-11-14): T2: npm ci, build y grep de dependencias observados; build repetido por parent con heap 768 MiB aprobado. Verificador independiente confirma S2 y originales intactos. Lint falla por configuración preexistente; T3 la repara. RDD off; assessment inicial no disponible por inventario sin stage, sin inferir bajo riesgo. Risk: item 5 (dependencias).
+
+- **L8** (2026-11-14): T3: 11 tokens, fuentes locales, layout y primitivas implementados. Lint reparado con eslint-plugin-astro 1.x compatible con ESLint 9 (3.x rechazado por peer dependency; sin force). Build y lint aprobados; type-check 0 errores, 0 warnings, 0 hints. Wrapper de build limita heap768/UV_THREADPOOL_SIZE=1/VIPS_CONCURRENCY=1; verificador detectó pérdida de flags, regresión reproducida RED y corregida GREEN con test node:test. Primitivas se comparan visualmente al integrarlas en T4–T8, sin declarar prueba visual temporal inexistente. npm reporta 28 vulnerabilidades de dependencias (1 crítica), no se ejecuta audit fix fuera de alcance; se analiza en cierre. Risk: item 5 (dependencias/build).
+
+- **L9** (2026-11-14): El sandbox bloquea subprocesos anidados con EPERM; el test del wrapper se ejecuta con autorización escalada local. RED real del flag descartado observado y GREEN con forwarding aprobado; recheck independiente cierra el único hallazgo. No se atribuye el EPERM a la aplicación.

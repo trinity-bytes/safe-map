@@ -1,3 +1,4 @@
+import astro from "eslint-plugin-astro";
 import tsparser from "@typescript-eslint/parser";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import prettier from "eslint-config-prettier";
@@ -36,6 +37,8 @@ export default [
       "no-undef": "off",
     },
   },
+  ...astro.configs["flat/recommended"],
+  { files: ["**/*.astro"], languageOptions: { parserOptions: { parser: tsparser } } },
   prettier,
   {
     ignores: ["dist/**", ".astro/**", "node_modules/**"],

@@ -1,0 +1,8 @@
+---
+import mark from '../../assets/landing/svg/mark.svg';
+import smallMark from '../../assets/landing/svg/mark-small.svg';
+interface Props { size?: number; wordmark?: boolean; }
+const { size = 32, wordmark = true } = Astro.props;
+---
+<span class="logo"><img src={size < 20 ? smallMark.src : mark.src} width={size * 5 / 6} height={size} alt="" aria-hidden="true" />{wordmark && <span>SafeMap</span>}</span>
+<style>.logo { display: inline-flex; align-items: center; gap: 0.625rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; white-space: nowrap; }</style>
