@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 // GitHub Pages serves a project site under /<repo>/, so `base` must track the
@@ -15,8 +15,9 @@ const [ghOwner, ghRepo] = (
 export default defineConfig({
   site: `https://${ghOwner}.github.io/${ghRepo}`,
   base: `/${ghRepo}/`,
-  integrations: [tailwind(), sitemap()],
+  integrations: [sitemap()],
   vite: {
+    plugins: [tailwindcss()],
     define: {
       __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
     },

@@ -1,9 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Scan only src/: automatic detection would also read docs/ and odd/ and emit utilities for prose. */
+@import 'tailwindcss' source(none);
+@source '..';
 
-:root {
-  color-scheme: dark;
+/* Design tokens: `static` emits every variable even when no utility uses it;
+   `--*: initial` drops Tailwind's default theme so only these tokens ship. */
+@theme static {
+  --*: initial;
   --color-bg-night: #071426;
   --color-bg-surface: #0d1f36;
   --color-bg-raised: #142b47;
@@ -17,12 +19,16 @@
   --color-risk-coral: #f2705b;
   --font-sans: 'Schibsted Grotesk Variable', system-ui, sans-serif;
   --font-mono: 'Geist Mono', monospace;
-  --space-unit: 0.25rem;
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
   --radius-full: 9999px;
+}
+
+:root {
+  color-scheme: dark;
+  --space-unit: 0.25rem;
 }
 html { background: var(--color-bg-night); scroll-padding-top: 6rem; }
 body { margin: 0; color: var(--color-text-primary); font-family: var(--font-sans); line-height: 1.5; }
