@@ -41,7 +41,12 @@ function main() {
     const staging = mkdtempSync(join(tmpdir(), 'astro-wasi-'));
     try {
       // --force skips the package's cpu: wasm32 guard; --ignore-scripts keeps the install inert.
-      execFileSync('npm', ['install', '--prefix', staging, '--no-save', '--no-package-lock', '--force', '--ignore-scripts', '--no-audit', '--no-fund', `@astrojs/compiler-binding-wasm32-wasi@${version}`], { stdio: 'inherit' });
+      try {
+        execFileSync('npm', ['install', '--prefix', staging, '--no-save', '--no-package-lock', '--force', '--ignore-scripts', '--no-audit', '--no-fund', `@astrojs/compiler-binding-wasm32-wasi@${version}`], { stdio: 'inherit' });
+      } catch (error) {
+        console.error(`astro-compiler-fallback: this CPU lacks AVX2, so Astro needs @astrojs/compiler-binding-wasm32-wasi@${version}, but it could not be downloaded. Check registry access and run npm ci again.`);
+        throw error;
+      }
       const staged = join(staging, 'node_modules');
       cpSync(join(staged, '@astrojs', 'compiler-binding-wasm32-wasi'), target, { recursive: true });
       // Nest its runtime dependencies so resolution never depends on what else is hoisted.

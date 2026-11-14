@@ -6,7 +6,7 @@ Landing informativa del proyecto académico SafeMap: reportes anónimos validado
 
 Requisitos: Node.js 22.23.4 o superior y npm.
 
-En Linux x64 sin AVX2 (CPUs anteriores a 2013), el compilador nativo de Astro 7 termina con `Illegal instruction`. El `postinstall` (`scripts/astro-compiler-fallback.mjs`) lo detecta y usa la versión WASI oficial del mismo compilador; en el resto de equipos y en CI no hace nada.
+En Linux x64 sin AVX2 (CPUs anteriores a 2013), el compilador nativo de Astro 7 termina con `Illegal instruction`. El `postinstall` (`scripts/astro-compiler-fallback.mjs`) lo detecta y usa la versión WASI oficial del mismo compilador; en el resto de equipos y en CI no hace nada. Con `npm ci --ignore-scripts` ese paso no corre y, en esas CPUs, el build falla.
 
 ```sh
 npm ci
