@@ -1,40 +1,25 @@
 {
-  "name": "SafeMap - Navega Seguro con IA",
+  "name": "SafeMap",
   "short_name": "SafeMap",
-  "description": "Plataforma móvil de seguridad ciudadana que permite reportar incidentes anónimamente y obtener rutas seguras con IA en tiempo real",
-  "start_url": "/safe-map/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
-  "orientation": "portrait-primary",
-  "scope": "/safe-map/",
+  "description": "Reportes anónimos validados por vecinos. Proyecto académico en desarrollo.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#071426",
+  "theme_color": "#071426",
   "lang": "es",
   "icons": [
     {
-      "src": "/safe-map/favicon.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/safe-map/apple-touch-icon.png",
+      "src": "apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
-    }
-  ],
-  "categories": ["safety", "navigation", "utilities"],
-  "screenshots": [
-    {
-      "src": "/images/screenshot-1.png",
-      "sizes": "1280x720",
       "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/images/screenshot-2.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow"
+      "purpose": "any"
     }
   ]
 }

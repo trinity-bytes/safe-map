@@ -1,138 +1,59 @@
-# SafeMap Web (Landing + Demo de Mapa)
+# SafeMap — Landing
 
-> Sitio de aterrizaje de SafeMap con un demo de mapa interactivo para Lima.
+Landing informativa del proyecto académico SafeMap: reportes anónimos validados por vecinos para conocer lo que pasa en tu zona. Implementada en Astro 5 y Tailwind, sin runtime de React ni prototipo de mapas web. La futura app Flutter se mantiene en otro repositorio.
 
-## 📋 Descripción
+## Desarrollo
 
-SafeMap es una plataforma de seguridad ciudadana: reporta incidentes de forma anónima, visualiza zonas de riesgo (mapa/heatmap) y sugiere rutas más seguras.
+Requisitos: Node.js 22 y npm.
 
-## 🏗️ Stack
-
-- Astro 5.8.1
-- React 19
-- Tailwind CSS
-- TypeScript
-- Vite (build)
-
-## 📁 Estructura
-
-```text
-safe-map/
-├── public/
-│   ├── avatars/
-│   ├── js/
-│   ├── favicon.svg
-│   ├── apple-touch-icon.svg
-│   ├── robots.txt
-│   └── site.webmanifest
-├── src/
-│   ├── components/
-│   │   ├── cards/
-│   │   ├── interactive/   # Mapas y UI interactiva (React)
-│   │   ├── layout/
-│   │   ├── sections/
-│   │   └── ui/
-│   ├── data/
-│   ├── layouts/
-│   ├── pages/              # index.astro, demo.astro
-│   └── styles/
-├── astro.config.mjs
-├── tailwind.config.mjs
-├── package.json
-├── DEPLOYMENT.md
-└── README.md
-```
-
-Astro expone cada archivo de `src/pages/` como una ruta. Los recursos estáticos van en `public/`.
-
-## 🚀 Inicio Rápido (Windows PowerShell)
-
-Requisitos: Node.js 18+ y npm.
-
-```powershell
-# Instala dependencias
-npm install
-
-# Levanta el servidor de desarrollo (por defecto http://localhost:4321)
+```sh
+npm ci
 npm run dev
 ```
 
-Si `npm run dev` falla (Exit Code 1), revisa “Solución de Problemas”.
+Abrir `http://localhost:4321/safe-map/`. La ruta base es obligatoria también en desarrollo.
 
-## 🧞 Scripts
+## Verificación
 
-| Comando            | Descripción                          |
-| ------------------ | ------------------------------------ |
-| npm run dev        | Servidor de desarrollo               |
-| npm run build      | Compila a producción en ./dist       |
-| npm run preview    | Sirve ./dist para verificación local |
-| npm run lint       | Linter (ESLint)                      |
-| npm run lint:fix   | Linter con autofix                   |
-| npm run format     | Formatea con Prettier                |
-| npm run type-check | Chequeo de tipos (Astro + TS)        |
-| npm run astro …    | CLI de Astro (add, check, etc.)      |
+Ejecutar de a uno, no en paralelo: el entorno de desarrollo tiene aproximadamente 3 GB de RAM.
 
-## 🗺️ Demo del Mapa
-
-- Página: `src/pages/demo.astro` → ruta `/demo`.
-- Componente principal: `src/components/interactive/MapDemoClean.tsx`.
-- Estilos Leaflet: `src/styles/leaflet-custom.css` (importado desde `global.css`).
-
-Modos soportados: incidentes con marcadores, heatmap (círculos) y rutas seguras (polylines). Selector de proveedor de mapa (OSM, satélite, oscuro) y simulación de ubicación del usuario.
-
-### Nota sobre un bug histórico de marcadores “flotantes”
-
-Se corrigió un problema donde los marcadores se desplazaban al hacer zoom porque `.leaflet-marker-icon` tenía animaciones con `transform`. Leaflet usa `transform` para posicionar; si lo animas, “rompe” el anclaje a coordenadas.
-
-- Fix aplicado en `src/styles/leaflet-custom.css`: se retiró la animación del contenedor.
-- Si necesitas animaciones, aplícalas a un elemento hijo dentro del HTML del `DivIcon` (no al contenedor `.leaflet-marker-icon`).
-
-## 🔧 Solución de Problemas
-
-1. “npm run dev” no arranca o puerto ocupado (4321)
-
-```powershell
-# Ver el proceso que usa el puerto 4321
-$pid = (Get-NetTCPConnection -LocalPort 4321).OwningProcess
-Get-Process -Id $pid
-
-# Matarlo si es necesario
-Stop-Process -Id $pid -Force
-
-# Reiniciar el dev server
-npm run dev
+```sh
+npm run lint
+NODE_OPTIONS=--max-old-space-size=768 npm run type-check
+node --test --test-concurrency=1 tests/build-wrapper.test.mjs
+npm run build
+npm run preview
 ```
 
-1. Cerrar el servidor de desarrollo
+`build` limita el heap de Node a 768 MiB y el pool de trabajo de imágenes a un hilo. Conserva los argumentos de Astro (`npm run build -- --outDir /tmp/safemap-preview`). Los PNG originales no se modifican: Astro/Sharp produce variantes AVIF/WebP durante el build. El primer build tarda más por las imágenes; los siguientes reutilizan caché.
 
-- En la terminal donde corre: Ctrl + C (confirma si te lo pide).
-- En VS Code: Terminal → ícono de papelera (Terminate) o “Tasks: Terminate Running Task”.
+Las regresiones de navegador usan Playwright. Instalar Chromium una vez con `npx playwright install chromium` si no existe. Con el servidor activo, ejecutar **un script por vez**:
 
-1. Dependencias corruptas
-
-```powershell
-Remove-Item -Recurse -Force node_modules; Remove-Item -Force package-lock.json
-npm install
-npm run dev
+```sh
+node tests/navigation.mjs
+node tests/glyph-field.mjs
+node tests/narrative.mjs
+node tests/trust-content.mjs
+node tests/closing-content.mjs
 ```
 
-## 🌐 Despliegue
+`TEST_URL` cambia la URL de prueba; `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` permite usar un Chromium ya instalado, sin descargar otro. Los navegadores se cierran al terminar cada script.
 
-Guía en `DEPLOYMENT.md`. Funciona bien en proveedores como Netlify, Vercel o un servidor propio.
+## Estructura
 
-## 🤝 Contribuciones
+- `src/components/sections/`: secciones de la landing aprobada.
+- `src/components/ui/`: primitivas y campo de glifos decorativo.
+- `src/components/layout/`: header, diálogo mobile y footer.
+- `src/assets/landing/`: fotos, retratos, pantallas y SVG aprobados.
+- `docs/landing-spec/`: copy, medidas, contextos y capturas originales de Figma.
+- `odd/tasks/landing-implementation.md`: tareas, decisiones, evidencia y faltantes.
 
-Sugerencias bienvenidas:
+## Contenido pendiente
 
-1. Fork
-2. Rama: `feature/mi-cambio`
-3. Commit: `feat: descripción breve`
-4. Push y Pull Request
+No hay enlace de Google Play, páginas legales, enlaces del equipo ni destino de contacto aprobado. No se publican destinos ficticios. El badge de Google Play está inactivo. Figma contiene seis preguntas y solo la primera respuesta: las cinco restantes permanecen en los datos con `answer: null`, fuera de la página pública. Todos los mapas y cifras de las pantallas son ejemplos; las metas no se presentan como logros.
 
-## 📄 Licencia
+La narrativa funciona con scroll cuando el contenido cabe en la pantalla; en viewports bajos y sin JavaScript, los cuatro pasos se leen apilados. El menú usa un diálogo nativo, las FAQ usan `details`, y se respeta la preferencia de movimiento reducido.
 
-MIT — ver `LICENSE`.
+## Integración y publicación
 
----
-
-Hecho con Astro, React, TypeScript y Tailwind CSS.
+Las ramas de trabajo parten de `develop` y se consolidan allí mediante merges directos, sin PR. `main` no se modifica durante esta implementación. Ver [DEPLOYMENT.md](DEPLOYMENT.md): publicar en producción es una operación separada.
