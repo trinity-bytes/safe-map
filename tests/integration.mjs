@@ -11,7 +11,7 @@ try{
  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
  if(output) await mkdir(output,{recursive:true});
  for(const width of [1440,390]){
-  await page.setViewportSize({width,height:900});await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/safe-map/');await page.evaluate(()=>document.fonts.ready);
+  await page.setViewportSize({width,height:900});await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/');await page.evaluate(()=>document.fonts.ready);
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   assert(await page.locator('.skip-link').evaluate(e=>e.getBoundingClientRect().bottom<0));
   for(const link of await page.locator('a[href*="#"]').all()) {const href=await link.getAttribute('href');const id=href.split('#')[1];if(id)assert(await page.locator(`[id="${id}"]`).count(),`missing anchor ${id}`);}

@@ -11,7 +11,7 @@ try {
   for (const width of [1440, 390]) {
     const context = await browser.newContext({ viewport: { width, height: 900 }, javaScriptEnabled: false });
     const page = await context.newPage();
-    await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/safe-map/');
+    await page.goto(process.env.TEST_URL ?? 'http://127.0.0.1:4321/');
     const team = page.locator('#equipo');
     assert.equal(await team.locator('li').count(), 5);
     assert.deepEqual(await team.locator('h3').allTextContents(), [

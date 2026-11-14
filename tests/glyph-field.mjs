@@ -7,7 +7,7 @@ const browser = await chromium.launch({
   headless: true,
   args: ['--no-sandbox', '--disable-dev-shm-usage', '--renderer-process-limit=1'],
 });
-const url = process.env.TEST_URL ?? 'http://127.0.0.1:4321/safe-map/';
+const url = process.env.TEST_URL ?? 'http://127.0.0.1:4321/';
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
   await page.addInitScript(() => {

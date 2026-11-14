@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 const html = await readFile('dist/index.html', 'utf8');
-const canonical = 'https://trinity-bytes.github.io/safe-map/';
+const canonical = 'https://tranqui.jahattrinidad.com/';
 assert.match(html, /<html lang="es"/);
 assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
 assert.equal((html.match(/<title>/g) ?? []).length, 1);
@@ -11,7 +11,7 @@ assert(html.includes(`property="og:image" content="${canonical}og-image.png"`));
 assert(html.includes('name="twitter:card" content="summary_large_image"'));
 assert(!html.includes('PLACEHOLDER'));
 assert.match(html, /<title>Tranqui — /);
-assert(!/safe ?map/i.test(html.replaceAll('/safe-map/', '')), 'the old brand name must not remain in the page');
+assert(!/safe ?map/i.test(html), 'the old brand name must not remain in the page');
 for (const file of ['favicon.svg', 'apple-touch-icon.png', 'og-image.png', 'site.webmanifest']) await access(`dist/${file}`);
 const manifest = JSON.parse(await readFile('dist/site.webmanifest', 'utf8'));
 assert.equal(manifest.start_url, './');
