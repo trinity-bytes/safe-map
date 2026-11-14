@@ -1,0 +1,42 @@
+---
+import Container from '../ui/Container.astro';
+import GlyphField from '../ui/GlyphField.astro';
+---
+<section class="problem" aria-labelledby="problem-title">
+  <GlyphField variant="texture" />
+  <Container class="problem-grid">
+    <div class="problem-copy">
+      <h2 id="problem-title">Los datos existen. Lo que falta es saber qué pasa hoy en tu barrio.</h2>
+      <p>Las cifras oficiales de criminalidad se publican, pero no te dicen por dónde conviene ir esta noche.</p>
+    </div>
+    <div class="problem-figure">
+      <p class="figure">+14,9 %</p>
+      <p class="desktop-copy">más denuncias por delitos en Lima Metropolitana entre julio y setiembre de 2024 que en el mismo trimestre de 2023: 55 358 en solo tres meses.</p>
+      <p class="source desktop-copy">Fuente: INEI, Estadísticas de Criminalidad, Seguridad Ciudadana y Violencia, julio–setiembre 2024 (informe técnico N.º 04, diciembre 2024).</p>
+      <p class="mobile-copy">más denuncias por delitos en Lima Metropolitana (jul.–set. 2024 vs. 2023): 55 358 en tres meses. Fuente: INEI, Estadísticas de Criminalidad, Seguridad Ciudadana y Violencia, julio–setiembre 2024 (informe técnico N.º 04, diciembre 2024).</p>
+    </div>
+  </Container>
+</section>
+<style>
+  .problem { position: relative; padding-block: 10rem; overflow: hidden; background: var(--color-bg-surface); }
+  .problem :global(.problem-grid) { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 23.75rem; align-items: end; gap: 6rem; }
+  .problem-copy p { margin-block-start: 1.5rem; max-width: 38.75rem; font-size: 1.25rem; }
+  .problem-figure { display: flex; flex-direction: column; gap: 0.75rem; }
+  .figure { font-size: 6.5rem; line-height: 1.04; font-weight: 600; letter-spacing: -0.03em; color: var(--color-alert-amber); white-space: nowrap; }
+  .source { font-size: 0.875rem; color: var(--color-text-secondary); }
+  .problem-figure .mobile-copy { display: none; }
+  @media (max-width: 1100px) and (min-width: 768px) {
+    .problem :global(.problem-grid) { grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.75fr); gap: 2.5rem; }
+    .figure { font-size: 5rem; }
+  }
+  @media (max-width: 767px) {
+    .problem { padding-block: 6rem; }
+    .problem :global(.problem-grid) { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    h2 { font-size: 2rem; line-height: 1.1; text-wrap: initial; }
+    .problem-copy p { font-size: 1rem; }
+    .problem-figure { gap: 1.5rem; }
+    .figure { font-size: 4.5rem; }
+    .problem-figure .desktop-copy { display: none; }
+    .problem-figure .mobile-copy { display: block; }
+  }
+</style>
