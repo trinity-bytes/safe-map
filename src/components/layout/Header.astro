@@ -1,19 +1,80 @@
 ---
-
-const baseUrl = import.meta.env.BASE_URL;
-
+import Logo from '../ui/Logo.astro';
+import Button from '../ui/Button.astro';
+const base = import.meta.env.BASE_URL;
+const links = [
+  ['como-funciona', 'Cómo funciona'], ['privacidad', 'Privacidad'],
+  ['instituciones', 'Para instituciones'], ['planes', 'Planes'],
+  ['equipo', 'Equipo'], ['preguntas', 'Preguntas'],
+];
 ---
-
-<header class="site-header"><nav class="shell nav" aria-label="Navegación principal"><a class="brand" href={`${baseUrl}`}><span class="brand-mark" aria-hidden="true">S</span><span>SafeMap</span></a><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav"><span class="sr-only">Abrir menu</span><span aria-hidden="true" class="menu-icon"><span></span><span></span><span></span></span></button><div class="desktop-nav"><a href="#como-funciona">Cómo funciona</a><a href="#demo">Demo</a><a href="#seguridad">Seguridad</a><a href="#faq">FAQ</a><a class="button button-small" href="#registro">Solicitar acceso</a></div><div id="mobile-nav" class="mobile-nav" hidden><a href="#como-funciona">Cómo funciona</a><a href="#demo">Demo</a><a href="#seguridad">Seguridad</a><a href="#faq">FAQ</a><a class="button button-small" href="#registro">Solicitar acceso</a></div></nav></header>
-
+<header class="site-header">
+  <div class="shell header-row">
+    <a class="brand" href={base} aria-label="SafeMap, inicio"><Logo /></a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      {links.filter(([id]) => !['instituciones', 'preguntas'].includes(id)).map(([id, text]) => <a href={`${base}#${id}`} data-section={id}>{text}</a>)}
+    </nav>
+    <div class="desktop-action"><Button href={`${base}#descargar`}>Descargar la app</Button></div>
+    <button class="menu-toggle" id="menu-open" type="button" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false" hidden>Menú</button>
+    <noscript><a class="menu-fallback" href="#footer-navigation">Menú</a></noscript>
+  </div>
+</header>
+<dialog id="mobile-menu" aria-label="Navegación principal">
+  <div class="menu-content">
+    <div class="menu-heading"><a href={base} aria-label="SafeMap, inicio"><Logo /></a><button type="button" id="menu-close" autofocus>Cerrar</button></div>
+    <nav aria-label="Navegación móvil">
+      {links.map(([id, text]) => <a href={`${base}#${id}`} data-section={id}>{text}</a>)}
+    </nav>
+    <div class="menu-bottom"><Button href={`${base}#descargar`}>Descargar la app</Button><p>Gratis · Reportes anónimos · Android</p></div>
+  </div>
+</dialog>
 <script>
-
-const button=document.querySelector('.menu-toggle'); const menu=document.querySelector<HTMLElement>('#mobile-nav');
-
-button?.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')==='true';button.setAttribute('aria-expanded',String(!open));button.setAttribute('aria-label',open?'Abrir menú':'Cerrar menú'); if(menu) menu.hidden=open;});
-
+  const trigger = document.querySelector<HTMLButtonElement>('#menu-open');
+  const dialog = document.querySelector<HTMLDialogElement>('#mobile-menu');
+  if (trigger && dialog) {
+    trigger.hidden = false;
+    trigger.addEventListener('click', () => { dialog.showModal(); trigger.setAttribute('aria-expanded', 'true'); });
+    document.querySelector('#menu-close')?.addEventListener('click', () => dialog.close());
+    dialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => dialog.close()));
+    dialog.addEventListener('close', () => trigger.setAttribute('aria-expanded', 'false'));
+    window.matchMedia('(min-width: 768px)').addEventListener('change', event => { if (event.matches && dialog.open) dialog.close(); });
+  }
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('a[data-section]');
+  const sections = [...document.querySelectorAll<HTMLElement>('main section[id]')];
+  const visible = new Set<string>();
+  const update = () => {
+    const current = [...sections].reverse().find(section => visible.has(section.id));
+    navLinks.forEach(link => {
+      if (link.dataset.section === current?.id) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) visible.add(entry.target.id); else visible.delete(entry.target.id); });
+    update();
+  }, { rootMargin: '-15% 0px -45% 0px', threshold: 0 });
+  sections.forEach(section => observer.observe(section));
 </script>
 <style>
-.menu-icon { display: inline-flex; flex-direction: column; gap: 4px; }
-.menu-icon span { display: block; width: 1.25rem; height: 2px; border-radius: 9999px; background: currentColor; }
+.site-header { position: fixed; inset: 0 0 auto; z-index: 30; background: linear-gradient(var(--color-bg-night), transparent); }
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 6.125rem; }
+.desktop-nav { display: flex; align-items: center; gap: 0.25rem; padding: 0.4375rem; border: 1px solid var(--color-line-subtle); border-radius: var(--radius-full); background: rgb(13 31 54 / 72%); backdrop-filter: blur(12px); }
+.desktop-nav a { padding: 0.5rem 1rem; border-radius: var(--radius-full); white-space: nowrap; }
+.desktop-nav a[aria-current] { background: var(--color-bg-raised); }
+.menu-toggle, .menu-fallback { display: none; }
+button { background: none; color: var(--color-text-primary); border: 0; font-weight: 700; padding: 0.75rem 0; }
+dialog { margin: 0; padding: 0; width: 100%; max-width: none; height: 100dvh; max-height: none; background: var(--color-bg-night); color: var(--color-text-primary); border: 0; }
+dialog:modal { overscroll-behavior: contain; }
+dialog::backdrop { overflow: hidden; overscroll-behavior: contain; background: var(--color-bg-night); }
+.menu-content { display: flex; flex-direction: column; min-height: 100%; padding: 0 1.25rem 2rem; }
+.menu-heading { display: flex; align-items: center; justify-content: space-between; min-height: 3.95rem; }
+.menu-content nav { margin-top: 1.5rem; }
+.menu-content nav a { display: flex; align-items: center; min-height: 4.7rem; border-bottom: 1px solid var(--color-line-subtle); font-size: 1.75rem; font-weight: 600; color: var(--color-text-secondary); }
+.menu-content nav a[aria-current] { color: var(--color-text-primary); }
+.menu-content nav a[aria-current]::before { content: ''; width: 0.5rem; height: 0.5rem; border-radius: 50%; margin-right: 0.75rem; background: var(--color-accent-trust); }
+.menu-bottom { margin-top: auto; padding-top: 3rem; }
+.menu-bottom :global(.button) { display: flex; min-height: 3.125rem; }
+.menu-bottom p { margin-top: 1rem; text-align: center; font-size: 0.875rem; color: var(--color-text-secondary); }
+@media (max-width: 1000px) and (min-width: 768px) { .header-row { width: calc(100% - 2.5rem); } .desktop-nav a { padding-inline: 0.625rem; font-size: 0.875rem; } }
+@media (max-width: 767px) { .header-row { height: 3.95rem; } .desktop-nav, .desktop-action { display: none; } .menu-toggle:not([hidden]), .menu-fallback { display: inline-flex; } }
 </style>

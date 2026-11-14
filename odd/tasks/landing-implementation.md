@@ -97,8 +97,8 @@ Cada tarea es un commit. **Dependencias:** T1 antes de todo lo visual (T3 a T9);
 |---|---|---|---|---|---|---|---|
 | T1 | S1, S4 | Exportar el diseño al repo (§3): copy verbatim y medidas por sección, capturas desktop/mobile/menú y SVG (logo, `Mark (small)`, íconos, mapas) | — | **Sí** | delegated | ✅ completada | 5ab24cb |
 | T2 | S2 | Quitar el prototipo y lo que no se usa | — | No | delegated | ✅ con excepción lint preexistente (T3) | b216517 |
-| T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ✅ completada | commit T3 (ver historial) |
-| T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ⏳ pendiente | — |
+| T3 | S1, S6 | Fundaciones: tokens, fuentes, layout base y primitivas | T1, T2 | No | inline | ✅ completada | e3aa57f |
+| T4 | S1, S6 | Header, menú mobile y Footer | T3 | No | inline | ✅ implementada; visual final T10 | commit T4 (ver historial) | — |
 | T5 | S1, S6 | Hero (campo de glifos), Problema y Manifiesto | T4 | No | inline | ⏳ pendiente | — |
 | T6 | S1, S3, S6 | Narrativa con scroll | T4 | No | inline | ⏳ pendiente | — |
 | T7 | S1, S3, S5 | Privacidad, Instituciones y Planes | T4 | No | inline | ⏳ pendiente | — |
@@ -211,3 +211,5 @@ Especificación (L49, L53, L43):
 - **L8** (2026-11-14): T3: 11 tokens, fuentes locales, layout y primitivas implementados. Lint reparado con eslint-plugin-astro 1.x compatible con ESLint 9 (3.x rechazado por peer dependency; sin force). Build y lint aprobados; type-check 0 errores, 0 warnings, 0 hints. Wrapper de build limita heap768/UV_THREADPOOL_SIZE=1/VIPS_CONCURRENCY=1; verificador detectó pérdida de flags, regresión reproducida RED y corregida GREEN con test node:test. Primitivas se comparan visualmente al integrarlas en T4–T8, sin declarar prueba visual temporal inexistente. npm reporta 28 vulnerabilidades de dependencias (1 crítica), no se ejecuta audit fix fuera de alcance; se analiza en cierre. Risk: item 5 (dependencias/build).
 
 - **L9** (2026-11-14): El sandbox bloquea subprocesos anidados con EPERM; el test del wrapper se ejecuta con autorización escalada local. RED real del flag descartado observado y GREEN con forwarding aprobado; recheck independiente cierra el único hallazgo. No se atribuye el EPERM a la aplicación.
+
+- **L10** (2026-11-14): T4: header fijo, modal nativo mobile y footer sin destinos ficticios. Test navegador RED (Menú no existe en UI vieja) y GREEN (modal, Escape, retorno del foco y cierre por enlace) observados. Lint y type-check pasan. Prueba formal en tests/navigation.mjs; Playwright se añade como herramienta QA liviana, navegador preinstalado sin descargar. Comparación completa tras integrar secciones en T10. Risk: item 5 (dependencia dev QA), verificación independiente conjunta de tooling en T10.
